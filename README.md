@@ -1,4 +1,4 @@
-# TidalRS
+# Tidalrs
 
 A comprehensive Rust client library for the Tidal music streaming service API. This library provides async/await support, automatic token refresh, and a clean, type-safe interface for interacting with Tidal's music catalog and user data.
 
