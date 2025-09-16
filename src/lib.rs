@@ -848,7 +848,7 @@ impl TidalClient {
     /// std::fs::write("authz.json", serde_json::to_string(&authz).unwrap()).unwrap();
     /// ```
     pub async fn authorize(
-        &mut self,
+        &self,
         device_code: &str,
         client_secret: &str,
     ) -> Result<AuthzToken, Error> {
