@@ -1,0 +1,54 @@
+[package]
+authors = ["Patrick Hayes"]
+categories = ["multimedia"]
+description = "Tidal API client"
+edition = "2024"
+keywords = ["audio", "tidal"]
+name = "tidalrs"
+version = "0.1.0"
+
+[dependencies]
+async-recursion = "1.1.1"
+log = "0.4.28"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+strum = "0.27.2"
+strum_macros = "0.27.2"
+thiserror = "2.0.16"
+tokio = { version = "1.47.1", features = ["macros", "tracing", "sync"] }
+url = "2.5.7"
+moosicbox_paging = { version =  "0.1.4", default-features = false }
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls", "multipart", "stream"] }
+arc-swap = "1"
+stream-download = { version = "0.22.4", features = ["reqwest-rustls"] }
+base64 = "0.22"
+
+[[example]]
+name = "basic_search"
+path = "examples/basic_search.rs"
+
+[[example]]
+name = "authentication"
+path = "examples/authentication.rs"
+
+[[example]]
+name = "playlist_management"
+path = "examples/playlist_management.rs"
+
+[[example]]
+name = "audio_streaming"
+path = "examples/audio_streaming.rs"
+
+[[example]]
+name = "favorites_management"
+path = "examples/favorites_management.rs"
+
+[[example]]
+name = "album_exploration"
+path = "examples/album_exploration.rs"
+
+[dev-dependencies]
+tokio = { version = "1.0", features = ["full"] }
+env_logger = "0.11"
+serde_json = "1.0"
+rodio = "0.21"

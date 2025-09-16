@@ -1,0 +1,50 @@
+# Rust/Cargo build artifacts
+/target/
+**/*.rs.bk
+*.pdb
+
+# Cargo lock file (uncomment if this is a library crate)
+# Cargo.lock
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# dotenv environment variables file
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Temporary folders
+tmp/
+temp/
+
+# Rust-specific
+# Backup files created by rustfmt
+**/*.rs.bk
+
+# MSVC Windows builds of rustc generate these, which require a very long time to delete
+*.pdb
