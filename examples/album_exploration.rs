@@ -127,9 +127,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         println!("\nGetting artist's albums...");
         let artist_albums = client.artist_albums(
             artist_info.id,
+            None, // All album types
             Some(0),
-            Some(20),
-            None // All album types
+            Some(20)
         ).await?;
 
         println!("Found {} albums by {}:", artist_albums.total, artist_info.name);
@@ -148,9 +148,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         println!("\nGetting artist's singles and EPs...");
         let singles_and_eps = client.artist_albums(
             artist_info.id,
+            Some(AlbumType::EpsAndSingles),
             Some(0),
-            Some(10),
-            Some(AlbumType::EpsAndSingles)
+            Some(10)
         ).await?;
 
         if !singles_and_eps.items.is_empty() {
@@ -168,9 +168,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         println!("\n📀 Getting artist's compilations...");
         let compilations = client.artist_albums(
             artist_info.id,
+            Some(AlbumType::Compilations),
             Some(0),
-            Some(10),
-            Some(AlbumType::Compilations)
+            Some(10)
         ).await?;
 
         if !compilations.items.is_empty() {

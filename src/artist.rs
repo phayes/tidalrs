@@ -258,9 +258,9 @@ impl TidalClient {
     pub async fn artist_albums(
         &self,
         artist_id: u64,
+        album_type: Option<AlbumType>,
         offset: Option<u32>,
         limit: Option<u32>,
-        album_type: Option<AlbumType>,
     ) -> Result<List<Album>, Error> {
         let offset = offset.unwrap_or(0);
         let limit = limit.unwrap_or(100);
