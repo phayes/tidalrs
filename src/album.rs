@@ -13,12 +13,13 @@ use serde_json::Value;
 use serde::{Deserialize, Serialize};
 use strum_macros::AsRefStr;
 use crate::AudioQuality;
+use strum_macros::EnumString;
 
 /// Types of albums available in the Tidal catalog.
 ///
 /// This enum represents different album formats and categories
 /// that can be used for filtering album searches.
-#[derive(Default, Debug, Serialize, Deserialize, AsRefStr, PartialEq, Eq, Copy, Clone)]
+#[derive(Default, Debug, Serialize, Deserialize, EnumString, AsRefStr, PartialEq, Eq, Copy, Clone)]
 #[serde(rename_all = "UPPERCASE")]
 #[strum(serialize_all = "UPPERCASE")]
 pub enum AlbumType {

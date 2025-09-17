@@ -88,7 +88,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     for (index, fav_artist) in favorite_artists.items.iter().enumerate() {
         println!("  {}. {} (added: {})", 
             index + 1,
-            fav_artist.name,
+            fav_artist.item.name,
             "N/A" // Artist favorites don't include creation date in the current API
         );
     }
