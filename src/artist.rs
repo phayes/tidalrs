@@ -89,7 +89,7 @@ impl Artist {
 
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq, Default)]
-pub struct FavouriteArtist {
+pub struct FavoriteArtist {
     pub created: String,
     pub item: Artist,
 }
@@ -212,7 +212,7 @@ impl TidalClient {
         limit: Option<u32>,
         order: Option<Order>,
         order_direction: Option<OrderDirection>,
-    ) -> Result<List<FavouriteArtist>, Error> {
+    ) -> Result<List<FavoriteArtist>, Error> {
         let user_id = self.get_user_id().ok_or(Error::UserAuthenticationRequired)?;
         let offset = offset.unwrap_or(0);
         let limit = limit.unwrap_or(100);
@@ -229,7 +229,7 @@ impl TidalClient {
             "deviceType": self.get_device_type().as_ref(),
         });
 
-        let resp: List<FavouriteArtist> = self.do_request(Method::GET, &url, Some(params), None).await?;
+        let resp: List<FavoriteArtist> = self.do_request(Method::GET, &url, Some(params), None).await?;
 
         Ok(resp)
     }
