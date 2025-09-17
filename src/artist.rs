@@ -87,6 +87,13 @@ impl Artist {
     }
 }
 
+
+#[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq, Default)]
+pub struct FavouriteArtist {
+    pub created: String,
+    pub item: Artist,
+}
+
 /// Represents a role or category that an artist has in the music industry.
 ///
 /// This is used to categorize artists by their function (e.g., "Producer", "Songwriter").
@@ -205,7 +212,7 @@ impl TidalClient {
         limit: Option<u32>,
         order: Option<Order>,
         order_direction: Option<OrderDirection>,
-    ) -> Result<List<Artist>, Error> {
+    ) -> Result<List<FavouriteArtist>, Error> {
         let user_id = self.get_user_id().ok_or(Error::UserAuthenticationRequired)?;
         let offset = offset.unwrap_or(0);
         let limit = limit.unwrap_or(100);
@@ -222,7 +229,7 @@ impl TidalClient {
             "deviceType": self.get_device_type().as_ref(),
         });
 
-        let resp: List<Artist> = self.do_request(Method::GET, &url, Some(params), None).await?;
+        let resp: List<FavouriteArtist> = self.do_request(Method::GET, &url, Some(params), None).await?;
 
         Ok(resp)
     }

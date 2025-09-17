@@ -17,7 +17,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client_id = "your_client_id";
     let client_secret = "your_client_secret";
     
-    let mut client = TidalClient::new(client_id.to_string())
+    let client = TidalClient::new(client_id.to_string())
         .with_authz_refresh_callback(|new_authz| {
             println!("Tokens refreshed for user: {}", new_authz.user_id);
             // In a real application, you would save these tokens to persistent storage
