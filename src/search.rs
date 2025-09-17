@@ -1,16 +1,16 @@
 use crate::Error;
+use crate::List;
+use crate::Playlist;
+use crate::Resource;
 use crate::ResourceType;
 use crate::TIDAL_API_BASE_URL;
 use crate::TidalClient;
 use crate::album::Album;
 use crate::artist::Artist;
 use crate::track::Track;
-use crate::Playlist;
-use crate::List;
 use reqwest::Method;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
-use crate::Resource;
 
 /// A search query for finding content in the Tidal catalog.
 ///
@@ -84,7 +84,7 @@ impl TidalClient {
     /// ```no_run
     /// let search_query = tidalrs::SearchQuery::new("The Beatles");
     /// let results = client.search(search_query).await?;
-    /// 
+    ///
     /// for artist in results.artists.items {
     ///     println!("Artist: {}", artist.name);
     /// }
@@ -145,13 +145,13 @@ impl TidalClient {
             params["supportsUserData"] = Value::Bool(supports_user_data);
         }
 
-        let resp: SearchResults = self.do_request(Method::GET, &url, Some(params), None).await?;
+        let resp: SearchResults = self
+            .do_request(Method::GET, &url, Some(params), None)
+            .await?;
 
         Ok(resp)
     }
 }
-
-
 
 /// Results from a search operation in the Tidal catalog.
 ///
@@ -168,7 +168,7 @@ pub struct SearchResults {
     #[serde(skip_serializing_if = "List::is_empty")]
     #[serde(default)]
     pub artists: List<Artist>,
-    
+
     /// Matching tracks
     #[serde(skip_serializing_if = "List::is_empty")]
     #[serde(default)]
@@ -194,4 +194,17 @@ pub struct SearchResults {
     #[serde(default)]
     #[serde(rename = "topHits")]
     pub top_hits: Vec<Resource>,
+}
+
+impl SearchResults {
+    /// Get the maximum total number of items, useful for pagination. Returns the total for the item with the largest total.
+    pub fn max_total(&self) -> usize {
+        self.albums
+            .total
+            .max(self.artists.total)
+            .max(self.tracks.total)
+            .max(self.playlists.total)
+            .max(self.user_profiles.total)
+            .max(self.videos.total)
+    }
 }
