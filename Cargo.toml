@@ -22,7 +22,6 @@ strum_macros = "0.27.2"
 thiserror = "2.0.16"
 tokio = { version = "1.47.1", features = ["macros", "tracing", "sync"] }
 url = "2.5.7"
-moosicbox_paging = { version =  "0.1.4", default-features = false }
 reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls", "multipart", "stream"] }
 arc-swap = "1"
 stream-download = { version = "0.22.4", features = ["reqwest-rustls"] }

@@ -101,9 +101,9 @@ pub struct FavoriteArtist {
 #[serde(rename_all = "camelCase")]
 pub struct ArtistRole {
     /// Name of the role category
-    category: String,
+    pub category: String,
     /// Unique identifier for the role category
-    category_id: i64,
+    pub category_id: i64,
 }
 
 /// A simplified representation of an artist used in lists and summaries.
