@@ -261,7 +261,7 @@ pub type AuthzCallback = Arc<dyn Fn(Authz) + Send + Sync>;
 /// All methods are async and the client uses internal synchronization
 /// for token management.
 pub struct TidalClient {
-    pub(crate) client: reqwest::Client,
+    pub client: reqwest::Client,
     client_id: String,
     authz: ArcSwapOption<Authz>,
     authz_update_semaphore: Semaphore,
