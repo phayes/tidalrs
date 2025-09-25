@@ -6,6 +6,7 @@ use crate::Order;
 use crate::OrderDirection;
 use crate::album::{Album, AlbumType};
 use crate::List;
+use crate::deserialize_null_default;
 use std::collections::HashMap;
 use reqwest::Method;
 use serde::{Deserialize, Serialize};
@@ -22,6 +23,11 @@ pub struct Artist {
     pub id: u64,
     /// Artist name
     pub name: String,
+
+    /// Artist handle
+    #[serde(default)]
+    pub handle: Option<String>,
+
     /// Artist profile picture identifier
     /// 
     /// Use picture_url() to get the full URL of the picture
@@ -49,7 +55,7 @@ pub struct Artist {
     pub selected_album_cover_fallback: Option<String>,
 
     /// Mix playlists associated with the artist
-    #[serde(default = "Default::default")]
+    #[serde(default, deserialize_with = "deserialize_null_default")]
     pub mixes: HashMap<String, String>,
 
     /// Whether the artist is currently being spotlighted by Tidal

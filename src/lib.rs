@@ -1163,3 +1163,12 @@ impl<T> Default for List<T> {
         }
     }
 }
+
+// Utility function to deserialize a null value as a default value
+pub(crate) fn deserialize_null_default<'de, D, T>(deserializer: D) -> Result<T, D::Error>
+where
+    D: serde::Deserializer<'de>,
+    T: Default + serde::Deserialize<'de>,
+{
+    Option::deserialize(deserializer).map(|opt| opt.unwrap_or_default())
+}
