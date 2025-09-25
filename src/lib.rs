@@ -680,12 +680,10 @@ impl TidalClient {
         params: Option<serde_json::Value>,
         etag: Option<&str>,
     ) -> Result<T, Error> {
-        let authed_url = url.to_string();
-
         let mut req = match method {
-            reqwest::Method::GET => self.client.get(authed_url),
-            reqwest::Method::DELETE => self.client.delete(authed_url),
-            reqwest::Method::POST => self.client.post(authed_url),
+            reqwest::Method::GET => self.client.get(url),
+            reqwest::Method::DELETE => self.client.delete(url),
+            reqwest::Method::POST => self.client.post(url),
             _ => panic!("Invalid method: {}", method),
         };
 
@@ -734,6 +732,13 @@ impl TidalClient {
                 serde_json::from_slice(&body)?
             };
 
+            // Debug trace the response value
+            if log::log_enabled!(log::Level::Trace) {
+                let pretty_value = serde_json::to_string_pretty(&value).unwrap();
+                log::trace!("Requestd URL: {}", url);
+                log::trace!("Response {}", pretty_value);
+            }
+
             // If we have an etag, add it to the response, if the value doesn't already exist
             if let Some(etag) = etag {
                 if value.get("etag").is_none() {
@@ -755,6 +760,11 @@ impl TidalClient {
                     return self.do_request(method, url, params, etag.as_deref()).await;
                 }
 
+                if log::log_enabled!(log::Level::Debug) {
+                    log::debug!("Requested URL: {}", url);
+                    log::debug!("TIDAL API Error: {}", err);
+                }
+
                 // Other error, return the error
                 return Err(Error::TidalApiError(err));
             }
@@ -762,8 +772,18 @@ impl TidalClient {
             // Try to parse the error response
             let body = resp.text().await?;
             let err_json: TidalApiError = match serde_json::from_str(&body) {
-                Ok(resp) => resp,
+                Ok(resp) => {
+                    if log::log_enabled!(log::Level::Debug) {
+                        log::debug!("Requested URL: {}", url);
+                        log::debug!("TIDAL API Error: {}", resp);
+                    }   
+                    resp
+                },
                 Err(_) => {
+                    if log::log_enabled!(log::Level::Debug) {
+                        log::debug!("Requested URL: {}", url);
+                        log::debug!("TIDAL API Error: {}", body);
+                    }
                     // Return the whole body as the error if we can't parse the specific error message
                     let tidal_api_error = TidalApiError {
                         status: status_code,
