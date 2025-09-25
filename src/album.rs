@@ -48,6 +48,7 @@ pub struct Album {
     /// Unique album identifier
     pub id: u64,
     /// List of artists who contributed to this album
+    #[serde(default = "Default::default")]
     pub artists: Vec<ArtistSummary>,
 
     /// Audio quality level available for this album for standard streaming

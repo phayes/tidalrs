@@ -25,6 +25,7 @@ pub struct Track {
     /// Track number within the album
     pub track_number: u32,
     /// List of artists who contributed to this track
+    #[serde(default = "Default::default")]
     pub artists: Vec<ArtistSummary>,
 
     /// Album information for this track

@@ -37,11 +37,11 @@ pub struct Artist {
     pub popularity: Option<u32>,
 
     /// Types/categories associated with the artist
-    #[serde(default)]
+    #[serde(default = "Default::default")]
     pub artist_types: Vec<String>,
 
     /// Roles the artist has in various contexts
-    #[serde(default)]
+    #[serde(default = "Default::default")]
     pub artist_roles: Vec<ArtistRole>,
 
     /// Fallback album cover to use when no artist picture is available
@@ -49,7 +49,7 @@ pub struct Artist {
     pub selected_album_cover_fallback: Option<String>,
 
     /// Mix playlists associated with the artist
-    #[serde(default)]
+    #[serde(default = "Default::default")]
     pub mixes: HashMap<String, String>,
 
     /// Whether the artist is currently being spotlighted by Tidal
