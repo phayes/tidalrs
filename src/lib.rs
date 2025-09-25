@@ -746,7 +746,18 @@ impl TidalClient {
                 }
             }
 
-            let resp: T = serde_json::from_value(value)?;
+            let resp: T = match serde_json::from_value(value.clone()) {
+                Ok(t) => t,
+                Err(e) => {
+                    let pretty_value = serde_json::to_string_pretty(&value).unwrap();
+                    if log::log_enabled!(log::Level::Debug) {
+                        log::debug!("Requested URL: {}", url);
+                        log::debug!("JSON deserialization error: {}", e);
+                        log::debug!("Response: {}", pretty_value);
+                    }
+                    return Err(Error::SerdeJson(e));
+                }
+            };
 
             Ok(resp)
         } else {
