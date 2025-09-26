@@ -67,8 +67,6 @@ pub struct User {
     pub address: Option<String>,
     /// Apple ID associated with the account (if any)
     pub apple_uid: Option<String>,
-    /// User's birthday (if provided)
-    pub birthday: Option<String>,
     /// Channel ID associated with the user
     pub channel_id: u64,
     /// User's city (if provided)
