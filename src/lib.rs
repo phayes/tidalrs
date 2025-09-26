@@ -169,6 +169,7 @@ pub struct TidalApiError {
     pub sub_status: u64,
     /// Human-readable error message
     #[serde(rename = "userMessage")]
+    #[serde(default)]
     pub user_message: String,
 }
 
