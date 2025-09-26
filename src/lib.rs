@@ -161,13 +161,14 @@ impl AuthzToken {
 /// This represents errors returned by Tidal's API endpoints and includes
 /// both HTTP status codes and Tidal-specific error information.
 #[derive(Debug, Serialize, Deserialize, Clone)]
-#[serde(rename_all = "snake_case")]
 pub struct TidalApiError {
     /// HTTP status code
    pub status: u16,
     /// Tidal-specific sub-status code
+    #[serde(rename = "sub_status")]
     pub sub_status: u64,
     /// Human-readable error message
+    #[serde(rename = "userMessage")]
     pub user_message: String,
 }
 
