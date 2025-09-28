@@ -733,11 +733,10 @@ impl TidalClient {
             };
 
             // Debug trace the response value
-            let pretty_value = serde_json::to_string_pretty(&value).unwrap();
-            log::trace!("Requestd URL: {}", url);
-            log::trace!("Response {}", pretty_value);
             if log::log_enabled!(log::Level::Trace) {
-
+                let pretty_value = serde_json::to_string_pretty(&value).unwrap();
+                log::trace!("Requestd URL: {}", url);
+                log::trace!("Response {}", pretty_value);
             }
 
             // If we have an etag, add it to the response, if the value doesn't already exist
