@@ -773,8 +773,8 @@ impl TidalClient {
                 }
 
                 if log::log_enabled!(log::Level::Debug) {
-                    log::debug!("Requested URL: {}", url);
-                    log::debug!("TIDAL API Error: {}", err);
+                    log::warn!("Requested URL: {}", url);
+                    log::warn!("TIDAL API Error: {}", err);
                 }
 
                 // Other error, return the error
@@ -796,8 +796,8 @@ impl TidalClient {
             };
             if log::log_enabled!(log::Level::Debug) {
                 let pretty_err = serde_json::to_string_pretty(&err).unwrap();
-                log::debug!("Requested URL: {}", url);
-                log::debug!("TIDAL API Error: {}", pretty_err);
+                log::warn!("Requested URL: {}", url);
+                log::warn!("TIDAL API Error: {}", pretty_err);
             }
 
             Err(Error::TidalApiError(err))
