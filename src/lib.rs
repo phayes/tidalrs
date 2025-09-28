@@ -782,7 +782,18 @@ impl TidalClient {
             }
 
             // Parse the error message and maybe log it
-            let err = resp.json::<TidalApiError>().await?;
+            let body = resp.bytes().await?;
+            let err = match serde_json::from_slice::<TidalApiError>(&body) {
+                Ok(e) => e,
+                Err(_) => {
+                    let error_message = String::from_utf8_lossy(&body);
+                    TidalApiError {
+                        status: status_code,
+                        sub_status: 0,
+                        user_message: error_message.to_string(),
+                    }
+                }
+            };
             if log::log_enabled!(log::Level::Debug) {
                 let pretty_err = serde_json::to_string_pretty(&err).unwrap();
                 log::debug!("Requested URL: {}", url);
