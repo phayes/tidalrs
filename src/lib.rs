@@ -161,7 +161,7 @@ impl AuthzToken {
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct TidalApiError {
     /// HTTP status code
-   pub status: u16,
+    pub status: u16,
     /// Tidal-specific sub-status code
     #[serde(rename = "sub_status")]
     pub sub_status: u64,
@@ -502,7 +502,7 @@ impl TidalClient {
     where
         F: Fn(Authz) + Send + Sync + 'static,
     {
-        self.on_authz_refresh_callback = Some(Arc::new( authz_refresh_callback));
+        self.on_authz_refresh_callback = Some(Arc::new(authz_refresh_callback));
         self
     }
 
@@ -720,25 +720,32 @@ impl TidalClient {
             }
         });
 
-        let status_code = resp.status().as_u16();
+        let status = resp.status();
+        let body = resp.bytes().await?;
 
-        if resp.status().is_success() {
-            let body = resp.bytes().await?;
-
-            // If it's an empty body, just encode a null value
-            let mut value = if body.is_empty() {
-                serde_json::Value::Null
-            } else {
-                serde_json::from_slice(&body)?
-            };
-
-            // Debug trace the response value
-            if log::log_enabled!(log::Level::Trace) {
-                let pretty_value = serde_json::to_string_pretty(&value).unwrap();
-                log::trace!("Requestd URL: {}", url);
-                log::trace!("Response {}", pretty_value);
+        // Parse it into a value
+        let mut value: serde_json::Value = if body.is_empty() {
+            serde_json::Value::Null
+        } else {
+            match serde_json::from_slice(&body) {
+                Ok(value) => value,
+                Err(e) => {
+                    let error_message = String::from_utf8_lossy(&body);
+                    if log::log_enabled!(log::Level::Warn) {
+                        log::warn!("Requested URL: {}", url);
+                        log::warn!("JSON deserialization error: {}", e);
+                        log::warn!("Response: {}", error_message);
+                    }
+                    return Err(Error::TidalApiError(TidalApiError {
+                        status: status.as_u16(),
+                        sub_status: 0,
+                        user_message: error_message.to_string(),
+                    }));
+                }
             }
+        };
 
+        if status.is_success() {
             // If we have an etag, add it to the response, if the value doesn't already exist
             if let Some(etag) = etag {
                 if value.get("etag").is_none() {
@@ -746,61 +753,56 @@ impl TidalClient {
                 }
             }
 
-            let resp: T = match serde_json::from_value(value) {
+            let resp: T = match serde_json::from_value(value.clone()) {
                 Ok(t) => t,
                 Err(e) => {
-                    let problem_value: serde_json::Value = serde_json::from_slice(&body).unwrap();
-                    let pretty_problem_value = serde_json::to_string_pretty(&problem_value).unwrap();
-                    if log::log_enabled!(log::Level::Debug) {
-                        log::debug!("Requested URL: {}", url);
-                        log::debug!("JSON deserialization error: {}", e);
-                        log::debug!("Response: {}", pretty_problem_value);
+                    if log::log_enabled!(log::Level::Warn) {
+                        let problem_value_pretty = serde_json::to_string_pretty(&value).unwrap();
+                        log::warn!("Requested URL: {}", url);
+                        log::warn!("JSON deserialization error: {}", e);
+                        log::warn!("Response: {}", problem_value_pretty);
                     }
-                    return Err(Error::SerdeJson(e));
+                    return Err(Error::TidalApiError(TidalApiError {
+                        status: status.as_u16(),
+                        sub_status: 0,
+                        user_message: e.to_string(),
+                    }));
                 }
             };
 
             Ok(resp)
         } else {
-            // If it's 401, we need to refresh the authz and try again
-            if status_code == 401 {
-                let err = resp.json::<TidalApiError>().await?;
-
-                // Expired token, safe to refresh
-                if err.sub_status == 11003 {
-                    self.refresh_authz().await?;
-                    return self.do_request(method, url, params, etag.as_deref()).await;
-                }
-
-                if log::log_enabled!(log::Level::Debug) {
-                    log::warn!("Requested URL: {}", url);
-                    log::warn!("TIDAL API Error: {}", err);
-                }
-
-                // Other error, return the error
-                return Err(Error::TidalApiError(err));
-            }
-
-            // Parse the error message and maybe log it
-            let body = resp.bytes().await?;
-            let err = match serde_json::from_slice::<TidalApiError>(&body) {
+            let tidal_err = match serde_json::from_value::<TidalApiError>(value.clone()) {
                 Ok(e) => e,
-                Err(_) => {
-                    let error_message = String::from_utf8_lossy(&body);
-                    TidalApiError {
-                        status: status_code,
-                        sub_status: 0,
-                        user_message: error_message.to_string(),
+                Err(e) => {
+                    if log::log_enabled!(log::Level::Warn) {
+                        let problem_value_pretty = serde_json::to_string_pretty(&value).unwrap();
+                        log::warn!("Requested URL: {}", url);
+                        log::warn!("JSON deserialization error of TidalApiError: {}", e);
+                        log::warn!("Response: {}", problem_value_pretty);
                     }
+                    return Err(Error::TidalApiError(TidalApiError {
+                        status: status.as_u16(),
+                        sub_status: 0,
+                        user_message: e.to_string(),
+                    }));
                 }
             };
-            if log::log_enabled!(log::Level::Debug) {
-                let pretty_err = serde_json::to_string_pretty(&err).unwrap();
+
+            // If it's 401, we need to refresh the authz and try again
+            if status.as_u16() == 401 && tidal_err.sub_status == 11003 {
+                // Expired token, safe to refresh
+                self.refresh_authz().await?;
+                return self.do_request(method, url, params, etag.as_deref()).await;
+            }
+
+            if log::log_enabled!(log::Level::Warn) {
+                let pretty_err = serde_json::to_string_pretty(&tidal_err).unwrap();
                 log::warn!("Requested URL: {}", url);
                 log::warn!("TIDAL API Error: {}", pretty_err);
             }
 
-            Err(Error::TidalApiError(err))
+            Err(Error::TidalApiError(tidal_err))
         }
     }
 
