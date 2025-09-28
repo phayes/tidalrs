@@ -158,17 +158,49 @@ impl AuthzToken {
 ///
 /// This represents errors returned by Tidal's API endpoints and includes
 /// both HTTP status codes and Tidal-specific error information.
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Clone)]
 pub struct TidalApiError {
     /// HTTP status code
     pub status: u16,
     /// Tidal-specific sub-status code
-    #[serde(rename = "sub_status")]
     pub sub_status: u64,
     /// Human-readable error message
-    #[serde(rename = "userMessage")]
-    #[serde(default)]
     pub user_message: String,
+}
+
+impl<'de> Deserialize<'de> for TidalApiError {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        // First deserialize to a generic Value
+        let value: serde_json::Value = serde_json::Value::deserialize(deserializer)?;
+        
+        // Extract status (should be consistent)
+        let status = value.get("status")
+            .and_then(|v| v.as_u64())
+            .ok_or_else(|| serde::de::Error::custom("Missing or invalid 'status' field"))?
+            as u16;
+        
+        // Extract sub_status - try both snake_case and camelCase
+        let sub_status = value.get("sub_status")
+            .or_else(|| value.get("subStatus"))
+            .and_then(|v| v.as_u64())
+            .ok_or_else(|| serde::de::Error::custom("Missing or invalid 'sub_status'/'subStatus' field"))?;
+        
+        // Extract user_message - try both snake_case and camelCase, default to empty string
+        let user_message = value.get("user_message")
+            .or_else(|| value.get("userMessage"))
+            .and_then(|v| v.as_str())
+            .unwrap_or("")
+            .to_string();
+        
+        Ok(TidalApiError {
+            status,
+            sub_status,
+            user_message,
+        })
+    }
 }
 
 impl Display for TidalApiError {

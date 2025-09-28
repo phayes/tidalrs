@@ -4,7 +4,7 @@
 //! and that the client can be configured using the fluent builder pattern.
 
 use std::sync::Arc;
-use tidalrs::{Authz, DeviceType, TidalClient};
+use tidalrs::{Authz, DeviceType, TidalClient, TidalApiError};
 
 #[test]
 fn test_builder_pattern_basic() {
@@ -187,4 +187,67 @@ fn test_builder_pattern_with_client() {
     assert_eq!(client.get_country_code(), "US");
     assert_eq!(client.get_locale(), "en_US");
     assert_eq!(client.get_device_type(), DeviceType::Browser);
+}
+
+#[test]
+fn test_tidal_api_error_deserialization_snake_case() {
+    // Test deserialization with snake_case field names
+    let json = r#"{
+        "status": 400,
+        "sub_status": 1001,
+        "user_message": "Invalid request"
+    }"#;
+    
+    let error: TidalApiError = serde_json::from_str(json).unwrap();
+    
+    assert_eq!(error.status, 400);
+    assert_eq!(error.sub_status, 1001);
+    assert_eq!(error.user_message, "Invalid request");
+}
+
+#[test]
+fn test_tidal_api_error_deserialization_camel_case() {
+    // Test deserialization with camelCase field names
+    let json = r#"{
+        "status": 401,
+        "subStatus": 2001,
+        "userMessage": "Unauthorized access"
+    }"#;
+    
+    let error: TidalApiError = serde_json::from_str(json).unwrap();
+    
+    assert_eq!(error.status, 401);
+    assert_eq!(error.sub_status, 2001);
+    assert_eq!(error.user_message, "Unauthorized access");
+}
+
+#[test]
+fn test_tidal_api_error_deserialization_mixed_case() {
+    // Test deserialization with mixed field names
+    let json = r#"{
+        "status": 403,
+        "sub_status": 3001,
+        "userMessage": "Forbidden access"
+    }"#;
+    
+    let error: TidalApiError = serde_json::from_str(json).unwrap();
+    
+    assert_eq!(error.status, 403);
+    assert_eq!(error.sub_status, 3001);
+    assert_eq!(error.user_message, "Forbidden access");
+}
+
+#[test]
+fn test_tidal_api_error_deserialization_missing_user_message() {
+    // Test deserialization when user_message/userMessage is missing (should default to empty string)
+    let json = r#"{
+        "status": 500,
+        "sub_status": 4001
+    }"#;
+    
+    let error: TidalApiError = serde_json::from_str(json).unwrap();
+    
+    assert_eq!(error.status, 500);
+    assert_eq!(error.sub_status, 4001);
+    assert_eq!(error.user_message, "");
 }
