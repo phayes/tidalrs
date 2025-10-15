@@ -177,6 +177,7 @@ impl<'de> Deserialize<'de> for TidalApiError {
         let value: serde_json::Value = serde_json::Value::deserialize(deserializer)?;
         
         // Extract status (should be consistent)
+        // TODO: Apparently this *isn't* consistent, so we need to handle it better
         let status = value.get("status")
             .and_then(|v| v.as_u64())
             .ok_or_else(|| serde::de::Error::custom("Missing or invalid 'status' field"))?
@@ -776,6 +777,8 @@ impl TidalClient {
                 }
             }
         };
+
+        log::trace!("Response from TIDAL: {}", serde_json::to_string_pretty(&value).unwrap());
 
         if status.is_success() {
             // If we have an etag, add it to the response, if the value doesn't already exist
