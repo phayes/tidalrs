@@ -664,7 +664,7 @@ impl TidalClient {
                     "client_id": &self.client_id,
                     "refresh_token": authz.refresh_token,
                     "grant_type": "refresh_token",
-                    "scope": "r_usr w_usr w_sub",
+                    "scope": "r_usr w_usr",
                 });
 
                 let resp: AuthzToken = self
