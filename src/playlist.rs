@@ -1,4 +1,5 @@
 use crate::Error;
+use crate::List;
 use crate::TIDAL_API_BASE_URL;
 use crate::TidalClient;
 use crate::artist::ArtistSummary;
@@ -6,7 +7,6 @@ use crate::track::Track;
 use reqwest::Method;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
-use crate::List;
 
 /// Represents a playlist from the Tidal catalog.
 ///
@@ -26,7 +26,7 @@ pub struct Playlist {
     /// Playlist description
     #[serde(default)]
     pub description: String,
-    
+
     /// Total number of tracks in the playlist
     pub number_of_tracks: u32,
     /// Total number of videos in the playlist
@@ -49,11 +49,11 @@ pub struct Playlist {
     /// Whether the playlist is publicly visible
     pub public_playlist: bool,
     /// Playlist cover image identifier
-    /// 
+    ///
     /// Use image_url() to get the full URL of the image
     pub image: Option<String>,
     /// Square version of the playlist cover image
-    /// 
+    ///
     /// Use square_image_url() to get the full URL of the square image
     pub square_image: Option<String>,
     /// Custom image URL for the playlist
@@ -62,7 +62,7 @@ pub struct Playlist {
     pub promoted_artists: Option<Vec<ArtistSummary>>,
 
     /// ETag for concurrency control when modifying the playlist
-    /// 
+    ///
     /// This is needed for adding or removing tracks from the playlist
     pub etag: Option<String>,
 }
@@ -133,17 +133,16 @@ impl TidalClient {
     /// let playlist = client.playlist("12345678-1234-1234-1234-123456789abc").await?;
     /// println!("Playlist: {}", playlist.title);
     /// ```
-    pub async fn playlist(
-        &self,
-        playlist_id: &str,
-    ) -> Result<Playlist, Error> {
+    pub async fn playlist(&self, playlist_id: &str) -> Result<Playlist, Error> {
         let url = format!("{TIDAL_API_BASE_URL}/playlists/{playlist_id}");
         let params = serde_json::json!({
             "countryCode": self.get_country_code(),
             "locale": self.get_locale(),
             "deviceType": self.get_device_type().as_ref(),
         });
-        let resp: Playlist = self.do_request(Method::GET, &url, Some(params), None).await?;
+        let resp: Playlist = self
+            .do_request(Method::GET, &url, Some(params), None)
+            .await?;
 
         Ok(resp)
     }
@@ -185,8 +184,10 @@ impl TidalClient {
             "deviceType": self.get_device_type().as_ref(),
         });
 
-        let resp: List<Track> = self.do_request(Method::GET, &url, Some(params), None).await?;
-        
+        let resp: List<Track> = self
+            .do_request(Method::GET, &url, Some(params), None)
+            .await?;
+
         Ok(resp)
     }
 
@@ -207,12 +208,10 @@ impl TidalClient {
     /// let playlist = client.create_playlist("My Favorites", "A collection of my favorite songs").await?;
     /// println!("Created playlist: {}", playlist.title);
     /// ```
-    pub async fn create_playlist(
-        &self,
-        title: &str,
-        description: &str,
-    ) -> Result<Playlist, Error> {
-        let user_id = self.get_user_id().ok_or(Error::UserAuthenticationRequired)?;
+    pub async fn create_playlist(&self, title: &str, description: &str) -> Result<Playlist, Error> {
+        let user_id = self
+            .get_user_id()
+            .ok_or(Error::UserAuthenticationRequired)?;
         let url = format!("{TIDAL_API_BASE_URL}/users/{user_id}/playlists");
         let params = serde_json::json!({
             "title": title,
@@ -221,7 +220,9 @@ impl TidalClient {
             "locale": self.get_locale(),
             "deviceType": self.get_device_type().as_ref(),
         });
-        let resp: Playlist = self.do_request(Method::POST, &url, Some(params), None).await?;
+        let resp: Playlist = self
+            .do_request(Method::POST, &url, Some(params), None)
+            .await?;
         Ok(resp)
     }
 
@@ -252,7 +253,8 @@ impl TidalClient {
         let url = format!("{TIDAL_API_BASE_URL}/playlists/{playlist_id}/items");
 
         // Convert track IDs to comma-separated string
-        let track_ids_str = track_ids.iter()
+        let track_ids_str = track_ids
+            .iter()
             .map(|id| id.to_string())
             .collect::<Vec<_>>()
             .join(",");
@@ -267,7 +269,9 @@ impl TidalClient {
             "deviceType": self.get_device_type().as_ref(),
         });
 
-        let _: Value = self.do_request(Method::POST, &url, Some(params), Some(playlist_etag)).await?;
+        let _: Value = self
+            .do_request(Method::POST, &url, Some(params), Some(playlist_etag))
+            .await?;
 
         Ok(())
     }
@@ -295,7 +299,9 @@ impl TidalClient {
     ) -> Result<(), Error> {
         let url = format!("{TIDAL_API_BASE_URL}/playlists/{playlist_id}/items/{index}");
 
-        let _: Value = self.do_request(Method::DELETE, &url, None, Some(playlist_etag)).await?;
+        let _: Value = self
+            .do_request(Method::DELETE, &url, None, Some(playlist_etag))
+            .await?;
 
         Ok(())
     }
@@ -335,7 +341,9 @@ impl TidalClient {
         let mut offset: u32 = 0;
 
         'outer: loop {
-            let playlist_tracks = self.playlist_tracks(playlist_id, Some(offset), None).await?;
+            let playlist_tracks = self
+                .playlist_tracks(playlist_id, Some(offset), None)
+                .await?;
 
             for (index, track) in playlist_tracks.items.iter().enumerate() {
                 if track.id == track_id {
@@ -345,15 +353,22 @@ impl TidalClient {
             }
 
             if playlist_tracks.num_left() == 0 {
-                return Err(Error::PlaylistTrackNotFound(playlist_id.to_string(), track_id));
+                return Err(Error::PlaylistTrackNotFound(
+                    playlist_id.to_string(),
+                    track_id,
+                ));
             }
 
             offset += playlist_tracks.items.len() as u32;
         }
 
-        let track_index = track_index.ok_or(Error::PlaylistTrackNotFound(playlist_id.to_string(), track_id))?;
+        let track_index = track_index.ok_or(Error::PlaylistTrackNotFound(
+            playlist_id.to_string(),
+            track_id,
+        ))?;
 
-        self.remove_track_from_playlist_by_index(playlist_id, playlist_etag, track_index as usize).await?;
+        self.remove_track_from_playlist_by_index(playlist_id, playlist_etag, track_index as usize)
+            .await?;
 
         Ok(())
     }
@@ -382,7 +397,9 @@ impl TidalClient {
         offset: Option<u32>,
         limit: Option<u32>,
     ) -> Result<List<Playlist>, Error> {
-        let user_id = self.get_user_id().ok_or(Error::UserAuthenticationRequired)?;
+        let user_id = self
+            .get_user_id()
+            .ok_or(Error::UserAuthenticationRequired)?;
         let offset = offset.unwrap_or(0);
         let limit = limit.unwrap_or(100);
         let url = format!("{TIDAL_API_BASE_URL}/users/{user_id}/playlists");
@@ -394,8 +411,10 @@ impl TidalClient {
             "deviceType": self.get_device_type().as_ref(),
         });
 
-        let resp: List<Playlist> = self.do_request(Method::GET, &url, Some(params), None).await?;
-        
+        let resp: List<Playlist> = self
+            .do_request(Method::GET, &url, Some(params), None)
+            .await?;
+
         Ok(resp)
     }
 }

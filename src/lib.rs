@@ -16,12 +16,16 @@ use arc_swap::ArcSwapOption;
 use async_recursion::async_recursion;
 use serde::{Deserialize, Serialize, de::DeserializeOwned};
 use std::fmt::Display;
-use std::sync::Arc;
+use std::sync::{Arc, Mutex};
+use std::time::Duration;
 use strum_macros::{AsRefStr, EnumString};
 use tokio::sync::{Semaphore, SemaphorePermit};
+use tokio::time::sleep;
 
 pub(crate) static TIDAL_AUTH_API_BASE_URL: &str = "https://auth.tidal.com/v1";
 pub(crate) static TIDAL_API_BASE_URL: &str = "https://api.tidal.com/v1";
+const INITIAL_BACKOFF_MILLIS: u64 = 100;
+const MAX_BACKOFF_MILLIS: u64 = 5_000;
 
 /// Response from the device authorization endpoint containing the information
 /// needed for the user to complete the OAuth2 device flow.
@@ -175,27 +179,32 @@ impl<'de> Deserialize<'de> for TidalApiError {
     {
         // First deserialize to a generic Value
         let value: serde_json::Value = serde_json::Value::deserialize(deserializer)?;
-        
+
         // Extract status (should be consistent)
         // TODO: Apparently this *isn't* consistent, so we need to handle it better
-        let status = value.get("status")
+        let status = value
+            .get("status")
             .and_then(|v| v.as_u64())
             .ok_or_else(|| serde::de::Error::custom("Missing or invalid 'status' field"))?
             as u16;
-        
+
         // Extract sub_status - try both snake_case and camelCase
-        let sub_status = value.get("sub_status")
+        let sub_status = value
+            .get("sub_status")
             .or_else(|| value.get("subStatus"))
             .and_then(|v| v.as_u64())
-            .ok_or_else(|| serde::de::Error::custom("Missing or invalid 'sub_status'/'subStatus' field"))?;
-        
+            .ok_or_else(|| {
+                serde::de::Error::custom("Missing or invalid 'sub_status'/'subStatus' field")
+            })?;
+
         // Extract user_message - try both snake_case and camelCase, default to empty string
-        let user_message = value.get("user_message")
+        let user_message = value
+            .get("user_message")
             .or_else(|| value.get("userMessage"))
             .and_then(|v| v.as_str())
             .unwrap_or("")
             .to_string();
-        
+
         Ok(TidalApiError {
             status,
             sub_status,
@@ -250,6 +259,9 @@ pub enum Error {
     /// Track not found in the specified playlist
     #[error("Track {1} not found on playlist {0}")]
     PlaylistTrackNotFound(String, u64),
+    /// Exponential backoff exceeded the maximum duration while handling rate limits
+    #[error("Hit rate limit backoff ceiling of {0}ms without recovery")]
+    RateLimitBackoffExceeded(u64),
 }
 
 /// Callback function type for handling authorization token refresh events.
@@ -302,6 +314,7 @@ pub struct TidalClient {
     locale: Option<String>,
     device_type: Option<DeviceType>,
     on_authz_refresh_callback: Option<AuthzCallback>,
+    backoff: Mutex<Option<u64>>,
 }
 
 /// Authorization tokens and user information for API access.
@@ -379,6 +392,7 @@ impl TidalClient {
             locale: None,
             device_type: None,
             on_authz_refresh_callback: None,
+            backoff: Mutex::new(None),
         }
     }
 
@@ -713,6 +727,8 @@ impl TidalClient {
         params: Option<serde_json::Value>,
         etag: Option<&str>,
     ) -> Result<T, Error> {
+        self.await_rate_limit_backoff().await;
+
         let mut req = match method {
             reqwest::Method::GET => self.client.get(url),
             reqwest::Method::DELETE => self.client.delete(url),
@@ -778,9 +794,14 @@ impl TidalClient {
             }
         };
 
-        log::trace!("Response from TIDAL: {}", serde_json::to_string_pretty(&value).unwrap());
+        log::trace!(
+            "Response from TIDAL: {}",
+            serde_json::to_string_pretty(&value).unwrap()
+        );
 
         if status.is_success() {
+            self.reset_rate_limit_backoff();
+
             // If we have an etag, add it to the response, if the value doesn't already exist
             if let Some(etag) = etag {
                 if value.get("etag").is_none() {
@@ -807,6 +828,12 @@ impl TidalClient {
 
             Ok(resp)
         } else {
+            if status.as_u16() == 429 {
+                self.increase_rate_limit_backoff()?;
+            } else {
+                self.reset_rate_limit_backoff();
+            }
+
             let tidal_err = match serde_json::from_value::<TidalApiError>(value.clone()) {
                 Ok(e) => e,
                 Err(e) => {
@@ -838,6 +865,51 @@ impl TidalClient {
             }
 
             Err(Error::TidalApiError(tidal_err))
+        }
+    }
+
+    async fn await_rate_limit_backoff(&self) {
+        let delay = {
+            let guard = self
+                .backoff
+                .lock()
+                .unwrap_or_else(|poisoned| poisoned.into_inner());
+            *guard
+        };
+
+        if let Some(ms) = delay {
+            if ms > 0 {
+                sleep(Duration::from_millis(ms)).await;
+            }
+        }
+    }
+
+    fn increase_rate_limit_backoff(&self) -> Result<(), Error> {
+        let mut guard = self
+            .backoff
+            .lock()
+            .unwrap_or_else(|poisoned| poisoned.into_inner());
+        let next = match *guard {
+            Some(current) => current.saturating_mul(2),
+            None => INITIAL_BACKOFF_MILLIS,
+        };
+
+        if next >= MAX_BACKOFF_MILLIS {
+            *guard = Some(MAX_BACKOFF_MILLIS);
+            return Err(Error::RateLimitBackoffExceeded(MAX_BACKOFF_MILLIS));
+        }
+
+        *guard = Some(next);
+        Ok(())
+    }
+
+    fn reset_rate_limit_backoff(&self) {
+        let mut guard = self
+            .backoff
+            .lock()
+            .unwrap_or_else(|poisoned| poisoned.into_inner());
+        if guard.is_some() {
+            *guard = None;
         }
     }
 

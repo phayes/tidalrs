@@ -1,25 +1,26 @@
-
+use crate::AudioQuality;
 use crate::Error;
-use crate::TIDAL_API_BASE_URL;
-use crate::TidalClient;
-use crate::track::Track;
+use crate::List;
+use crate::MediaMetadata;
 use crate::Order;
 use crate::OrderDirection;
+use crate::TIDAL_API_BASE_URL;
+use crate::TidalClient;
 use crate::artist::ArtistSummary;
-use crate::MediaMetadata;
-use crate::List;
+use crate::track::Track;
 use reqwest::Method;
-use serde_json::Value;
 use serde::{Deserialize, Serialize};
+use serde_json::Value;
 use strum_macros::AsRefStr;
-use crate::AudioQuality;
 use strum_macros::EnumString;
 
 /// Types of albums available in the Tidal catalog.
 ///
 /// This enum represents different album formats and categories
 /// that can be used for filtering album searches.
-#[derive(Default, Debug, Serialize, Deserialize, EnumString, AsRefStr, PartialEq, Eq, Copy, Clone)]
+#[derive(
+    Default, Debug, Serialize, Deserialize, EnumString, AsRefStr, PartialEq, Eq, Copy, Clone,
+)]
 #[serde(rename_all = "UPPERCASE")]
 #[strum(serialize_all = "UPPERCASE")]
 pub enum AlbumType {
@@ -52,7 +53,7 @@ pub struct Album {
     pub artists: Vec<ArtistSummary>,
 
     /// Audio quality level available for this album for standard streaming
-    /// 
+    ///
     /// Higher quality streams may be available than is indicated here when using MPEG-DASH for playback.
     pub audio_quality: AudioQuality,
     /// Total duration of the album in seconds
@@ -68,7 +69,7 @@ pub struct Album {
     pub media_metadata: Option<MediaMetadata>,
 
     /// Album cover image identifier
-    /// 
+    ///
     /// Use cover_url() to get the full URL of the cover image.
     pub cover: Option<String>,
     /// Video cover identifier (if available)
@@ -168,10 +169,7 @@ impl TidalClient {
     /// let album = client.album(123456789).await?;
     /// println!("Album: {} by {}", album.title, album.artists[0].name);
     /// ```
-    pub async fn album(
-        &self,
-        album_id: u64,
-    ) -> Result<Album, Error> {
+    pub async fn album(&self, album_id: u64) -> Result<Album, Error> {
         let url = format!("{TIDAL_API_BASE_URL}/albums/{album_id}");
 
         let params = serde_json::json!({
@@ -180,7 +178,9 @@ impl TidalClient {
             "deviceType": self.get_device_type().as_ref(),
         });
 
-        let resp: Album = self.do_request(Method::GET, &url, Some(params), None).await?;
+        let resp: Album = self
+            .do_request(Method::GET, &url, Some(params), None)
+            .await?;
 
         Ok(resp)
     }
@@ -224,7 +224,9 @@ impl TidalClient {
             "deviceType": self.get_device_type().as_ref(),
         });
 
-        let resp: List<Track> = self.do_request(Method::GET, &url, Some(params), None).await?;
+        let resp: List<Track> = self
+            .do_request(Method::GET, &url, Some(params), None)
+            .await?;
         Ok(resp)
     }
 
@@ -256,7 +258,9 @@ impl TidalClient {
         order: Option<Order>,
         order_direction: Option<OrderDirection>,
     ) -> Result<List<FavoriteAlbum>, Error> {
-        let user_id = self.get_user_id().ok_or(Error::UserAuthenticationRequired)?;
+        let user_id = self
+            .get_user_id()
+            .ok_or(Error::UserAuthenticationRequired)?;
         let offset = offset.unwrap_or(0);
         let limit = limit.unwrap_or(100);
 
@@ -272,7 +276,9 @@ impl TidalClient {
             "deviceType": self.get_device_type().as_ref(),
         });
 
-        let resp: List<FavoriteAlbum> = self.do_request(Method::GET, &url, Some(params), None).await?;
+        let resp: List<FavoriteAlbum> = self
+            .do_request(Method::GET, &url, Some(params), None)
+            .await?;
 
         Ok(resp)
     }
@@ -289,11 +295,10 @@ impl TidalClient {
     /// client.add_favorite_album(123456789).await?;
     /// println!("Album added to favorites!");
     /// ```
-    pub async fn add_favorite_album(
-        &self,
-        album_id: u64,
-    ) -> Result<(), Error> {
-        let user_id = self.get_user_id().ok_or(Error::UserAuthenticationRequired)?;
+    pub async fn add_favorite_album(&self, album_id: u64) -> Result<(), Error> {
+        let user_id = self
+            .get_user_id()
+            .ok_or(Error::UserAuthenticationRequired)?;
         let url = format!("{TIDAL_API_BASE_URL}/users/{user_id}/favorites/albums");
 
         let params = serde_json::json!({
@@ -303,7 +308,9 @@ impl TidalClient {
             "deviceType": self.get_device_type().as_ref(),
         });
 
-        let _: Value = self.do_request(Method::POST, &url, Some(params), None).await?;
+        let _: Value = self
+            .do_request(Method::POST, &url, Some(params), None)
+            .await?;
 
         Ok(())
     }
@@ -320,11 +327,10 @@ impl TidalClient {
     /// client.remove_favorite_album(123456789).await?;
     /// println!("Album removed from favorites!");
     /// ```
-    pub async fn remove_favorite_album(
-        &self,
-        album_id: u64,
-    ) -> Result<(), Error> {
-        let user_id = self.get_user_id().ok_or(Error::UserAuthenticationRequired)?;
+    pub async fn remove_favorite_album(&self, album_id: u64) -> Result<(), Error> {
+        let user_id = self
+            .get_user_id()
+            .ok_or(Error::UserAuthenticationRequired)?;
         let url = format!("{TIDAL_API_BASE_URL}/users/{user_id}/favorites/albums/{album_id}");
 
         let params = serde_json::json!({
@@ -333,7 +339,9 @@ impl TidalClient {
             "deviceType": self.get_device_type().as_ref(),
         });
 
-        let _: Value = self.do_request(Method::DELETE, &url, Some(params), None).await?;
+        let _: Value = self
+            .do_request(Method::DELETE, &url, Some(params), None)
+            .await?;
 
         Ok(())
     }

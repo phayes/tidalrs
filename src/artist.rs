@@ -1,16 +1,15 @@
-
 use crate::Error;
-use crate::TIDAL_API_BASE_URL;
-use crate::TidalClient;
+use crate::List;
 use crate::Order;
 use crate::OrderDirection;
+use crate::TIDAL_API_BASE_URL;
+use crate::TidalClient;
 use crate::album::{Album, AlbumType};
-use crate::List;
 use crate::deserialize_null_default;
-use std::collections::HashMap;
 use reqwest::Method;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
+use std::collections::HashMap;
 
 /// Represents an artist from the Tidal catalog.
 ///
@@ -29,7 +28,7 @@ pub struct Artist {
     pub handle: Option<String>,
 
     /// Artist profile picture identifier
-    /// 
+    ///
     /// Use picture_url() to get the full URL of the picture
     pub picture: Option<String>,
     /// Tidal URL for the artist
@@ -59,7 +58,7 @@ pub struct Artist {
     pub mixes: HashMap<String, String>,
 
     /// Whether the artist is currently being spotlighted by Tidal
-    pub spotlighted: bool
+    pub spotlighted: bool,
 }
 
 impl Artist {
@@ -80,19 +79,22 @@ impl Artist {
         match &self.picture {
             Some(picture) => {
                 let picture_path = picture.replace('-', "/");
-                Some(format!("https://resources.tidal.com/images/{picture_path}/{height}x{width}.jpg"))
+                Some(format!(
+                    "https://resources.tidal.com/images/{picture_path}/{height}x{width}.jpg"
+                ))
             }
             None => match &self.selected_album_cover_fallback {
                 Some(selected_album_cover_fallback) => {
                     let picture_path = selected_album_cover_fallback.replace('-', "/");
-                    Some(format!("https://resources.tidal.com/images/{picture_path}/{height}x{width}.jpg"))
+                    Some(format!(
+                        "https://resources.tidal.com/images/{picture_path}/{height}x{width}.jpg"
+                    ))
                 }
                 None => None,
             },
         }
     }
 }
-
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq, Default)]
 pub struct FavoriteArtist {
@@ -124,7 +126,7 @@ pub struct ArtistSummary {
     /// Artist name
     pub name: String,
     /// Artist profile picture identifier
-    /// 
+    ///
     /// Use picture_url() to get the full URL of the picture
     pub picture: Option<String>,
 
@@ -155,8 +157,13 @@ impl ArtistSummary {
     /// Returns `Some(String)` with the full URL if a picture is available,
     /// or `None` if no picture is set.
     pub fn picture_url(&self, height: u16, width: u16) -> Option<String> {
-        let picture_path = self.picture.as_ref().map(|picture| picture.replace('-', "/"));
-        picture_path.map(|picture_path| format!("https://resources.tidal.com/images/{picture_path}/{height}x{width}.jpg"))
+        let picture_path = self
+            .picture
+            .as_ref()
+            .map(|picture| picture.replace('-', "/"));
+        picture_path.map(|picture_path| {
+            format!("https://resources.tidal.com/images/{picture_path}/{height}x{width}.jpg")
+        })
     }
 }
 
@@ -177,17 +184,16 @@ impl TidalClient {
     /// let artist = client.artist(123456789).await?;
     /// println!("Artist: {}", artist.name);
     /// ```
-    pub async fn artist(
-        &self,
-        artist_id: u64,
-    ) -> Result<Artist, Error> {
+    pub async fn artist(&self, artist_id: u64) -> Result<Artist, Error> {
         let url = format!("{TIDAL_API_BASE_URL}/artists/{artist_id}");
         let params = serde_json::json!({
             "countryCode": self.get_country_code(),
             "locale": self.get_locale(),
             "deviceType": self.get_device_type().as_ref(),
         });
-        let resp: Artist = self.do_request(Method::GET, &url, Some(params), None).await?;
+        let resp: Artist = self
+            .do_request(Method::GET, &url, Some(params), None)
+            .await?;
         Ok(resp)
     }
 
@@ -219,7 +225,9 @@ impl TidalClient {
         order: Option<Order>,
         order_direction: Option<OrderDirection>,
     ) -> Result<List<FavoriteArtist>, Error> {
-        let user_id = self.get_user_id().ok_or(Error::UserAuthenticationRequired)?;
+        let user_id = self
+            .get_user_id()
+            .ok_or(Error::UserAuthenticationRequired)?;
         let offset = offset.unwrap_or(0);
         let limit = limit.unwrap_or(100);
 
@@ -235,7 +243,9 @@ impl TidalClient {
             "deviceType": self.get_device_type().as_ref(),
         });
 
-        let resp: List<FavoriteArtist> = self.do_request(Method::GET, &url, Some(params), None).await?;
+        let resp: List<FavoriteArtist> = self
+            .do_request(Method::GET, &url, Some(params), None)
+            .await?;
 
         Ok(resp)
     }
@@ -285,7 +295,9 @@ impl TidalClient {
             params["filter"] = serde_json::Value::String(album_type.as_ref().to_string());
         }
 
-        let resp: List<Album> = self.do_request(Method::GET, &url, Some(params), None).await?;
+        let resp: List<Album> = self
+            .do_request(Method::GET, &url, Some(params), None)
+            .await?;
 
         Ok(resp)
     }
@@ -302,11 +314,10 @@ impl TidalClient {
     /// client.add_favorite_artist(123456789).await?;
     /// println!("Artist added to favorites!");
     /// ```
-    pub async fn add_favorite_artist(
-        &self,
-        artist_id: u64,
-    ) -> Result<(), Error> {
-        let user_id = self.get_user_id().ok_or(Error::UserAuthenticationRequired)?;
+    pub async fn add_favorite_artist(&self, artist_id: u64) -> Result<(), Error> {
+        let user_id = self
+            .get_user_id()
+            .ok_or(Error::UserAuthenticationRequired)?;
         let url = format!("{TIDAL_API_BASE_URL}/users/{user_id}/favorites/artists");
 
         let params = serde_json::json!({
@@ -316,7 +327,9 @@ impl TidalClient {
             "deviceType": self.get_device_type().as_ref(),
         });
 
-        let _: Value = self.do_request(Method::POST, &url, Some(params), None).await?;
+        let _: Value = self
+            .do_request(Method::POST, &url, Some(params), None)
+            .await?;
 
         Ok(())
     }
@@ -333,11 +346,10 @@ impl TidalClient {
     /// client.remove_favorite_artist(123456789).await?;
     /// println!("Artist removed from favorites!");
     /// ```
-    pub async fn remove_favorite_artist(
-        &self,
-        artist_id: u64,
-    ) -> Result<(), Error> {
-        let user_id = self.get_user_id().ok_or(Error::UserAuthenticationRequired)?;
+    pub async fn remove_favorite_artist(&self, artist_id: u64) -> Result<(), Error> {
+        let user_id = self
+            .get_user_id()
+            .ok_or(Error::UserAuthenticationRequired)?;
         let url = format!("{TIDAL_API_BASE_URL}/users/{user_id}/favorites/artists/{artist_id}");
 
         let params = serde_json::json!({
@@ -346,7 +358,9 @@ impl TidalClient {
             "deviceType": self.get_device_type().as_ref(),
         });
 
-        let _: Value = self.do_request(Method::DELETE, &url, Some(params), None).await?;
+        let _: Value = self
+            .do_request(Method::DELETE, &url, Some(params), None)
+            .await?;
 
         Ok(())
     }

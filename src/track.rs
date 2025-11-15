@@ -1,17 +1,17 @@
 use crate::AudioQuality;
 use crate::Error;
+use crate::List;
+use crate::MediaMetadata;
 use crate::Order;
 use crate::OrderDirection;
 use crate::TIDAL_API_BASE_URL;
 use crate::TidalClient;
-use crate::MediaMetadata;
-use crate::List;
+use crate::artist::ArtistSummary;
 use reqwest::Method;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use stream_download::storage::memory::MemoryStorageProvider;
 use stream_download::{Settings, StreamDownload};
-use crate::artist::ArtistSummary;
 
 /// Represents a track from the Tidal catalog.
 ///
@@ -32,13 +32,13 @@ pub struct Track {
     pub album: AlbumSummary,
 
     /// Audio quality level available for this album for standard streaming
-    /// 
+    ///
     /// Higher quality streams may be available than is indicated here when using MPEG-DASH for playback.
     pub audio_quality: AudioQuality,
 
     /// Duration of the track in seconds
     pub duration: u32,
-    
+
     /// Whether the track contains explicit content
     pub explicit: bool,
 
@@ -139,7 +139,9 @@ impl TidalClient {
             "assetpresentation": "FULL"
         });
 
-        let resp: TrackStream = self.do_request(Method::GET, &url, Some(params), None).await?;
+        let resp: TrackStream = self
+            .do_request(Method::GET, &url, Some(params), None)
+            .await?;
 
         Ok(resp)
     }
@@ -160,10 +162,7 @@ impl TidalClient {
     /// let track = client.track(123456789).await?;
     /// println!("Track: {} by {}", track.title, track.artists[0].name);
     /// ```
-    pub async fn track(
-        &self,
-        track_id: u64,
-    ) -> Result<Track, Error> {
+    pub async fn track(&self, track_id: u64) -> Result<Track, Error> {
         let url = format!("{TIDAL_API_BASE_URL}/tracks/{track_id}");
 
         let params = serde_json::json!({
@@ -172,7 +171,9 @@ impl TidalClient {
             "deviceType": self.get_device_type().as_ref(),
         });
 
-        let resp: Track = self.do_request(Method::GET, &url, Some(params), None).await?;
+        let resp: Track = self
+            .do_request(Method::GET, &url, Some(params), None)
+            .await?;
 
         Ok(resp)
     }
@@ -210,7 +211,9 @@ impl TidalClient {
             "assetpresentation": "FULL"
         });
 
-        let resp: TrackPlaybackInfo = self.do_request(Method::GET, &url, Some(params), None).await?;
+        let resp: TrackPlaybackInfo = self
+            .do_request(Method::GET, &url, Some(params), None)
+            .await?;
 
         Ok(resp)
     }
@@ -258,7 +261,9 @@ impl TidalClient {
             "countryCode": self.get_country_code(),
         });
 
-        let resp: TrackDashPlaybackInfo = self.do_request(Method::GET, &url, Some(params), None).await?;
+        let resp: TrackDashPlaybackInfo = self
+            .do_request(Method::GET, &url, Some(params), None)
+            .await?;
 
         Ok(resp)
     }
@@ -291,7 +296,9 @@ impl TidalClient {
         order: Option<Order>,
         order_direction: Option<OrderDirection>,
     ) -> Result<List<FavoriteTrack>, Error> {
-        let user_id = self.get_user_id().ok_or(Error::UserAuthenticationRequired)?;
+        let user_id = self
+            .get_user_id()
+            .ok_or(Error::UserAuthenticationRequired)?;
         let offset = offset.unwrap_or(0);
         let limit = limit.unwrap_or(100);
 
@@ -307,7 +314,9 @@ impl TidalClient {
             "deviceType": self.get_device_type().as_ref(),
         });
 
-        let resp: List<FavoriteTrack> = self.do_request(Method::GET, &url, Some(params), None).await?;
+        let resp: List<FavoriteTrack> = self
+            .do_request(Method::GET, &url, Some(params), None)
+            .await?;
 
         Ok(resp)
     }
@@ -324,11 +333,10 @@ impl TidalClient {
     /// client.add_favorite_track(123456789).await?;
     /// println!("Track added to favorites!");
     /// ```
-    pub async fn add_favorite_track(
-        &self,
-        track_id: u64,
-    ) -> Result<(), Error> {
-        let user_id = self.get_user_id().ok_or(Error::UserAuthenticationRequired)?;
+    pub async fn add_favorite_track(&self, track_id: u64) -> Result<(), Error> {
+        let user_id = self
+            .get_user_id()
+            .ok_or(Error::UserAuthenticationRequired)?;
         let url = format!("{TIDAL_API_BASE_URL}/users/{user_id}/favorites/tracks");
 
         let params = serde_json::json!({
@@ -338,7 +346,9 @@ impl TidalClient {
             "deviceType": self.get_device_type().as_ref(),
         });
 
-        let _: Value = self.do_request(Method::POST, &url, Some(params), None).await?;
+        let _: Value = self
+            .do_request(Method::POST, &url, Some(params), None)
+            .await?;
 
         Ok(())
     }
@@ -355,11 +365,10 @@ impl TidalClient {
     /// client.remove_favorite_track(123456789).await?;
     /// println!("Track removed from favorites!");
     /// ```
-    pub async fn remove_favorite_track(
-        &self,
-        track_id: u64,
-    ) -> Result<(), Error> {
-        let user_id = self.get_user_id().ok_or(Error::UserAuthenticationRequired)?;
+    pub async fn remove_favorite_track(&self, track_id: u64) -> Result<(), Error> {
+        let user_id = self
+            .get_user_id()
+            .ok_or(Error::UserAuthenticationRequired)?;
         let url = format!("{TIDAL_API_BASE_URL}/users/{user_id}/favorites/tracks/{track_id}");
 
         let params = serde_json::json!({
@@ -368,7 +377,9 @@ impl TidalClient {
             "deviceType": self.get_device_type().as_ref(),
         });
 
-        let _: Value = self.do_request(Method::DELETE, &url, Some(params), None).await?;
+        let _: Value = self
+            .do_request(Method::DELETE, &url, Some(params), None)
+            .await?;
 
         Ok(())
     }
@@ -421,7 +432,7 @@ pub struct TrackPlaybackInfo {
     /// Bit depth of the audio (if available)
     pub bit_depth: Option<u8>,
     /// Base64-encoded manifest data
-    /// 
+    ///
     /// Use unpack_manifest() to get the decoded manifest. Crates that support MPEG-DASH playback should be able to use this manifest to play the track.
     pub manifest: String,
     /// Hash of the manifest for verification
@@ -458,7 +469,7 @@ pub struct TrackDashPlaybackInfo {
     /// Bit depth of the audio
     pub bit_depth: u32,
     /// Base64-encoded manifest data
-    /// 
+    ///
     /// Use unpack_manifest() to get the decoded manifest. Crates that support MPEG-DASH playback should be able to use this manifest to play the track.
     pub manifest: String,
     /// Hash of the manifest for verification
@@ -513,10 +524,10 @@ impl TrackStream {
     }
 
     /// Get a buffered, seekable stream of the track.
-    /// 
+    ///
     /// This method downloads the track to memory and provides a seekable
     /// stream that can be used with audio libraries like rodio.
-    /// 
+    ///
     /// While this function is async, the returned stream is sync.
     ///
     /// # Returns
@@ -528,7 +539,7 @@ impl TrackStream {
     /// ```no_run
     /// let track_stream = client.track_stream(123456789, tidalrs::AudioQuality::Lossless).await?;
     /// let stream = track_stream.stream().await?;
-    /// 
+    ///
     /// tokio::task::spawn_blocking(move || {
     ///     let device_handle = rodio::OutputStreamBuilder::open_default_stream().unwrap();
     ///     let sink = rodio::Sink::connect_new(device_handle.mixer());
