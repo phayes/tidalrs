@@ -828,8 +828,11 @@ impl TidalClient {
 
             Ok(resp)
         } else {
-            if status.as_u16() == 429 {
+            if status.as_u16() == 429 || status.as_u16() == 500 {
+                // Increase backoff and retry
+                // The backoff wait will happen at the start of do_request
                 self.increase_rate_limit_backoff()?;
+                return self.do_request(method, url, params, etag.as_deref()).await;
             } else {
                 self.reset_rate_limit_backoff();
             }
