@@ -25,7 +25,7 @@ use tokio::time::sleep;
 pub(crate) static TIDAL_AUTH_API_BASE_URL: &str = "https://auth.tidal.com/v1";
 pub(crate) static TIDAL_API_BASE_URL: &str = "https://api.tidal.com/v1";
 const INITIAL_BACKOFF_MILLIS: u64 = 100;
-const MAX_BACKOFF_MILLIS: u64 = 5_000;
+const DEFAULT_MAX_BACKOFF_MILLIS: u64 = 5_000;
 
 /// Response from the device authorization endpoint containing the information
 /// needed for the user to complete the OAuth2 device flow.
@@ -315,6 +315,7 @@ pub struct TidalClient {
     device_type: Option<DeviceType>,
     on_authz_refresh_callback: Option<AuthzCallback>,
     backoff: Mutex<Option<u64>>,
+    max_backoff_millis: Option<u64>,
 }
 
 /// Authorization tokens and user information for API access.
@@ -393,6 +394,7 @@ impl TidalClient {
             device_type: None,
             on_authz_refresh_callback: None,
             backoff: Mutex::new(None),
+            max_backoff_millis: None,
         }
     }
 
@@ -553,6 +555,39 @@ impl TidalClient {
         self
     }
 
+    /// Set the maximum backoff time in milliseconds for rate limit retries using the builder pattern.
+    ///
+    /// When the client encounters a 429 (Too Many Requests) or 500 (Internal Server Error) response,
+    /// it will retry the request with exponential backoff. This setting controls the maximum
+    /// backoff time before giving up.
+    ///
+    /// Setting this to `0` disables backoff retries entirely - the client will immediately
+    /// return errors for 429 and 500 responses without retrying.
+    ///
+    /// The default value is 5000ms (5 seconds).
+    ///
+    /// # Arguments
+    ///
+    /// * `max_backoff_millis` - Maximum backoff time in milliseconds, or `0` to disable retries
+    ///
+    /// # Example
+    ///
+    /// ```no_run
+    /// use tidalrs::TidalClient;
+    ///
+    /// // Disable backoff retries
+    /// let client = TidalClient::new("client_id".to_string())
+    ///     .with_max_backoff_millis(0);
+    ///
+    /// // Set custom max backoff to 10 seconds
+    /// let client = TidalClient::new("client_id".to_string())
+    ///     .with_max_backoff_millis(10_000);
+    /// ```
+    pub fn with_max_backoff_millis(mut self, max_backoff_millis: u64) -> Self {
+        self.max_backoff_millis = Some(max_backoff_millis);
+        self
+    }
+
     /// Get the current country code for API requests.
     ///
     /// Returns the explicitly set country code, or falls back to the user's
@@ -607,6 +642,31 @@ impl TidalClient {
     /// This may affect content availability and API behavior.
     pub fn set_device_type(&mut self, device_type: DeviceType) {
         self.device_type = Some(device_type);
+    }
+
+    /// Set the maximum backoff time in milliseconds for rate limit retries.
+    ///
+    /// When the client encounters a 429 (Too Many Requests) or 500 (Internal Server Error) response,
+    /// it will retry the request with exponential backoff. This setting controls the maximum
+    /// backoff time before giving up.
+    ///
+    /// Setting this to `0` disables backoff retries entirely - the client will immediately
+    /// return errors for 429 and 500 responses without retrying.
+    ///
+    /// The default value is 5000ms (5 seconds).
+    ///
+    /// # Arguments
+    ///
+    /// * `max_backoff_millis` - Maximum backoff time in milliseconds, or `0` to disable retries
+    pub fn set_max_backoff_millis(&mut self, max_backoff_millis: u64) {
+        self.max_backoff_millis = Some(max_backoff_millis);
+    }
+
+    /// Get the maximum backoff time in milliseconds for rate limit retries.
+    ///
+    /// Returns the configured value or the default (5000ms).
+    pub fn get_max_backoff_millis(&self) -> u64 {
+        self.max_backoff_millis.unwrap_or(DEFAULT_MAX_BACKOFF_MILLIS)
     }
 
     /// Set a callback function to be called when authorization tokens are refreshed.
@@ -829,10 +889,15 @@ impl TidalClient {
             Ok(resp)
         } else {
             if status.as_u16() == 429 || status.as_u16() == 500 {
-                // Increase backoff and retry
-                // The backoff wait will happen at the start of do_request
-                self.increase_rate_limit_backoff()?;
-                return self.do_request(method, url, params, etag.as_deref()).await;
+                // Skip retry if backoff is disabled (max_backoff_millis == 0)
+                if self.get_max_backoff_millis() == 0 {
+                    self.reset_rate_limit_backoff();
+                } else {
+                    // Increase backoff and retry
+                    // The backoff wait will happen at the start of do_request
+                    self.increase_rate_limit_backoff()?;
+                    return self.do_request(method, url, params, etag.as_deref()).await;
+                }
             } else {
                 self.reset_rate_limit_backoff();
             }
@@ -872,6 +937,11 @@ impl TidalClient {
     }
 
     async fn await_rate_limit_backoff(&self) {
+        // Skip backoff if disabled
+        if self.get_max_backoff_millis() == 0 {
+            return;
+        }
+
         let delay = {
             let guard = self
                 .backoff
@@ -888,6 +958,13 @@ impl TidalClient {
     }
 
     fn increase_rate_limit_backoff(&self) -> Result<(), Error> {
+        let max_backoff = self.get_max_backoff_millis();
+        
+        // Skip if backoff is disabled
+        if max_backoff == 0 {
+            return Ok(());
+        }
+
         let mut guard = self
             .backoff
             .lock()
@@ -897,9 +974,9 @@ impl TidalClient {
             None => INITIAL_BACKOFF_MILLIS,
         };
 
-        if next >= MAX_BACKOFF_MILLIS {
-            *guard = Some(MAX_BACKOFF_MILLIS);
-            return Err(Error::RateLimitBackoffExceeded(MAX_BACKOFF_MILLIS));
+        if next >= max_backoff {
+            *guard = Some(max_backoff);
+            return Err(Error::RateLimitBackoffExceeded(max_backoff));
         }
 
         *guard = Some(next);
