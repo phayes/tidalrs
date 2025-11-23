@@ -5,8 +5,8 @@
 //! - Complete authentication
 //! - Save and restore authentication tokens
 
-use tidalrs::{TidalClient};
 use std::io::{self, Write};
+use tidalrs::TidalClient;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -16,13 +16,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Create a client (you'll need to provide your actual client ID and secret)
     let client_id = "your_client_id";
     let client_secret = "your_client_secret";
-    
-    let client = TidalClient::new(client_id.to_string())
-        .with_authz_refresh_callback(|new_authz| {
-            println!("Tokens refreshed for user: {}", new_authz.user_id);
-            // In a real application, you would save these tokens to persistent storage
-            // For example: save_to_file(&new_authz);
-        });
+
+    let client = TidalClient::new(client_id.to_string()).with_authz_refresh_callback(|new_authz| {
+        println!("Tokens refreshed for user: {}", new_authz.user_id);
+        // In a real application, you would save these tokens to persistent storage
+        // For example: save_to_file(&new_authz);
+    });
 
     // Start device authorization
     println!("Starting device authorization...");
@@ -40,10 +39,15 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     // Complete authorization
     println!("Completing authorization...");
-    let authz_token = client.authorize(&device_auth.device_code, client_secret).await?;
+    let authz_token = client
+        .authorize(&device_auth.device_code, client_secret)
+        .await?;
 
     println!("\nAuthentication successful!");
-    println!("User: {} ({})", authz_token.user.username, authz_token.user.email);
+    println!(
+        "User: {} ({})",
+        authz_token.user.username, authz_token.user.email
+    );
     println!("Country: {}", authz_token.user.country_code);
     println!("User ID: {}", authz_token.user.user_id);
 
@@ -64,15 +68,20 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     match client.get_user_id() {
         Some(user_id) => {
             println!("Client is authenticated for user: {}", user_id);
-            
+
             // Try to get user's favorite tracks (requires authentication)
             match client.favorite_tracks(Some(0), Some(5), None, None).await {
                 Ok(favorites) => {
                     println!("Found {} favorite tracks", favorites.total);
                     for fav in &favorites.items {
-                        println!("   - {} by {}", 
+                        println!(
+                            "   - {} by {}",
                             fav.item.title,
-                            fav.item.artists.first().map(|a| a.name.as_str()).unwrap_or("Unknown")
+                            fav.item
+                                .artists
+                                .first()
+                                .map(|a| a.name.as_str())
+                                .unwrap_or("Unknown")
                         );
                     }
                 }

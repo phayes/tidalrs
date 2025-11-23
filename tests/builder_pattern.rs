@@ -4,7 +4,7 @@
 //! and that the client can be configured using the fluent builder pattern.
 
 use std::sync::Arc;
-use tidalrs::{Authz, DeviceType, TidalClient, TidalApiError};
+use tidalrs::{Authz, DeviceType, TidalApiError, TidalClient};
 
 #[test]
 fn test_builder_pattern_basic() {
@@ -197,9 +197,9 @@ fn test_tidal_api_error_deserialization_snake_case() {
         "sub_status": 1001,
         "user_message": "Invalid request"
     }"#;
-    
+
     let error: TidalApiError = serde_json::from_str(json).unwrap();
-    
+
     assert_eq!(error.status, 400);
     assert_eq!(error.sub_status, 1001);
     assert_eq!(error.user_message, "Invalid request");
@@ -213,9 +213,9 @@ fn test_tidal_api_error_deserialization_camel_case() {
         "subStatus": 2001,
         "userMessage": "Unauthorized access"
     }"#;
-    
+
     let error: TidalApiError = serde_json::from_str(json).unwrap();
-    
+
     assert_eq!(error.status, 401);
     assert_eq!(error.sub_status, 2001);
     assert_eq!(error.user_message, "Unauthorized access");
@@ -229,9 +229,9 @@ fn test_tidal_api_error_deserialization_mixed_case() {
         "sub_status": 3001,
         "userMessage": "Forbidden access"
     }"#;
-    
+
     let error: TidalApiError = serde_json::from_str(json).unwrap();
-    
+
     assert_eq!(error.status, 403);
     assert_eq!(error.sub_status, 3001);
     assert_eq!(error.user_message, "Forbidden access");
@@ -244,9 +244,9 @@ fn test_tidal_api_error_deserialization_missing_user_message() {
         "status": 500,
         "sub_status": 4001
     }"#;
-    
+
     let error: TidalApiError = serde_json::from_str(json).unwrap();
-    
+
     assert_eq!(error.status, 500);
     assert_eq!(error.sub_status, 4001);
     assert_eq!(error.user_message, "");

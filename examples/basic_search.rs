@@ -5,7 +5,7 @@
 //! - Search for artists, albums, and tracks
 //! - Display search results
 
-use tidalrs::{TidalClient, SearchQuery, ResourceType};
+use tidalrs::{ResourceType, SearchQuery, TidalClient};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -39,9 +39,14 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     if !results.albums.items.is_empty() {
         println!("\nAlbums:");
         for album in &results.albums.items {
-            println!("  - {} by {} (ID: {})", 
-                album.title, 
-                album.artists.first().map(|a| a.name.as_str()).unwrap_or("Unknown"),
+            println!(
+                "  - {} by {} (ID: {})",
+                album.title,
+                album
+                    .artists
+                    .first()
+                    .map(|a| a.name.as_str())
+                    .unwrap_or("Unknown"),
                 album.id
             );
         }
@@ -51,9 +56,14 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     if !results.tracks.items.is_empty() {
         println!("\nTracks:");
         for track in &results.tracks.items {
-            println!("  - {} by {} (ID: {})", 
-                track.title, 
-                track.artists.first().map(|a| a.name.as_str()).unwrap_or("Unknown"),
+            println!(
+                "  - {} by {} (ID: {})",
+                track.title,
+                track
+                    .artists
+                    .first()
+                    .map(|a| a.name.as_str())
+                    .unwrap_or("Unknown"),
                 track.id
             );
         }

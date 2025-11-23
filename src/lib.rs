@@ -666,7 +666,8 @@ impl TidalClient {
     ///
     /// Returns the configured value or the default (5000ms).
     pub fn get_max_backoff_millis(&self) -> u64 {
-        self.max_backoff_millis.unwrap_or(DEFAULT_MAX_BACKOFF_MILLIS)
+        self.max_backoff_millis
+            .unwrap_or(DEFAULT_MAX_BACKOFF_MILLIS)
     }
 
     /// Set a callback function to be called when authorization tokens are refreshed.
@@ -959,7 +960,7 @@ impl TidalClient {
 
     fn increase_rate_limit_backoff(&self) -> Result<(), Error> {
         let max_backoff = self.get_max_backoff_millis();
-        
+
         // Skip if backoff is disabled
         if max_backoff == 0 {
             return Ok(());

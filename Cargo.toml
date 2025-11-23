@@ -1,11 +1,11 @@
 [package]
 authors = ["Patrick Hayes"]
 categories = ["multimedia"]
-description = "Tidal API client"
+description = "Tidal (v1) API client"
 edition = "2024"
 keywords = ["audio", "tidal"]
 name = "tidalrs"
-version = "0.3.0"
+version = "0.4.0"
 license = "MIT"
 repository = "https://github.com/phayes/tidalrs"
 documentation = "https://docs.rs/tidalrs"
