@@ -114,6 +114,24 @@ pub struct ArtistRole {
     pub category_id: i64,
 }
 
+/// Biography information for an artist.
+///
+/// This structure contains the artist's biography text, source information,
+/// and when it was last updated.
+#[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
+#[serde(rename_all = "camelCase")]
+pub struct ArtistBio {
+    /// Source of the biography (e.g., "TiVo")
+    pub source: String,
+    /// ISO timestamp when the biography was last updated
+    pub last_updated: String,
+    /// The biography text, which may contain HTML and wimpLink tags
+    pub text: String,
+    /// Summary of the biography (may be empty)
+    #[serde(default)]
+    pub summary: String,
+}
+
 /// A simplified representation of an artist used in lists and summaries.
 ///
 /// This structure contains only the basic information about an artist
@@ -192,6 +210,43 @@ impl TidalClient {
             "deviceType": self.get_device_type().as_ref(),
         });
         let resp: Artist = self
+            .do_request(Method::GET, &url, Some(params), None)
+            .await?;
+        Ok(resp)
+    }
+
+    /// Get biography information for a specific artist.
+    ///
+    /// # Arguments
+    ///
+    /// * `artist_id` - The unique identifier of the artist
+    /// * `include_image_links` - Whether to include image links in the response (default: true)
+    ///
+    /// # Returns
+    ///
+    /// Returns an `ArtistBio` structure containing the biography text, source, and last updated timestamp.
+    ///
+    /// # Example
+    ///
+    /// ```no_run
+    /// let bio = client.artist_bio(123456789, Some(true)).await?;
+    /// println!("Bio source: {}", bio.source);
+    /// println!("Bio text: {}", bio.text);
+    /// ```
+    pub async fn artist_bio(
+        &self,
+        artist_id: u64,
+        include_image_links: Option<bool>,
+    ) -> Result<ArtistBio, Error> {
+        let url = format!("{TIDAL_API_BASE_URL}/artists/{artist_id}/bio");
+        let include_image_links = include_image_links.unwrap_or(true);
+        let params = serde_json::json!({
+            "includeImageLinks": include_image_links,
+            "countryCode": self.get_country_code(),
+            "locale": self.get_locale(),
+            "deviceType": self.get_device_type().as_ref(),
+        });
+        let resp: ArtistBio = self
             .do_request(Method::GET, &url, Some(params), None)
             .await?;
         Ok(resp)

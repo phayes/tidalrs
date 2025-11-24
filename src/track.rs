@@ -97,6 +97,19 @@ pub struct FavoriteTrack {
     pub item: Track,
 }
 
+/// A suggested track from a track recommendations response.
+///
+/// This structure wraps a recommended track along with information
+/// about the sources that suggested it.
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "camelCase")]
+pub struct SuggestedTrack {
+    /// The recommended track
+    pub track: Track,
+    /// Sources that suggested this track (e.g., "SUGGESTED_TRACKS")
+    pub sources: Vec<String>,
+}
+
 impl TidalClient {
     /// Get streaming information for a track at the specified audio quality.
     ///
@@ -172,6 +185,57 @@ impl TidalClient {
         });
 
         let resp: Track = self
+            .do_request(Method::GET, &url, Some(params), None)
+            .await?;
+
+        Ok(resp)
+    }
+
+    /// Get recommended tracks for a specific track with pagination support.
+    ///
+    /// This method retrieves tracks that Tidal recommends based on the
+    /// specified track's characteristics and user preferences.
+    ///
+    /// # Arguments
+    ///
+    /// * `track_id` - The unique identifier of the track
+    /// * `offset` - Number of recommendations to skip (default: 0)
+    /// * `limit` - Maximum number of recommendations to return (default: 20)
+    ///
+    /// # Returns
+    ///
+    /// Returns a paginated list of recommended tracks.
+    ///
+    /// # Example
+    ///
+    /// ```no_run
+    /// let recommendations = client.track_recommendations(123456789, Some(0), Some(20)).await?;
+    /// for suggestion in recommendations.items {
+    ///     println!("Suggested: {} by {}", 
+    ///         suggestion.track.title,
+    ///         suggestion.track.artists[0].name
+    ///     );
+    ///     println!("Sources: {:?}", suggestion.sources);
+    /// }
+    /// ```
+    pub async fn track_recommendations(
+        &self,
+        track_id: u64,
+        offset: Option<u32>,
+        limit: Option<u32>,
+    ) -> Result<List<SuggestedTrack>, Error> {
+        let offset = offset.unwrap_or(0);
+        let limit = limit.unwrap_or(20);
+        let url = format!("{TIDAL_API_BASE_URL}/tracks/{track_id}/recommendations");
+        let params = serde_json::json!({
+            "offset": offset,
+            "limit": limit,
+            "countryCode": self.get_country_code(),
+            "locale": self.get_locale(),
+            "deviceType": self.get_device_type().as_ref(),
+        });
+
+        let resp: List<SuggestedTrack> = self
             .do_request(Method::GET, &url, Some(params), None)
             .await?;
 
