@@ -4,14 +4,14 @@ A comprehensive Rust client library for the Tidal music streaming service API. T
 
 ## Features
 
-- 🎵 **Complete Music API**: Access tracks, albums, artists, and playlists
-- 🎧 **Audio Streaming**: Download and stream tracks in various quality levels
-- 🔍 **Advanced Search**: Search across all content types with filtering
-- 👤 **User Management**: Manage favorites, playlists, and user data
-- 🔐 **OAuth2 Authentication**: Device flow authentication with automatic token refresh
-- 🚀 **Async/Await**: Built on Tokio for high-performance async operations
-- 🛡️ **Type Safety**: Comprehensive type definitions for all Tidal API responses
-- 📱 **Cross-Platform**: Works on all platforms supported by Rust
+- **Complete Music API**: Access tracks, albums, artists, and playlists
+- **Audio Streaming**: Download and stream tracks in various quality levels
+- **Advanced Search**: Search across all content types with filtering
+- **User Management**: Manage favorites, playlists, and user data
+- **OAuth2 Authentication**: Device flow authentication with automatic token refresh
+- **Async/Await**: Built on Tokio for high-performance async operations
+- **Type Safety**: Comprehensive type definitions for all Tidal API responses
+- **Cross-Platform**: Works on all platforms supported by Rust
 
 ## Quick Start
 
@@ -19,7 +19,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-tidalrs = "0.1.0"
+tidalrs = "0.4.1"
 tokio = { version = "1.0", features = ["full"] }
 ```
 
