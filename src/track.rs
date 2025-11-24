@@ -480,7 +480,7 @@ pub struct TrackStream {
 ///
 /// This structure contains technical audio information including
 /// replay gain, peak amplitude, and manifest data.
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "camelCase")]
 pub struct TrackPlaybackInfo {
     /// Peak amplitude for the entire album
@@ -517,7 +517,7 @@ pub struct TrackPlaybackInfo {
 ///
 /// This structure contains DASH streaming metadata including
 /// manifest information and audio quality details.
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "camelCase")]
 pub struct TrackDashPlaybackInfo {
     /// Peak amplitude for the entire album
