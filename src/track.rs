@@ -557,6 +557,32 @@ pub struct TrackDashPlaybackInfo {
     pub track_replay_gain: f64,
 }
 
+impl TrackPlaybackInfo {
+    /// Decode the base64-encoded manifest, which may be either XML or JSON string
+    ///
+    /// # Returns
+    ///
+    /// Returns the decoded manifest as a UTF-8 string.
+    ///
+    /// # Errors
+    ///
+    /// Returns a `base64::DecodeError` if the manifest cannot be decoded.
+    ///
+    /// # Example
+    ///
+    /// ```no_run
+    /// let dash_info = client.track_dash_playback_info(123456789, tidalrs::AudioQuality::Lossless).await?;
+    /// let manifest = dash_info.unpack_manifest()?;
+    /// println!("DASH manifest: {}", manifest);
+    /// ```
+    pub fn unpack_manifest(&self) -> Result<String, base64::DecodeError> {
+        use base64::Engine;
+        let decoded = base64::engine::general_purpose::STANDARD.decode(self.manifest.as_bytes())?;
+
+        Ok(String::from_utf8(decoded).expect("tidalrs: Failed to decode manifest"))
+    }
+}
+
 impl TrackDashPlaybackInfo {
     /// Decode the base64-encoded DASH manifest.
     ///
