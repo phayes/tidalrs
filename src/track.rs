@@ -538,7 +538,7 @@ pub struct TrackDashPlaybackInfo {
     /// Audio quality level
     pub audio_quality: AudioQuality,
     /// Bit depth of the audio
-    pub bit_depth: u32,
+    pub bit_depth: Option<u32>,
     /// Base64-encoded manifest data
     ///
     /// Use unpack_manifest() to get the decoded manifest. Crates that support MPEG-DASH playback should be able to use this manifest to play the track.
