@@ -116,6 +116,19 @@ pub struct PlaylistCreator {
     pub id: Option<u64>,
 }
 
+/// A recommended item from a playlist recommendations response.
+///
+/// This structure wraps a track (or potentially other resource types in the future)
+/// along with its type identifier.
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub struct PlaylistRecommendationItem {
+    /// The recommended track
+    pub item: Track,
+    /// The type of the recommended item (e.g., "track")
+    #[serde(rename = "type")]
+    pub item_type: String,
+}
+
 impl TidalClient {
     /// Get playlist information by ID.
     ///
@@ -412,6 +425,60 @@ impl TidalClient {
         });
 
         let resp: List<Playlist> = self
+            .do_request(Method::GET, &url, Some(params), None)
+            .await?;
+
+        Ok(resp)
+    }
+
+    /// Get recommended tracks for a specific playlist with pagination support.
+    ///
+    /// This method retrieves tracks that Tidal recommends based on the
+    /// playlist's content and user preferences.
+    ///
+    /// # Arguments
+    ///
+    /// * `playlist_id` - The unique identifier (UUID) of the playlist
+    /// * `offset` - Number of recommendations to skip (default: 0)
+    /// * `limit` - Maximum number of recommendations to return (default: 50)
+    ///
+    /// # Returns
+    ///
+    /// Returns a paginated list of recommended tracks for the playlist.
+    ///
+    /// # Example
+    ///
+    /// ```no_run
+    /// let recommendations = client.playlist_recommendations(
+    ///     "12345678-1234-1234-1234-123456789abc",
+    ///     Some(0),
+    ///     Some(50)
+    /// ).await?;
+    /// for recommendation in recommendations.items {
+    ///     println!("Recommended: {} by {}", 
+    ///         recommendation.item.title,
+    ///         recommendation.item.artists[0].name
+    ///     );
+    /// }
+    /// ```
+    pub async fn playlist_recommendations(
+        &self,
+        playlist_id: &str,
+        offset: Option<u32>,
+        limit: Option<u32>,
+    ) -> Result<List<PlaylistRecommendationItem>, Error> {
+        let offset = offset.unwrap_or(0);
+        let limit = limit.unwrap_or(50);
+        let url = format!("{TIDAL_API_BASE_URL}/playlists/{playlist_id}/recommendations/items");
+        let params = serde_json::json!({
+            "offset": offset,
+            "limit": limit,
+            "countryCode": self.get_country_code(),
+            "locale": self.get_locale(),
+            "deviceType": self.get_device_type().as_ref(),
+        });
+
+        let resp: List<PlaylistRecommendationItem> = self
             .do_request(Method::GET, &url, Some(params), None)
             .await?;
 
