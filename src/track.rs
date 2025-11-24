@@ -103,7 +103,7 @@ pub struct FavoriteTrack {
 /// about the sources that suggested it.
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "camelCase")]
-pub struct SuggestedTrack {
+struct SuggestedTrack {
     /// The recommended track
     pub track: Track,
     /// Sources that suggested this track (e.g., "SUGGESTED_TRACKS")
@@ -210,12 +210,11 @@ impl TidalClient {
     ///
     /// ```no_run
     /// let recommendations = client.track_recommendations(123456789, Some(0), Some(20)).await?;
-    /// for suggestion in recommendations.items {
+    /// for track in recommendations.items {
     ///     println!("Suggested: {} by {}", 
-    ///         suggestion.track.title,
-    ///         suggestion.track.artists[0].name
+    ///         track.title,
+    ///         track.artists[0].name
     ///     );
-    ///     println!("Sources: {:?}", suggestion.sources);
     /// }
     /// ```
     pub async fn track_recommendations(
@@ -223,9 +222,9 @@ impl TidalClient {
         track_id: u64,
         offset: Option<u32>,
         limit: Option<u32>,
-    ) -> Result<List<SuggestedTrack>, Error> {
+    ) -> Result<List<Track>, Error> {
         let offset = offset.unwrap_or(0);
-        let limit = limit.unwrap_or(20);
+        let limit = limit.unwrap_or(5);
         let url = format!("{TIDAL_API_BASE_URL}/tracks/{track_id}/recommendations");
         let params = serde_json::json!({
             "offset": offset,
@@ -239,7 +238,15 @@ impl TidalClient {
             .do_request(Method::GET, &url, Some(params), None)
             .await?;
 
-        Ok(resp)
+        let tracks = List {
+            items: resp.items.into_iter().map(|s| s.track).collect(),
+            offset: resp.offset,
+            limit: resp.limit,
+            total: resp.total,
+            etag: resp.etag,
+        };
+
+        Ok(tracks)
     }
 
     /// Get detailed playback information for a track.
