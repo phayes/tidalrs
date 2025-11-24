@@ -537,7 +537,7 @@ pub struct TrackDashPlaybackInfo {
     pub audio_mode: String,
     /// Audio quality level
     pub audio_quality: AudioQuality,
-    /// Bit depth of the audio
+    /// Bit depth of the audio - may be None if format is lossy
     pub bit_depth: Option<u32>,
     /// Base64-encoded manifest data
     ///
@@ -547,8 +547,8 @@ pub struct TrackDashPlaybackInfo {
     pub manifest_hash: String,
     /// MIME type of the manifest
     pub manifest_mime_type: String,
-    /// Sample rate in Hz
-    pub sample_rate: u32,
+    /// Sample rate in Hz - may be None if format is lossy
+    pub sample_rate: Option<u32>,
     /// Track identifier
     pub track_id: u64,
     /// Peak amplitude for this specific track

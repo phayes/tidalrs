@@ -150,7 +150,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         Ok(dash_info) => {
             println!("DASH playback info retrieved:");
             println!("  Audio Quality: {:?}", dash_info.audio_quality);
-            println!("  Bit Depth: {} bits", dash_info.bit_depth);
+            println!("  Bit Depth: {:?} bits", dash_info.bit_depth);
             println!("  Sample Rate: {} Hz", dash_info.sample_rate);
             println!("  Manifest MIME Type: {}", dash_info.manifest_mime_type);
 
