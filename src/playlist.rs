@@ -471,7 +471,7 @@ impl TidalClient {
         limit: Option<u32>,
     ) -> Result<List<Track>, Error> {
         let offset = offset.unwrap_or(0);
-        let limit = limit.unwrap_or(50);
+        let limit = limit.unwrap_or(5);
         let url = format!("{TIDAL_API_BASE_URL}/playlists/{playlist_id}/recommendations/items");
         let params = serde_json::json!({
             "offset": offset,
