@@ -120,13 +120,15 @@ pub struct PlaylistCreator {
 ///
 /// This structure wraps a track (or potentially other resource types in the future)
 /// along with its type identifier.
+///
+/// This is an internal helper type used only for deserializing the API response.
 #[derive(Debug, Serialize, Deserialize, Clone)]
-pub struct PlaylistRecommendationItem {
+struct PlaylistRecommendationItem {
     /// The recommended track
-    pub item: Track,
+    item: Track,
     /// The type of the recommended item (e.g., "track")
     #[serde(rename = "type")]
-    pub item_type: String,
+    item_type: String,
 }
 
 impl TidalClient {
@@ -454,10 +456,11 @@ impl TidalClient {
     ///     Some(0),
     ///     Some(50)
     /// ).await?;
-    /// for recommendation in recommendations.items {
-    ///     println!("Recommended: {} by {}", 
-    ///         recommendation.item.title,
-    ///         recommendation.item.artists[0].name
+    /// for track in recommendations.items {
+    ///     println!(
+    ///         "Recommended: {} by {}",
+    ///         track.title,
+    ///         track.artists[0].name
     ///     );
     /// }
     /// ```
@@ -466,7 +469,7 @@ impl TidalClient {
         playlist_id: &str,
         offset: Option<u32>,
         limit: Option<u32>,
-    ) -> Result<List<PlaylistRecommendationItem>, Error> {
+    ) -> Result<List<Track>, Error> {
         let offset = offset.unwrap_or(0);
         let limit = limit.unwrap_or(50);
         let url = format!("{TIDAL_API_BASE_URL}/playlists/{playlist_id}/recommendations/items");
@@ -482,6 +485,17 @@ impl TidalClient {
             .do_request(Method::GET, &url, Some(params), None)
             .await?;
 
-        Ok(resp)
+        // Convert the internal recommendation wrapper type into a bare `List<Track>`
+        let tracks: Vec<Track> = resp.items.into_iter().map(|rec| rec.item).collect();
+
+        let track_list = List {
+            items: tracks,
+            offset: resp.offset,
+            limit: resp.limit,
+            total: resp.total,
+            etag: resp.etag,
+        };
+
+        Ok(track_list)
     }
 }
