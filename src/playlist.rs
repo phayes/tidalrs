@@ -20,7 +20,8 @@ pub struct Playlist {
     /// Playlist title
     pub title: String,
     /// Tidal URL for the playlist
-    pub url: String,
+    #[serde(default)]
+    pub url: Option<String>,
     /// Information about the playlist creator
     pub creator: PlaylistCreator,
     /// Playlist description
