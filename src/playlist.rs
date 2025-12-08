@@ -1,3 +1,4 @@
+use crate::deserialize_null_default;
 use crate::Error;
 use crate::List;
 use crate::TIDAL_API_BASE_URL;
@@ -25,7 +26,7 @@ pub struct Playlist {
     /// Information about the playlist creator
     pub creator: PlaylistCreator,
     /// Playlist description
-    #[serde(default)]
+    #[serde(default, deserialize_with = "deserialize_null_default")]
     pub description: String,
 
     /// Total number of tracks in the playlist
