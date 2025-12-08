@@ -1,0 +1,6503 @@
+{
+  "albums": {
+    "items": [
+      {
+        "adSupportedStreamReady": true,
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 4315444,
+            "name": "A$AP Rocky",
+            "picture": "410553b6-fe93-46ed-aa93-0a96f4a17af0",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "copyright": "(P) 2018 A$AP Rocky Recordings LLC/RCA Records. Marketed & Distributed by Polo Grounds Music/RCA Records.",
+        "cover": "5fbcd278-4a53-487a-beb7-72a3d2cac957",
+        "djReady": true,
+        "duration": 3145,
+        "explicit": true,
+        "id": 89179624,
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS",
+            "HIRES_LOSSLESS"
+          ]
+        },
+        "numberOfTracks": 15,
+        "numberOfVideos": 0,
+        "numberOfVolumes": 1,
+        "payToStream": false,
+        "popularity": 84,
+        "premiumStreamingOnly": false,
+        "releaseDate": "2018-05-25",
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2018-05-25T00:00:00.000+0000",
+        "title": "TESTING",
+        "type": "ALBUM",
+        "upc": "886447076446",
+        "upload": false,
+        "url": "http://www.tidal.com/album/89179624",
+        "version": null,
+        "vibrantColor": "#d96d13",
+        "videoCover": "a058249e-2c7a-4632-a017-83a233d66080"
+      },
+      {
+        "adSupportedStreamReady": true,
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 14686,
+            "name": "Missy Elliott",
+            "picture": "1ad5d9ef-e951-4762-85fb-e7dba3a3b4d2",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "copyright": "© 2003 Elektra Entertainment  Group Inc for the United States and WEA International Inc. for the world outside of the United States.",
+        "cover": "f00ccb9d-7e97-4194-b9bf-c355d3c86058",
+        "djReady": true,
+        "duration": 3374,
+        "explicit": true,
+        "id": 3392402,
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "numberOfTracks": 16,
+        "numberOfVideos": 0,
+        "numberOfVolumes": 1,
+        "payToStream": false,
+        "popularity": 67,
+        "premiumStreamingOnly": false,
+        "releaseDate": "2003-11-25",
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2005-02-22T00:00:00.000+0000",
+        "title": "This Is Not a Test!",
+        "type": "ALBUM",
+        "upc": "075596290562",
+        "upload": false,
+        "url": "http://www.tidal.com/album/3392402",
+        "version": null,
+        "vibrantColor": "#9b3e33",
+        "videoCover": null
+      },
+      {
+        "adSupportedStreamReady": true,
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 7975889,
+            "name": "J A Y  E L E C T R O N I C A",
+            "picture": "4a416383-2d69-444a-8073-a4048b6d6ebc",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "copyright": "© 2020 Roc Nation, LLC",
+        "cover": "a671dcf6-8617-41b8-b086-66b9bab6fb85",
+        "djReady": true,
+        "duration": 2373,
+        "explicit": true,
+        "id": 134189401,
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS",
+            "HIRES_LOSSLESS"
+          ]
+        },
+        "numberOfTracks": 10,
+        "numberOfVideos": 0,
+        "numberOfVolumes": 1,
+        "payToStream": false,
+        "popularity": 78,
+        "premiumStreamingOnly": false,
+        "releaseDate": "2020-03-13",
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2020-03-13T00:00:00.000+0000",
+        "title": "A Written Testimony",
+        "type": "ALBUM",
+        "upc": "00810045110479",
+        "upload": false,
+        "url": "http://www.tidal.com/album/134189401",
+        "version": null,
+        "vibrantColor": "#7cb1c1",
+        "videoCover": "7a9215a0-6561-4752-9afa-8b3c4883f5b8"
+      },
+      {
+        "adSupportedStreamReady": true,
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 4898948,
+            "name": "August Alsina",
+            "picture": "76da0c21-6df5-455f-9b55-2c052ed039f4",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "copyright": "© 2014 The Island Def Jam Music Group",
+        "cover": "802fa7ed-2fa9-4534-be35-17660ad6338b",
+        "djReady": true,
+        "duration": 4199,
+        "explicit": true,
+        "id": 27832552,
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "numberOfTracks": 17,
+        "numberOfVideos": 0,
+        "numberOfVolumes": 1,
+        "payToStream": false,
+        "popularity": 76,
+        "premiumStreamingOnly": false,
+        "releaseDate": "2014-04-15",
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2014-04-15T00:00:00.000+0000",
+        "title": "Testimony (Deluxe)",
+        "type": "ALBUM",
+        "upc": "00602537725977",
+        "upload": false,
+        "url": "http://www.tidal.com/album/27832552",
+        "version": null,
+        "vibrantColor": "#7c3a32",
+        "videoCover": null
+      },
+      {
+        "adSupportedStreamReady": true,
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 5225704,
+            "name": "Armand Hammer",
+            "picture": "9dda3e92-777f-4b4a-9f1f-17fb266e5d98",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 4005410,
+            "name": "Billy Woods",
+            "picture": "f1787104-8971-40b8-b8f2-394559c270a6",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 9599957,
+            "name": "E L U C I D",
+            "picture": "d40e5163-b6a5-492e-812a-97502c6bc385",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "copyright": "(C) 2023 Fat Possum Records",
+        "cover": "926bbd2a-c3c3-4cb6-aa0a-e857f5e71213",
+        "djReady": true,
+        "duration": 3618,
+        "explicit": true,
+        "id": 346561187,
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS",
+            "HIRES_LOSSLESS"
+          ]
+        },
+        "numberOfTracks": 16,
+        "numberOfVideos": 0,
+        "numberOfVolumes": 1,
+        "payToStream": false,
+        "popularity": 61,
+        "premiumStreamingOnly": false,
+        "releaseDate": "2023-09-29",
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2024-02-27T00:00:00.000+0000",
+        "title": "We Buy Diabetic Test Strips",
+        "type": "ALBUM",
+        "upc": "198391222313",
+        "upload": false,
+        "url": "http://www.tidal.com/album/346561187",
+        "version": null,
+        "vibrantColor": "#ad4776",
+        "videoCover": null
+      },
+      {
+        "adSupportedStreamReady": true,
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 2935,
+            "name": "Various Artists",
+            "picture": null,
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "HIGH",
+        "copyright": "1995 Sheffield Lab Inc.",
+        "cover": "d52a90d1-0125-43e4-a13b-8af460dcdab7",
+        "djReady": true,
+        "duration": 4418,
+        "explicit": false,
+        "id": 11648127,
+        "mediaMetadata": {
+          "tags": []
+        },
+        "numberOfTracks": 86,
+        "numberOfVideos": 0,
+        "numberOfVolumes": 1,
+        "payToStream": false,
+        "popularity": 63,
+        "premiumStreamingOnly": false,
+        "releaseDate": "1995-01-01",
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2007-05-22T00:00:00.000+0000",
+        "title": "The Sheffield / A2TB Test Disc - \"My Disc\"",
+        "type": "ALBUM",
+        "upc": "829410207973",
+        "upload": false,
+        "url": "http://www.tidal.com/album/11648127",
+        "version": null,
+        "vibrantColor": "#FFFFFF",
+        "videoCover": null
+      },
+      {
+        "adSupportedStreamReady": true,
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 6961817,
+            "name": "Bianca Wu",
+            "picture": null,
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "copyright": "bma Records Ltd.",
+        "cover": "ffd89d4a-1b41-4f8e-be97-76e09e4ba6fe",
+        "djReady": true,
+        "duration": 2863,
+        "explicit": false,
+        "id": 47561372,
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "numberOfTracks": 10,
+        "numberOfVideos": 0,
+        "numberOfVolumes": 1,
+        "payToStream": false,
+        "popularity": 58,
+        "premiumStreamingOnly": false,
+        "releaseDate": "2012-11-02",
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2012-11-03T00:00:00.000+0000",
+        "title": "Sings Tess",
+        "type": "ALBUM",
+        "upc": "700112940941",
+        "upload": false,
+        "url": "http://www.tidal.com/album/47561372",
+        "version": null,
+        "vibrantColor": "#FFFFFF",
+        "videoCover": null
+      },
+      {
+        "adSupportedStreamReady": true,
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 36227,
+            "name": "Plies",
+            "picture": "12478bf0-657d-479a-9796-cf54fba09075",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "copyright": "© 2007 Slip-N-Slide Records, Inc. exclusively licensed to Atlantic Recording Corporation for the United States and WEA International Inc. for the world outside of the United States",
+        "cover": "88fa43db-a77d-4be9-bc7b-16d02d8fa8fe",
+        "djReady": true,
+        "duration": 3455,
+        "explicit": true,
+        "id": 691808,
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "numberOfTracks": 15,
+        "numberOfVideos": 0,
+        "numberOfVolumes": 1,
+        "payToStream": false,
+        "popularity": 71,
+        "premiumStreamingOnly": false,
+        "releaseDate": "2007-08-07",
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2007-08-07T00:00:00.000+0000",
+        "title": "The Real Testament",
+        "type": "ALBUM",
+        "upc": "075679997791",
+        "upload": false,
+        "url": "http://www.tidal.com/album/691808",
+        "version": null,
+        "vibrantColor": "#be9841",
+        "videoCover": null
+      },
+      {
+        "adSupportedStreamReady": true,
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 2935,
+            "name": "Various Artists",
+            "picture": null,
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "copyright": "2022 Warner Music Group - X5 Music Group",
+        "cover": "7c739b9a-2ad9-4eda-a7be-ca6bd40c8665",
+        "djReady": true,
+        "duration": 12767,
+        "explicit": true,
+        "id": 212199029,
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "numberOfTracks": 42,
+        "numberOfVideos": 0,
+        "numberOfVolumes": 1,
+        "payToStream": false,
+        "popularity": 55,
+        "premiumStreamingOnly": false,
+        "releaseDate": "2022-01-28",
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2022-01-28T00:00:00.000+0000",
+        "title": "Headphone & HiFi Test",
+        "type": "ALBUM",
+        "upc": "5059460114876",
+        "upload": false,
+        "url": "http://www.tidal.com/album/212199029",
+        "version": null,
+        "vibrantColor": "#81e2ed",
+        "videoCover": null
+      },
+      {
+        "adSupportedStreamReady": true,
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 22178906,
+            "name": "Lorien Testard",
+            "picture": null,
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "copyright": "Sandfall Interactive under license to Laced Music Ltd t/a Laced Records",
+        "cover": "7bbcff67-29c5-4521-88c5-e95f84176ffd",
+        "djReady": true,
+        "duration": 29373,
+        "explicit": false,
+        "id": 428817523,
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "numberOfTracks": 154,
+        "numberOfVideos": 0,
+        "numberOfVolumes": 3,
+        "payToStream": false,
+        "popularity": 69,
+        "premiumStreamingOnly": false,
+        "releaseDate": "2025-04-24",
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2025-04-24T00:00:00.000+0000",
+        "title": "Clair Obscur: Expedition 33 (Original Soundtrack)",
+        "type": "ALBUM",
+        "upc": "8721215081586",
+        "upload": false,
+        "url": "http://www.tidal.com/album/428817523",
+        "version": null,
+        "vibrantColor": "#cfc198",
+        "videoCover": null
+      },
+      {
+        "adSupportedStreamReady": true,
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 37348,
+            "name": "Opeth",
+            "picture": "aa0fc288-b0b8-4c3f-a708-03c4c3149b99",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "copyright": "(C) 2024 Moderbolaget, Ltd Under exclusive license from Moderbolaget, Ltd to Reigning Phoenix Music GmbH All Rights Reserved",
+        "cover": "90a3d3ee-c52e-46f0-a8c2-9e6274532975",
+        "djReady": true,
+        "duration": 3057,
+        "explicit": false,
+        "id": 389622358,
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS",
+            "HIRES_LOSSLESS"
+          ]
+        },
+        "numberOfTracks": 8,
+        "numberOfVideos": 0,
+        "numberOfVolumes": 1,
+        "payToStream": false,
+        "popularity": 68,
+        "premiumStreamingOnly": false,
+        "releaseDate": "2024-11-22",
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2024-11-22T00:00:00.000+0000",
+        "title": "The Last Will And Testament",
+        "type": "ALBUM",
+        "upc": "4262464731760",
+        "upload": false,
+        "url": "http://www.tidal.com/album/389622358",
+        "version": null,
+        "vibrantColor": "#b3914c",
+        "videoCover": null
+      },
+      {
+        "adSupportedStreamReady": true,
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 21133666,
+            "name": "Bunker Analog",
+            "picture": "4f7357b6-d77b-48b1-b07a-c89f584dd758",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "copyright": "Anderson Guerra",
+        "cover": "c0b3ed99-f212-477a-b579-c9748d0047ba",
+        "djReady": true,
+        "duration": 5923,
+        "explicit": false,
+        "id": 378714259,
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "numberOfTracks": 20,
+        "numberOfVideos": 0,
+        "numberOfVolumes": 1,
+        "payToStream": false,
+        "popularity": 58,
+        "premiumStreamingOnly": false,
+        "releaseDate": "2020-08-27",
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2024-07-29T00:00:00.000+0000",
+        "title": "Stereo Test: Speaker Setup, Calibration Tones, Soundcheck",
+        "type": "ALBUM",
+        "upc": "0732535776098",
+        "upload": false,
+        "url": "http://www.tidal.com/album/378714259",
+        "version": null,
+        "vibrantColor": "#f1df95",
+        "videoCover": null
+      },
+      {
+        "adSupportedStreamReady": true,
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 7975889,
+            "name": "J A Y  E L E C T R O N I C A",
+            "picture": "4a416383-2d69-444a-8073-a4048b6d6ebc",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "copyright": "2025 Jay Electronica, under exclusive license to Roc Nation Distribution",
+        "cover": "c62269cd-d61a-4c7b-addb-b86467a64dcc",
+        "djReady": true,
+        "duration": 1731,
+        "explicit": true,
+        "id": 461657073,
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS",
+            "HIRES_LOSSLESS"
+          ]
+        },
+        "numberOfTracks": 7,
+        "numberOfVideos": 0,
+        "numberOfVolumes": 1,
+        "payToStream": false,
+        "popularity": 67,
+        "premiumStreamingOnly": false,
+        "releaseDate": "2025-09-19",
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2025-09-19T00:00:00.000+0000",
+        "title": "A Written Testimony: Leaflets",
+        "type": "ALBUM",
+        "upc": "810058343529",
+        "upload": false,
+        "url": "http://www.tidal.com/album/461657073",
+        "version": null,
+        "vibrantColor": "#ddcba3",
+        "videoCover": null
+      },
+      {
+        "adSupportedStreamReady": true,
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 9637559,
+            "name": "Bass Boosted HD",
+            "picture": null,
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "copyright": "2018 TC-OSS",
+        "cover": "a9b047be-79e0-4791-8b47-d7fdefabe7a4",
+        "djReady": true,
+        "duration": 994,
+        "explicit": false,
+        "id": 95508265,
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "numberOfTracks": 8,
+        "numberOfVideos": 0,
+        "numberOfVolumes": 1,
+        "payToStream": false,
+        "popularity": 50,
+        "premiumStreamingOnly": false,
+        "releaseDate": "2018-09-20",
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2018-09-22T00:00:00.000+0000",
+        "title": "Bass Test",
+        "type": "ALBUM",
+        "upc": "721782002319",
+        "upload": false,
+        "url": "http://www.tidal.com/album/95508265",
+        "version": null,
+        "vibrantColor": "#7e8337",
+        "videoCover": null
+      },
+      {
+        "adSupportedStreamReady": true,
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 9225136,
+            "name": "Artemas",
+            "picture": "2dff9d64-d829-42bf-b8b4-172a726b0273",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "copyright": "© 2025 Artemas",
+        "cover": "95537b72-41e0-4bd4-a32c-06439155707c",
+        "djReady": true,
+        "duration": 327,
+        "explicit": true,
+        "id": 424087536,
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS",
+            "HIRES_LOSSLESS"
+          ]
+        },
+        "numberOfTracks": 2,
+        "numberOfVideos": 0,
+        "numberOfVolumes": 1,
+        "payToStream": false,
+        "popularity": 51,
+        "premiumStreamingOnly": false,
+        "releaseDate": "2025-03-19",
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2025-03-19T00:00:00.000+0000",
+        "title": "southbound / test drive",
+        "type": "SINGLE",
+        "upc": "810129980240",
+        "upload": false,
+        "url": "http://www.tidal.com/album/424087536",
+        "version": null,
+        "vibrantColor": "#1e597e",
+        "videoCover": null
+      },
+      {
+        "adSupportedStreamReady": true,
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 2273,
+            "name": "Jay-Jay Johanson",
+            "picture": "4b6c36ad-e3ff-446d-a020-dd58ce982692",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "copyright": "29 Music under exclusive license to Kuroneko Media",
+        "cover": "06dff02d-72f9-4399-b5ff-8403c717471d",
+        "djReady": true,
+        "duration": 2689,
+        "explicit": false,
+        "id": 168714898,
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS",
+            "HIRES_LOSSLESS"
+          ]
+        },
+        "numberOfTracks": 10,
+        "numberOfVideos": 0,
+        "numberOfVolumes": 1,
+        "payToStream": false,
+        "popularity": 49,
+        "premiumStreamingOnly": false,
+        "releaseDate": "2021-03-19",
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2021-03-19T00:00:00.000+0000",
+        "title": "Rorschach Test",
+        "type": "ALBUM",
+        "upc": "3616552137308",
+        "upload": false,
+        "url": "http://www.tidal.com/album/168714898",
+        "version": null,
+        "vibrantColor": "#48b79f",
+        "videoCover": null
+      },
+      {
+        "adSupportedStreamReady": true,
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 7975889,
+            "name": "J A Y  E L E C T R O N I C A",
+            "picture": "4a416383-2d69-444a-8073-a4048b6d6ebc",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "copyright": "2025 Jay Electronica, under exclusive license to Roc Nation Distribution",
+        "cover": "4518650f-0c60-40ca-8deb-542b34f736f5",
+        "djReady": true,
+        "duration": 764,
+        "explicit": true,
+        "id": 461813747,
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS",
+            "HIRES_LOSSLESS"
+          ]
+        },
+        "numberOfTracks": 5,
+        "numberOfVideos": 0,
+        "numberOfVolumes": 1,
+        "payToStream": false,
+        "popularity": 65,
+        "premiumStreamingOnly": false,
+        "releaseDate": "2025-09-19",
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2025-09-19T00:00:00.000+0000",
+        "title": "A Written Testimony: Power At The Rate Of My Dreams",
+        "type": "EP",
+        "upc": "810058343543",
+        "upload": false,
+        "url": "http://www.tidal.com/album/461813747",
+        "version": null,
+        "vibrantColor": "#e0b3ac",
+        "videoCover": null
+      },
+      {
+        "adSupportedStreamReady": true,
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 5632757,
+            "name": "Audio Check",
+            "picture": null,
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "copyright": "2014 Audio Check",
+        "cover": "73b708fd-fd69-416c-bc74-9d40c5a87375",
+        "djReady": true,
+        "duration": 4664,
+        "explicit": false,
+        "id": 29581889,
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "numberOfTracks": 127,
+        "numberOfVideos": 0,
+        "numberOfVolumes": 1,
+        "payToStream": false,
+        "popularity": 56,
+        "premiumStreamingOnly": false,
+        "releaseDate": "2014-05-05",
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2014-05-05T00:00:00.000+0000",
+        "title": "Audio Line-Up Test Tones (Calibration Reference Check)",
+        "type": "ALBUM",
+        "upc": "888831089247",
+        "upload": false,
+        "url": "http://www.tidal.com/album/29581889",
+        "version": null,
+        "vibrantColor": "#a4670a",
+        "videoCover": null
+      },
+      {
+        "adSupportedStreamReady": true,
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 25733,
+            "name": "Crash Test Dummies",
+            "picture": "28ec014c-67bc-4985-92d0-e9956961383a",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "copyright": "(P) 1993 BMG Music Canada Inc.",
+        "cover": "96d134b6-4a4d-42ac-9a53-d98f0b3ba32d",
+        "djReady": true,
+        "duration": 2689,
+        "explicit": false,
+        "id": 12585823,
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "numberOfTracks": 12,
+        "numberOfVideos": 0,
+        "numberOfVolumes": 1,
+        "payToStream": false,
+        "popularity": 64,
+        "premiumStreamingOnly": false,
+        "releaseDate": "1993-01-01",
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "1993-04-05T00:00:00.000+0000",
+        "title": "God Shuffled His Feet",
+        "type": "ALBUM",
+        "upc": "888880411853",
+        "upload": false,
+        "url": "http://www.tidal.com/album/12585823",
+        "version": null,
+        "vibrantColor": "#ebc06e",
+        "videoCover": null
+      },
+      {
+        "adSupportedStreamReady": true,
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 10247,
+            "name": "tobyMac",
+            "picture": "bf9159c6-3c95-49ae-827a-2ef05a37946b",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "copyright": "© 2015 ForeFront Records",
+        "cover": "d009aff4-9e76-420c-8ab9-5093deed3331",
+        "djReady": true,
+        "duration": 3353,
+        "explicit": false,
+        "id": 49469628,
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "numberOfTracks": 15,
+        "numberOfVideos": 0,
+        "numberOfVolumes": 1,
+        "payToStream": false,
+        "popularity": 55,
+        "premiumStreamingOnly": false,
+        "releaseDate": "2015-08-17",
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2015-08-07T00:00:00.000+0000",
+        "title": "This Is Not A Test (Deluxe Edition)",
+        "type": "ALBUM",
+        "upc": "00602547330284",
+        "upload": false,
+        "url": "http://www.tidal.com/album/49469628",
+        "version": null,
+        "vibrantColor": "#f236dd",
+        "videoCover": null
+      },
+      {
+        "adSupportedStreamReady": true,
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 4103193,
+            "name": "Seekae",
+            "picture": "91510b66-34d8-4903-807a-45ba5bffc264",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "copyright": "© 2014 Future Classic",
+        "cover": "f0995091-5b65-4fcc-999f-5594a07fd990",
+        "djReady": true,
+        "duration": 1085,
+        "explicit": false,
+        "id": 318333076,
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "numberOfTracks": 4,
+        "numberOfVideos": 0,
+        "numberOfVolumes": 1,
+        "payToStream": false,
+        "popularity": 50,
+        "premiumStreamingOnly": false,
+        "releaseDate": "2014-09-02",
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2014-08-14T00:00:00.000+0000",
+        "title": "Test & Recognise (Remixes)",
+        "type": "EP",
+        "upc": "3610156651529",
+        "upload": false,
+        "url": "http://www.tidal.com/album/318333076",
+        "version": null,
+        "vibrantColor": "#FFFFFF",
+        "videoCover": null
+      },
+      {
+        "adSupportedStreamReady": true,
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 7975889,
+            "name": "J A Y  E L E C T R O N I C A",
+            "picture": "4a416383-2d69-444a-8073-a4048b6d6ebc",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "copyright": "2025 Jay Electronica, under exclusive license to Roc Nation Distribution",
+        "cover": "ef8026f2-1f77-4785-8ac4-8f7b01378e46",
+        "djReady": true,
+        "duration": 988,
+        "explicit": true,
+        "id": 462021415,
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "numberOfTracks": 8,
+        "numberOfVideos": 0,
+        "numberOfVolumes": 1,
+        "payToStream": false,
+        "popularity": 62,
+        "premiumStreamingOnly": false,
+        "releaseDate": "2025-09-21",
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2025-09-21T00:00:00.000+0000",
+        "title": "A Written Testimony: Mars, The Inhabited Planet",
+        "type": "ALBUM",
+        "upc": "810058343550",
+        "upload": false,
+        "url": "http://www.tidal.com/album/462021415",
+        "version": null,
+        "vibrantColor": "#FFFFFF",
+        "videoCover": null
+      },
+      {
+        "adSupportedStreamReady": true,
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 62872582,
+            "name": "Audiophile NBR Music",
+            "picture": null,
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "copyright": "TD Records",
+        "cover": "cf834cce-f50a-4854-8e44-891d67ceef4e",
+        "djReady": true,
+        "duration": 1853,
+        "explicit": false,
+        "id": 444873405,
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS",
+            "HIRES_LOSSLESS"
+          ]
+        },
+        "numberOfTracks": 6,
+        "numberOfVideos": 0,
+        "numberOfVolumes": 1,
+        "payToStream": false,
+        "popularity": 48,
+        "premiumStreamingOnly": false,
+        "releaseDate": "2025-06-28",
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2025-06-28T00:00:00.000+0000",
+        "title": "AUDIOPHILE SOUND TEST",
+        "type": "ALBUM",
+        "upc": "199516915806",
+        "upload": false,
+        "url": "http://www.tidal.com/album/444873405",
+        "version": null,
+        "vibrantColor": null,
+        "videoCover": null
+      },
+      {
+        "adSupportedStreamReady": true,
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 10247,
+            "name": "tobyMac",
+            "picture": "bf9159c6-3c95-49ae-827a-2ef05a37946b",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "copyright": "© 2015 ForeFront Records",
+        "cover": "baade615-f81f-4cc4-b7bc-3562e58c29e3",
+        "djReady": true,
+        "duration": 2466,
+        "explicit": false,
+        "id": 49469971,
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "numberOfTracks": 11,
+        "numberOfVideos": 0,
+        "numberOfVolumes": 1,
+        "payToStream": false,
+        "popularity": 51,
+        "premiumStreamingOnly": false,
+        "releaseDate": "2015-08-17",
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2015-08-07T00:00:00.000+0000",
+        "title": "This Is Not A Test",
+        "type": "ALBUM",
+        "upc": "05099908333452",
+        "upload": false,
+        "url": "http://www.tidal.com/album/49469971",
+        "version": null,
+        "vibrantColor": "#f236dd",
+        "videoCover": null
+      },
+      {
+        "adSupportedStreamReady": true,
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 3565983,
+            "name": "India.Arie",
+            "picture": "b1eac72d-3459-408a-a649-6ac84065bf00",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "copyright": "© 2008 Universal Republic Records, a division of UMG Recordings, Inc.",
+        "cover": "30a48d3d-d6f2-49d7-ab2a-764c83b7429b",
+        "djReady": true,
+        "duration": 3159,
+        "explicit": false,
+        "id": 2269820,
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "numberOfTracks": 16,
+        "numberOfVideos": 0,
+        "numberOfVolumes": 1,
+        "payToStream": false,
+        "popularity": 61,
+        "premiumStreamingOnly": false,
+        "releaseDate": "2009-02-10",
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2009-02-10T00:00:00.000+0000",
+        "title": "TESTIMONY VOL. 2:  LOVE & POLITICS",
+        "type": "ALBUM",
+        "upc": "00602517968059",
+        "upload": false,
+        "url": "http://www.tidal.com/album/2269820",
+        "version": null,
+        "vibrantColor": "#ebcd75",
+        "videoCover": null
+      },
+      {
+        "adSupportedStreamReady": true,
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 13857,
+            "name": "The Flaming Lips",
+            "picture": "b75b2970-b6c7-4342-a1b0-ca8799b0cda1",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "copyright": "© 2003 Warner Records Inc.",
+        "cover": "9f84b10e-83dd-40f5-8a6d-ef782e1c7ada",
+        "djReady": true,
+        "duration": 1970,
+        "explicit": false,
+        "id": 233028,
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "numberOfTracks": 7,
+        "numberOfVideos": 0,
+        "numberOfVolumes": 1,
+        "payToStream": false,
+        "popularity": 46,
+        "premiumStreamingOnly": false,
+        "releaseDate": "2003-04-22",
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2003-04-15T00:00:00.000+0000",
+        "title": "Fight Test",
+        "type": "EP",
+        "upc": "093624843368",
+        "upload": false,
+        "url": "http://www.tidal.com/album/233028",
+        "version": null,
+        "vibrantColor": "#e7e297",
+        "videoCover": null
+      },
+      {
+        "adSupportedStreamReady": true,
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 4791340,
+            "name": "Aperture Science Psychoacoustic Laboratories",
+            "picture": null,
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "copyright": "(C) 2012 Ipecac Recordings",
+        "cover": "cea208ae-2e5a-4322-9d88-3c6358864d9a",
+        "djReady": true,
+        "duration": 15068,
+        "explicit": false,
+        "id": 263429668,
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "numberOfTracks": 79,
+        "numberOfVideos": 0,
+        "numberOfVolumes": 4,
+        "payToStream": false,
+        "popularity": 53,
+        "premiumStreamingOnly": false,
+        "releaseDate": "2012-10-30",
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2022-12-06T00:00:00.000+0000",
+        "title": "Portal 2: Songs to Test by (Collectors Edition)",
+        "type": "ALBUM",
+        "upc": "197187619450",
+        "upload": false,
+        "url": "http://www.tidal.com/album/263429668",
+        "version": null,
+        "vibrantColor": "#f3bb5b",
+        "videoCover": null
+      },
+      {
+        "adSupportedStreamReady": true,
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 3518916,
+            "name": "Martin Buttrich",
+            "picture": "2f2f0bb4-5160-4692-b1a7-92f486d041e7",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "copyright": "2010 Desolat Music Group",
+        "cover": "8a486305-66d7-4b79-ac14-34f836454655",
+        "djReady": true,
+        "duration": 3941,
+        "explicit": false,
+        "id": 69548977,
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "numberOfTracks": 11,
+        "numberOfVideos": 0,
+        "numberOfVolumes": 1,
+        "payToStream": false,
+        "popularity": 45,
+        "premiumStreamingOnly": false,
+        "releaseDate": "2010-01-01",
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2010-04-05T00:00:00.000+0000",
+        "title": "Crash Test",
+        "type": "ALBUM",
+        "upc": "4260148770227",
+        "upload": false,
+        "url": "http://www.tidal.com/album/69548977",
+        "version": null,
+        "vibrantColor": "#FFFFFF",
+        "videoCover": null
+      },
+      {
+        "adSupportedStreamReady": true,
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 3565983,
+            "name": "India.Arie",
+            "picture": "b1eac72d-3459-408a-a649-6ac84065bf00",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "copyright": "© 2006 Motown Records, a Division of UMG Recordings, Inc.",
+        "cover": "8e9d54ec-e1c4-4636-8f78-8b56079cac56",
+        "djReady": true,
+        "duration": 3504,
+        "explicit": false,
+        "id": 35736249,
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "numberOfTracks": 16,
+        "numberOfVideos": 0,
+        "numberOfVolumes": 1,
+        "payToStream": false,
+        "popularity": 59,
+        "premiumStreamingOnly": false,
+        "releaseDate": "2006-06-27",
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2006-07-11T00:00:00.000+0000",
+        "title": "Testimony: Vol. 1 Life & Relationship",
+        "type": "ALBUM",
+        "upc": "00602517040656",
+        "upload": false,
+        "url": "http://www.tidal.com/album/35736249",
+        "version": null,
+        "vibrantColor": "#f0d995",
+        "videoCover": null
+      },
+      {
+        "adSupportedStreamReady": true,
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 6849257,
+            "name": "myNoise",
+            "picture": null,
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "copyright": "2018 myNoise BVBA",
+        "cover": "a2f9d3a0-21ad-4b74-8e91-9a7961932f32",
+        "djReady": true,
+        "duration": 1193,
+        "explicit": false,
+        "id": 94976096,
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "numberOfTracks": 20,
+        "numberOfVideos": 0,
+        "numberOfVolumes": 1,
+        "payToStream": false,
+        "popularity": 51,
+        "premiumStreamingOnly": false,
+        "releaseDate": "2018-09-03",
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2018-09-03T00:00:00.000+0000",
+        "title": "The Ultimate Headphone Test (Original Audiocheck Test Tones)",
+        "type": "ALBUM",
+        "upc": "5056271604947",
+        "upload": false,
+        "url": "http://www.tidal.com/album/94976096",
+        "version": null,
+        "vibrantColor": "#c8c077",
+        "videoCover": null
+      }
+    ],
+    "limit": 30,
+    "offset": 0,
+    "totalNumberOfItems": 300
+  },
+  "artists": {
+    "items": [
+      {
+        "artistRoles": [
+          {
+            "category": "Artist",
+            "categoryId": -1
+          },
+          {
+            "category": "Producer",
+            "categoryId": 1
+          },
+          {
+            "category": "Performer",
+            "categoryId": 11
+          },
+          {
+            "category": "Songwriter",
+            "categoryId": 2
+          }
+        ],
+        "artistTypes": [
+          "ARTIST",
+          "CONTRIBUTOR"
+        ],
+        "handle": null,
+        "id": 25733,
+        "mixes": {
+          "ARTIST_MIX": "0009a57ac9b5a40d812c7f51b0f92f"
+        },
+        "name": "Crash Test Dummies",
+        "picture": "28ec014c-67bc-4985-92d0-e9956961383a",
+        "popularity": 69,
+        "selectedAlbumCoverFallback": null,
+        "spotlighted": false,
+        "url": "http://www.tidal.com/artist/25733",
+        "userId": null
+      },
+      {
+        "artistRoles": [
+          {
+            "category": "Artist",
+            "categoryId": -1
+          },
+          {
+            "category": "Songwriter",
+            "categoryId": 2
+          },
+          {
+            "category": "Production team",
+            "categoryId": 10
+          },
+          {
+            "category": "Producer",
+            "categoryId": 1
+          },
+          {
+            "category": "Engineer",
+            "categoryId": 3
+          },
+          {
+            "category": "Performer",
+            "categoryId": 11
+          }
+        ],
+        "artistTypes": [
+          "ARTIST",
+          "CONTRIBUTOR"
+        ],
+        "handle": null,
+        "id": 14813,
+        "mixes": {
+          "ARTIST_MIX": "000903bf4f6ecd56c55ecf03e39577"
+        },
+        "name": "Testament",
+        "picture": "8ad9b681-167f-446c-876c-789fc1f30fe0",
+        "popularity": 69,
+        "selectedAlbumCoverFallback": null,
+        "spotlighted": false,
+        "url": "http://www.tidal.com/artist/14813",
+        "userId": null
+      },
+      {
+        "artistRoles": [
+          {
+            "category": "Artist",
+            "categoryId": -1
+          },
+          {
+            "category": "Songwriter",
+            "categoryId": 2
+          },
+          {
+            "category": "Producer",
+            "categoryId": 1
+          },
+          {
+            "category": "Performer",
+            "categoryId": 11
+          }
+        ],
+        "artistTypes": [
+          "ARTIST",
+          "CONTRIBUTOR"
+        ],
+        "handle": null,
+        "id": 22178906,
+        "mixes": {
+          "ARTIST_MIX": "000ed48c21bf80eab0fbe6ea4d8f14"
+        },
+        "name": "Lorien Testard",
+        "picture": "7bbcff67-29c5-4521-88c5-e95f84176ffd",
+        "popularity": 55,
+        "selectedAlbumCoverFallback": "7bbcff67-29c5-4521-88c5-e95f84176ffd",
+        "spotlighted": false,
+        "url": "http://www.tidal.com/artist/22178906",
+        "userId": null
+      },
+      {
+        "artistRoles": [
+          {
+            "category": "Artist",
+            "categoryId": -1
+          },
+          {
+            "category": "Songwriter",
+            "categoryId": 2
+          },
+          {
+            "category": "Performer",
+            "categoryId": 11
+          }
+        ],
+        "artistTypes": [
+          "ARTIST",
+          "CONTRIBUTOR"
+        ],
+        "handle": null,
+        "id": 14424,
+        "mixes": {
+          "ARTIST_MIX": "0000e7fc7fd8f25206fedc75f65af2"
+        },
+        "name": "Gianmaria Testa",
+        "picture": "d19a7d8a-1ba3-463f-9020-4926ac45d255",
+        "popularity": 52,
+        "selectedAlbumCoverFallback": "d19a7d8a-1ba3-463f-9020-4926ac45d255",
+        "spotlighted": false,
+        "url": "http://www.tidal.com/artist/14424",
+        "userId": null
+      },
+      {
+        "artistRoles": [
+          {
+            "category": "Artist",
+            "categoryId": -1
+          },
+          {
+            "category": "Songwriter",
+            "categoryId": 2
+          }
+        ],
+        "artistTypes": [
+          "ARTIST",
+          "CONTRIBUTOR"
+        ],
+        "handle": null,
+        "id": 5399678,
+        "mixes": {
+          "ARTIST_MIX": "000a1414e7c31c3c5a4284a60d6065"
+        },
+        "name": "Empathy Test",
+        "picture": "214b1ef4-fe15-40fa-beb5-d6408058046e",
+        "popularity": 48,
+        "selectedAlbumCoverFallback": null,
+        "spotlighted": false,
+        "url": "http://www.tidal.com/artist/5399678",
+        "userId": null
+      },
+      {
+        "artistRoles": [
+          {
+            "category": "Artist",
+            "categoryId": -1
+          }
+        ],
+        "artistTypes": [
+          "ARTIST"
+        ],
+        "handle": null,
+        "id": 48001814,
+        "mixes": {
+          "ARTIST_MIX": "000caab1b52294772a10007cbdc3ce"
+        },
+        "name": "Lorien Testard",
+        "picture": "0b2716e1-4f6f-4797-aaa3-6a925771dd89",
+        "popularity": 48,
+        "selectedAlbumCoverFallback": null,
+        "spotlighted": false,
+        "url": "http://www.tidal.com/artist/48001814",
+        "userId": null
+      },
+      {
+        "artistRoles": [
+          {
+            "category": "Artist",
+            "categoryId": -1
+          },
+          {
+            "category": "Producer",
+            "categoryId": 1
+          },
+          {
+            "category": "Engineer",
+            "categoryId": 3
+          },
+          {
+            "category": "Songwriter",
+            "categoryId": 2
+          }
+        ],
+        "artistTypes": [
+          "ARTIST",
+          "CONTRIBUTOR"
+        ],
+        "handle": null,
+        "id": 15233803,
+        "mixes": {
+          "ARTIST_MIX": "00067afe57f1171959463d6ec0829d"
+        },
+        "name": "Nuovo Testamento",
+        "picture": "6fee7b63-241e-4ff1-a779-8bed3b614c04",
+        "popularity": 48,
+        "selectedAlbumCoverFallback": "6fee7b63-241e-4ff1-a779-8bed3b614c04",
+        "spotlighted": false,
+        "url": "http://www.tidal.com/artist/15233803",
+        "userId": null
+      },
+      {
+        "artistRoles": [
+          {
+            "category": "Artist",
+            "categoryId": -1
+          }
+        ],
+        "artistTypes": [
+          "ARTIST",
+          "CONTRIBUTOR"
+        ],
+        "handle": null,
+        "id": 25496618,
+        "mixes": {
+          "ARTIST_MIX": "000c3a7504847d3a0613cb4d43704e"
+        },
+        "name": "Bass Test",
+        "picture": "057aee07-e1d0-4a6d-a1e5-9ec9a0966eab",
+        "popularity": 46,
+        "selectedAlbumCoverFallback": "057aee07-e1d0-4a6d-a1e5-9ec9a0966eab",
+        "spotlighted": false,
+        "url": "http://www.tidal.com/artist/25496618",
+        "userId": null
+      },
+      {
+        "artistRoles": [
+          {
+            "category": "Artist",
+            "categoryId": -1
+          }
+        ],
+        "artistTypes": [
+          "ARTIST",
+          "CONTRIBUTOR"
+        ],
+        "handle": null,
+        "id": 23102718,
+        "mixes": {
+          "ARTIST_MIX": "000f5a59dc3b447a760abe69374af6"
+        },
+        "name": "Testpilot",
+        "picture": "5321f15e-4e33-4ddb-aee3-88d7ed752074",
+        "popularity": 45,
+        "selectedAlbumCoverFallback": "5321f15e-4e33-4ddb-aee3-88d7ed752074",
+        "spotlighted": false,
+        "url": "http://www.tidal.com/artist/23102718",
+        "userId": null
+      },
+      {
+        "artistRoles": [
+          {
+            "category": "Artist",
+            "categoryId": -1
+          },
+          {
+            "category": "Engineer",
+            "categoryId": 3
+          },
+          {
+            "category": "Producer",
+            "categoryId": 1
+          }
+        ],
+        "artistTypes": [
+          "ARTIST",
+          "CONTRIBUTOR"
+        ],
+        "handle": null,
+        "id": 7287429,
+        "mixes": {
+          "ARTIST_MIX": "000c468a67e955c2777113d7808e36"
+        },
+        "name": "Reality Test",
+        "picture": "61f987c7-7941-44c0-9241-0da17b95b41b",
+        "popularity": 43,
+        "selectedAlbumCoverFallback": "61f987c7-7941-44c0-9241-0da17b95b41b",
+        "spotlighted": false,
+        "url": "http://www.tidal.com/artist/7287429",
+        "userId": null
+      },
+      {
+        "artistRoles": [
+          {
+            "category": "Artist",
+            "categoryId": -1
+          },
+          {
+            "category": "Producer",
+            "categoryId": 1
+          },
+          {
+            "category": "Songwriter",
+            "categoryId": 2
+          }
+        ],
+        "artistTypes": [
+          "ARTIST",
+          "CONTRIBUTOR"
+        ],
+        "handle": null,
+        "id": 15704391,
+        "mixes": {},
+        "name": "test test",
+        "picture": "ba3f49fd-9e9e-422f-ac2a-e6e74369f57a",
+        "popularity": 0,
+        "selectedAlbumCoverFallback": "ba3f49fd-9e9e-422f-ac2a-e6e74369f57a",
+        "spotlighted": false,
+        "url": "http://www.tidal.com/artist/15704391",
+        "userId": null
+      },
+      {
+        "artistRoles": [
+          {
+            "category": "Artist",
+            "categoryId": -1
+          }
+        ],
+        "artistTypes": [
+          "ARTIST"
+        ],
+        "handle": null,
+        "id": 59212364,
+        "mixes": {},
+        "name": "Test Test",
+        "picture": null,
+        "popularity": 0,
+        "selectedAlbumCoverFallback": null,
+        "spotlighted": false,
+        "url": "http://www.tidal.com/artist/59212364",
+        "userId": null
+      },
+      {
+        "artistRoles": [
+          {
+            "category": "Artist",
+            "categoryId": -1
+          },
+          {
+            "category": "Songwriter",
+            "categoryId": 2
+          }
+        ],
+        "artistTypes": [
+          "ARTIST",
+          "CONTRIBUTOR"
+        ],
+        "handle": null,
+        "id": 7265680,
+        "mixes": {
+          "ARTIST_MIX": "000853810934cd6633b65f4ae3a9f3"
+        },
+        "name": "The Test Tube Babies",
+        "picture": "04323d52-66b1-4163-9626-7188f218830f",
+        "popularity": 41,
+        "selectedAlbumCoverFallback": null,
+        "spotlighted": false,
+        "url": "http://www.tidal.com/artist/7265680",
+        "userId": null
+      },
+      {
+        "artistRoles": [
+          {
+            "category": "Artist",
+            "categoryId": -1
+          },
+          {
+            "category": "Songwriter",
+            "categoryId": 2
+          },
+          {
+            "category": "Engineer",
+            "categoryId": 3
+          },
+          {
+            "category": "Producer",
+            "categoryId": 1
+          }
+        ],
+        "artistTypes": [
+          "ARTIST",
+          "CONTRIBUTOR"
+        ],
+        "handle": null,
+        "id": 3520711,
+        "mixes": {
+          "ARTIST_MIX": "00044c9a9813fc01086b8b85367b4e"
+        },
+        "name": "Test Icicles",
+        "picture": "44c29855-cad8-45e1-8ff6-000e48614868",
+        "popularity": 38,
+        "selectedAlbumCoverFallback": null,
+        "spotlighted": false,
+        "url": "http://www.tidal.com/artist/3520711",
+        "userId": null
+      },
+      {
+        "artistRoles": [
+          {
+            "category": "Artist",
+            "categoryId": -1
+          },
+          {
+            "category": "Performer",
+            "categoryId": 11
+          },
+          {
+            "category": "Songwriter",
+            "categoryId": 2
+          },
+          {
+            "category": "Producer",
+            "categoryId": 1
+          },
+          {
+            "category": "Production team",
+            "categoryId": 10
+          }
+        ],
+        "artistTypes": [
+          "ARTIST",
+          "CONTRIBUTOR"
+        ],
+        "handle": null,
+        "id": 3530607,
+        "mixes": {
+          "ARTIST_MIX": "00038e15b220a17b26a92dd1f50a44"
+        },
+        "name": "Tenth Avenue North",
+        "picture": "c63f3ace-d287-421a-b329-c14965078adb",
+        "popularity": 59,
+        "selectedAlbumCoverFallback": null,
+        "spotlighted": false,
+        "url": "http://www.tidal.com/artist/3530607",
+        "userId": null
+      },
+      {
+        "artistRoles": [
+          {
+            "category": "Artist",
+            "categoryId": -1
+          },
+          {
+            "category": "Producer",
+            "categoryId": 1
+          },
+          {
+            "category": "Songwriter",
+            "categoryId": 2
+          },
+          {
+            "category": "Engineer",
+            "categoryId": 3
+          },
+          {
+            "category": "Production team",
+            "categoryId": 10
+          },
+          {
+            "category": "Performer",
+            "categoryId": 11
+          },
+          {
+            "category": "Misc",
+            "categoryId": 99
+          }
+        ],
+        "artistTypes": [
+          "ARTIST",
+          "CONTRIBUTOR"
+        ],
+        "handle": null,
+        "id": 4506802,
+        "mixes": {
+          "ARTIST_MIX": "000c8d014d5d452e5e3274fd7edbee"
+        },
+        "name": "Luca Testa",
+        "picture": "0504acbc-89d7-4659-a21b-ad451dbd537b",
+        "popularity": 39,
+        "selectedAlbumCoverFallback": "0504acbc-89d7-4659-a21b-ad451dbd537b",
+        "spotlighted": false,
+        "url": "http://www.tidal.com/artist/4506802",
+        "userId": null
+      },
+      {
+        "artistRoles": [
+          {
+            "category": "Artist",
+            "categoryId": -1
+          },
+          {
+            "category": "Songwriter",
+            "categoryId": 2
+          },
+          {
+            "category": "Producer",
+            "categoryId": 1
+          }
+        ],
+        "artistTypes": [
+          "ARTIST",
+          "CONTRIBUTOR"
+        ],
+        "handle": null,
+        "id": 3603520,
+        "mixes": {
+          "ARTIST_MIX": "00006884aee19149d586aa5d0557ca"
+        },
+        "name": "Ozric Tentacles",
+        "picture": "4356ef99-4196-4d89-a729-b09516d26926",
+        "popularity": 57,
+        "selectedAlbumCoverFallback": null,
+        "spotlighted": false,
+        "url": "http://www.tidal.com/artist/3603520",
+        "userId": null
+      },
+      {
+        "artistRoles": [
+          {
+            "category": "Artist",
+            "categoryId": -1
+          },
+          {
+            "category": "Songwriter",
+            "categoryId": 2
+          },
+          {
+            "category": "Performer",
+            "categoryId": 11
+          },
+          {
+            "category": "Producer",
+            "categoryId": 1
+          },
+          {
+            "category": "Engineer",
+            "categoryId": 3
+          }
+        ],
+        "artistTypes": [
+          "ARTIST"
+        ],
+        "handle": null,
+        "id": 45637782,
+        "mixes": {},
+        "name": "Dolby Atmos Audio Test",
+        "picture": "bc5d4e1c-b842-4e67-b4ee-9fd982879590",
+        "popularity": 39,
+        "selectedAlbumCoverFallback": "44aee104-30c1-4dd3-8f74-e34eed5dcf31",
+        "spotlighted": false,
+        "url": "http://www.tidal.com/artist/45637782",
+        "userId": null
+      },
+      {
+        "artistRoles": [
+          {
+            "category": "Artist",
+            "categoryId": -1
+          },
+          {
+            "category": "Songwriter",
+            "categoryId": 2
+          },
+          {
+            "category": "Performer",
+            "categoryId": 11
+          },
+          {
+            "category": "Producer",
+            "categoryId": 1
+          }
+        ],
+        "artistTypes": [
+          "ARTIST",
+          "CONTRIBUTOR"
+        ],
+        "handle": null,
+        "id": 5086918,
+        "mixes": {
+          "ARTIST_MIX": "000ff9b4653e6e6af5c3522bea607e"
+        },
+        "name": "Tess Parks",
+        "picture": "e8129939-3355-48df-95df-e5535c0020b3",
+        "popularity": 55,
+        "selectedAlbumCoverFallback": null,
+        "spotlighted": false,
+        "url": "http://www.tidal.com/artist/5086918",
+        "userId": null
+      },
+      {
+        "artistRoles": [
+          {
+            "category": "Artist",
+            "categoryId": -1
+          },
+          {
+            "category": "Producer",
+            "categoryId": 1
+          },
+          {
+            "category": "Songwriter",
+            "categoryId": 2
+          }
+        ],
+        "artistTypes": [
+          "ARTIST",
+          "CONTRIBUTOR"
+        ],
+        "handle": null,
+        "id": 4289930,
+        "mixes": {
+          "ARTIST_MIX": "000eb23c24021915dec16db5a04d3b"
+        },
+        "name": "Pianos Become The Teeth",
+        "picture": "c6a3267e-9409-4bed-8b2d-fc4a151e793c",
+        "popularity": 52,
+        "selectedAlbumCoverFallback": null,
+        "spotlighted": false,
+        "url": "http://www.tidal.com/artist/4289930",
+        "userId": null
+      },
+      {
+        "artistRoles": [
+          {
+            "category": "Artist",
+            "categoryId": -1
+          },
+          {
+            "category": "Performer",
+            "categoryId": 11
+          },
+          {
+            "category": "Songwriter",
+            "categoryId": 2
+          },
+          {
+            "category": "Producer",
+            "categoryId": 1
+          },
+          {
+            "category": "Production team",
+            "categoryId": 10
+          },
+          {
+            "category": "Engineer",
+            "categoryId": 3
+          }
+        ],
+        "artistTypes": [
+          "ARTIST",
+          "CONTRIBUTOR"
+        ],
+        "handle": null,
+        "id": 3520892,
+        "mixes": {
+          "ARTIST_MIX": "000a4e0892b1cec760b2b94de21e28"
+        },
+        "name": "Teitur",
+        "picture": "3030bfd5-1b71-4080-bb98-11adfd99b0aa",
+        "popularity": 51,
+        "selectedAlbumCoverFallback": null,
+        "spotlighted": false,
+        "url": "http://www.tidal.com/artist/3520892",
+        "userId": null
+      },
+      {
+        "artistRoles": [
+          {
+            "category": "Artist",
+            "categoryId": -1
+          },
+          {
+            "category": "Producer",
+            "categoryId": 1
+          },
+          {
+            "category": "Production team",
+            "categoryId": 10
+          },
+          {
+            "category": "Songwriter",
+            "categoryId": 2
+          }
+        ],
+        "artistTypes": [
+          "ARTIST",
+          "CONTRIBUTOR"
+        ],
+        "handle": null,
+        "id": 30100556,
+        "mixes": {
+          "ARTIST_MIX": "000447316f42a24326db7290ebe705"
+        },
+        "name": "Teethe",
+        "picture": "782c80a1-035b-419e-8b0b-dc940c4b3372",
+        "popularity": 50,
+        "selectedAlbumCoverFallback": null,
+        "spotlighted": false,
+        "url": "http://www.tidal.com/artist/30100556",
+        "userId": null
+      },
+      {
+        "artistRoles": [
+          {
+            "category": "Artist",
+            "categoryId": -1
+          },
+          {
+            "category": "Producer",
+            "categoryId": 1
+          },
+          {
+            "category": "Songwriter",
+            "categoryId": 2
+          },
+          {
+            "category": "Production team",
+            "categoryId": 10
+          },
+          {
+            "category": "Engineer",
+            "categoryId": 3
+          },
+          {
+            "category": "Performer",
+            "categoryId": 11
+          },
+          {
+            "category": "Misc",
+            "categoryId": 99
+          }
+        ],
+        "artistTypes": [
+          "ARTIST",
+          "CONTRIBUTOR"
+        ],
+        "handle": null,
+        "id": 7267581,
+        "mixes": {
+          "ARTIST_MIX": "0008a0a21aa8ded80be163bc8773d6"
+        },
+        "name": "Tesk",
+        "picture": "a01f1061-fed6-4152-be92-ca7745e5c179",
+        "popularity": 50,
+        "selectedAlbumCoverFallback": "a01f1061-fed6-4152-be92-ca7745e5c179",
+        "spotlighted": false,
+        "url": "http://www.tidal.com/artist/7267581",
+        "userId": null
+      },
+      {
+        "artistRoles": [
+          {
+            "category": "Artist",
+            "categoryId": -1
+          },
+          {
+            "category": "Songwriter",
+            "categoryId": 2
+          },
+          {
+            "category": "Performer",
+            "categoryId": 11
+          },
+          {
+            "category": "Producer",
+            "categoryId": 1
+          }
+        ],
+        "artistTypes": [
+          "ARTIST",
+          "CONTRIBUTOR"
+        ],
+        "handle": null,
+        "id": 4234203,
+        "mixes": {
+          "ARTIST_MIX": "0001e4d630e473c6e2153570d76df5"
+        },
+        "name": "Test Dept.",
+        "picture": "92126870-bde1-4bef-aafc-fb718a2eb561",
+        "popularity": 34,
+        "selectedAlbumCoverFallback": null,
+        "spotlighted": false,
+        "url": "http://www.tidal.com/artist/4234203",
+        "userId": null
+      },
+      {
+        "artistRoles": [
+          {
+            "category": "Artist",
+            "categoryId": -1
+          },
+          {
+            "category": "Performer",
+            "categoryId": 11
+          },
+          {
+            "category": "Producer",
+            "categoryId": 1
+          }
+        ],
+        "artistTypes": [
+          "ARTIST",
+          "CONTRIBUTOR"
+        ],
+        "handle": null,
+        "id": 4817830,
+        "mixes": {
+          "ARTIST_MIX": "000d2e48b46bb9623e15c20ffc4f7a"
+        },
+        "name": "Roomful of Teeth",
+        "picture": "df37cc92-cc56-49c8-978a-ea6d132b6024",
+        "popularity": 49,
+        "selectedAlbumCoverFallback": null,
+        "spotlighted": false,
+        "url": "http://www.tidal.com/artist/4817830",
+        "userId": null
+      },
+      {
+        "artistRoles": [
+          {
+            "category": "Artist",
+            "categoryId": -1
+          },
+          {
+            "category": "Performer",
+            "categoryId": 11
+          },
+          {
+            "category": "Songwriter",
+            "categoryId": 2
+          },
+          {
+            "category": "Misc",
+            "categoryId": 99
+          }
+        ],
+        "artistTypes": [
+          "ARTIST",
+          "CONTRIBUTOR"
+        ],
+        "handle": null,
+        "id": 3668056,
+        "mixes": {
+          "ARTIST_MIX": "0000920d704fbaf5856a715356a63b"
+        },
+        "name": "Orchestra Del Teatro Alla Scala Di Milano",
+        "picture": "f48f0372-bd17-4cbd-8a55-be43cf253cff",
+        "popularity": 49,
+        "selectedAlbumCoverFallback": "f48f0372-bd17-4cbd-8a55-be43cf253cff",
+        "spotlighted": false,
+        "url": "http://www.tidal.com/artist/3668056",
+        "userId": null
+      },
+      {
+        "artistRoles": [
+          {
+            "category": "Artist",
+            "categoryId": -1
+          },
+          {
+            "category": "Songwriter",
+            "categoryId": 2
+          }
+        ],
+        "artistTypes": [
+          "ARTIST",
+          "CONTRIBUTOR"
+        ],
+        "handle": null,
+        "id": 3870702,
+        "mixes": {},
+        "name": "Testpilot",
+        "picture": "ee90e59e-2a97-424a-b8f8-3213dad953fa",
+        "popularity": 32,
+        "selectedAlbumCoverFallback": "ee90e59e-2a97-424a-b8f8-3213dad953fa",
+        "spotlighted": false,
+        "url": "http://www.tidal.com/artist/3870702",
+        "userId": null
+      },
+      {
+        "artistRoles": [],
+        "artistTypes": [
+          "CONTRIBUTOR"
+        ],
+        "handle": null,
+        "id": 14628032,
+        "mixes": {},
+        "name": "Test test test",
+        "picture": null,
+        "popularity": 0,
+        "selectedAlbumCoverFallback": null,
+        "spotlighted": false,
+        "url": "http://www.tidal.com/artist/14628032",
+        "userId": null
+      },
+      {
+        "artistRoles": [
+          {
+            "category": "Artist",
+            "categoryId": -1
+          },
+          {
+            "category": "Producer",
+            "categoryId": 1
+          },
+          {
+            "category": "Engineer",
+            "categoryId": 3
+          },
+          {
+            "category": "Production team",
+            "categoryId": 10
+          },
+          {
+            "category": "Performer",
+            "categoryId": 11
+          },
+          {
+            "category": "Songwriter",
+            "categoryId": 2
+          }
+        ],
+        "artistTypes": [
+          "ARTIST",
+          "CONTRIBUTOR"
+        ],
+        "handle": null,
+        "id": 8877058,
+        "mixes": {
+          "ARTIST_MIX": "000486c605c418216b469239e77bed"
+        },
+        "name": "Tentendo",
+        "picture": "ca27c48e-b626-433b-b9b5-85bc8a372f4e",
+        "popularity": 47,
+        "selectedAlbumCoverFallback": "ca27c48e-b626-433b-b9b5-85bc8a372f4e",
+        "spotlighted": false,
+        "url": "http://www.tidal.com/artist/8877058",
+        "userId": null
+      },
+      {
+        "artistRoles": [
+          {
+            "category": "Artist",
+            "categoryId": -1
+          }
+        ],
+        "artistTypes": [
+          "ARTIST",
+          "CONTRIBUTOR"
+        ],
+        "handle": null,
+        "id": 8784534,
+        "mixes": {
+          "ARTIST_MIX": "000356fbc0080e8de93e91da6991ea"
+        },
+        "name": "Die Tentakel von Delphi",
+        "picture": "b865b769-61e7-453c-97e7-b65e1aa6b9ad",
+        "popularity": 49,
+        "selectedAlbumCoverFallback": null,
+        "spotlighted": false,
+        "url": "http://www.tidal.com/artist/8784534",
+        "userId": null
+      }
+    ],
+    "limit": 30,
+    "offset": 0,
+    "totalNumberOfItems": 100
+  },
+  "genres": [],
+  "playlists": {
+    "items": [
+      {
+        "created": "2025-02-04T00:00:00.000+0000",
+        "creator": {},
+        "customImageUrl": null,
+        "description": null,
+        "duration": 1032,
+        "image": null,
+        "lastItemAddedAt": "2025-02-06T00:00:00.000+0000",
+        "lastUpdated": "2025-02-06T00:00:00.000+0000",
+        "numberOfTracks": 5,
+        "numberOfVideos": 0,
+        "popularity": 12,
+        "promotedArtists": [
+          {
+            "handle": null,
+            "id": 1566,
+            "name": "Beyoncé",
+            "picture": "0073e74d-ccf0-41d6-855d-374fdf71e5ed",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 4761957,
+            "name": "The Weeknd",
+            "picture": "5598dc62-acf6-49f1-b468-192ad3555278",
+            "type": "MAIN"
+          },
+          {
+            "handle": "olekjorr",
+            "id": 53146710,
+            "name": "Ole Kjørr",
+            "picture": "b1b949a3-ef79-47b6-9b19-a71ea0770b8d",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 3534754,
+            "name": "Lady Gaga",
+            "picture": "1594f44b-f4ed-4bec-80aa-276e0e759063",
+            "type": "MAIN"
+          }
+        ],
+        "publicPlaylist": true,
+        "squareImage": "45a62d6e-ec30-4c13-b38c-c4e7ec6803da",
+        "title": "upload test (New Releases)",
+        "type": "EDITORIAL",
+        "url": "http://www.tidal.com/playlist/e6fde783-fdfd-44bf-834d-cd276305838c",
+        "uuid": "e6fde783-fdfd-44bf-834d-cd276305838c"
+      },
+      {
+        "created": "2020-06-30T00:00:00.000+0000",
+        "creator": {},
+        "customImageUrl": null,
+        "description": null,
+        "duration": 232,
+        "image": null,
+        "lastItemAddedAt": "2020-06-30T00:00:00.000+0000",
+        "lastUpdated": "2024-06-04T00:00:00.000+0000",
+        "numberOfTracks": 1,
+        "numberOfVideos": 0,
+        "popularity": 11,
+        "promotedArtists": [
+          {
+            "handle": null,
+            "id": 4551892,
+            "name": "Arctic Moon",
+            "picture": "0c8b39ad-8ed3-4383-8b92-0366783e792c",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 6441130,
+            "name": "Truewave",
+            "picture": null,
+            "type": "MAIN"
+          }
+        ],
+        "publicPlaylist": true,
+        "squareImage": null,
+        "title": "test",
+        "type": "EDITORIAL",
+        "url": "http://www.tidal.com/playlist/19438132-4c2a-4250-929a-d06d7b6b5194",
+        "uuid": "19438132-4c2a-4250-929a-d06d7b6b5194"
+      },
+      {
+        "created": "2024-05-31T00:00:00.000+0000",
+        "creator": {},
+        "customImageUrl": null,
+        "description": "Lorem ipsum dolor sit amet",
+        "duration": 8925,
+        "image": "aa7f54ac-6bc7-43cb-92b6-9169c47a7087",
+        "lastItemAddedAt": "2024-07-23T00:00:00.000+0000",
+        "lastUpdated": "2024-07-23T00:00:00.000+0000",
+        "numberOfTracks": 40,
+        "numberOfVideos": 0,
+        "popularity": 9,
+        "promotedArtists": [
+          {
+            "handle": null,
+            "id": 3816041,
+            "name": "Kendrick Lamar",
+            "picture": "84d81b7a-a12e-4a3e-bda4-d0527cb1c8cf",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 3618971,
+            "name": "Future",
+            "picture": "c03703be-e66d-4163-9324-6834631d2aa0",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 5416271,
+            "name": "SZA",
+            "picture": "30b0349b-e229-4099-a1f0-aeeb87ad2dc6",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 11000875,
+            "name": "GloRilla",
+            "picture": "006fb74b-7035-4c78-986f-df1056bbb021",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 10063175,
+            "name": "Sexyy Red",
+            "picture": "e549ab52-bebb-46fa-8bd8-df4eab0d8bf0",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 22180418,
+            "name": "Bossman Dlow",
+            "picture": "490e3a4d-7acb-46f2-b88e-7d276e78c5e5",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 6200831,
+            "name": "Bryson Tiller",
+            "picture": "681222f7-8e9c-4ce2-b5a2-9aa4a8ed7a3a",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 7279286,
+            "name": "21 Savage",
+            "picture": "7b875bcb-fb00-460e-a94c-7e5c15ddd9f8",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 4100869,
+            "name": "Childish Gambino",
+            "picture": "4f699aea-6614-48fe-9664-323db832434e",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 5944768,
+            "name": "Shaboozey",
+            "picture": "1b7cf9c3-015e-47e6-abf8-f02312c38176",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 3918024,
+            "name": "Big Sean",
+            "picture": "aa85ddbd-c0f7-439f-a381-397ea5776c83",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 9279273,
+            "name": "Don Toliver",
+            "picture": "787cf118-7b7f-4d86-96c7-5c42ef9133c8",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 3632070,
+            "name": "Drake",
+            "picture": "3812d980-630e-4948-a72e-f21a546ec2e3",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 10775319,
+            "name": "Tommy Richman",
+            "picture": "5ca64161-5deb-4381-9fbe-780a7c1eab31",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 17275,
+            "name": "Eminem",
+            "picture": "695e593e-451a-4dcc-ae3f-84e3023bbd1f",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 4751756,
+            "name": "Sabrina Carpenter",
+            "picture": "854a8a1a-43f1-44b2-8e59-474e83abd578",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 18695,
+            "name": "The Cure",
+            "picture": "04f5178d-c9a6-46a1-83a0-4d3f964d5890",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 6191624,
+            "name": "Kevin McCormick",
+            "picture": null,
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 27894830,
+            "name": "Bruce Liu",
+            "picture": "57d6dbaf-396d-4f47-ba73-23b516d2267d",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 4467650,
+            "name": "Igor Levit",
+            "picture": "ced58e79-5048-411d-9e0b-02aa5a295374",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 1566,
+            "name": "Beyoncé",
+            "picture": "0073e74d-ccf0-41d6-855d-374fdf71e5ed",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 7804,
+            "name": "JAY Z",
+            "picture": "a437c542-e9b5-4050-aced-c75ca0565c4f",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 16357015,
+            "name": "Sean Shibe",
+            "picture": "53ea4b32-baef-4c84-80db-13bee3ae163f",
+            "type": "MAIN"
+          }
+        ],
+        "publicPlaylist": true,
+        "squareImage": "aa7f54ac-6bc7-43cb-92b6-9169c47a7087",
+        "title": "KTS test",
+        "type": "EDITORIAL",
+        "url": "http://www.tidal.com/playlist/bbdd45d6-ac22-4f75-9b73-7bf89ed5d2a0",
+        "uuid": "bbdd45d6-ac22-4f75-9b73-7bf89ed5d2a0"
+      },
+      {
+        "created": "2022-05-11T00:00:00.000+0000",
+        "creator": {},
+        "customImageUrl": null,
+        "description": null,
+        "duration": 675,
+        "image": null,
+        "lastItemAddedAt": "2022-05-11T00:00:00.000+0000",
+        "lastUpdated": "2024-06-04T00:00:00.000+0000",
+        "numberOfTracks": 3,
+        "numberOfVideos": 0,
+        "popularity": 8,
+        "promotedArtists": [
+          {
+            "handle": null,
+            "id": 614,
+            "name": "James Taylor",
+            "picture": "7716a39e-9175-4b6f-b26e-4957707ef0d8",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 3634161,
+            "name": "The Beatles",
+            "picture": "ad7946a6-2ec4-43f8-b573-1073d73dfe31",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 4761957,
+            "name": "The Weeknd",
+            "picture": "5598dc62-acf6-49f1-b468-192ad3555278",
+            "type": "MAIN"
+          }
+        ],
+        "publicPlaylist": true,
+        "squareImage": null,
+        "title": "Test Playlist",
+        "type": "EDITORIAL",
+        "url": "http://www.tidal.com/playlist/02b028e0-3537-4fbf-bb93-c78ba5c8ac46",
+        "uuid": "02b028e0-3537-4fbf-bb93-c78ba5c8ac46"
+      },
+      {
+        "created": "2024-07-23T00:00:00.000+0000",
+        "creator": {},
+        "customImageUrl": null,
+        "description": "lorem ipsum",
+        "duration": 4130,
+        "image": "fc92e6a8-7404-4ab0-9a01-f68c77002e08",
+        "lastItemAddedAt": "2024-07-25T00:00:00.000+0000",
+        "lastUpdated": "2024-07-25T00:00:00.000+0000",
+        "numberOfTracks": 13,
+        "numberOfVideos": 0,
+        "popularity": 5,
+        "promotedArtists": [
+          {
+            "handle": null,
+            "id": 13467,
+            "name": "Laurie Anderson",
+            "picture": "8622476d-083f-4184-ab28-2e5e6f84cfad",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 5416271,
+            "name": "SZA",
+            "picture": "30b0349b-e229-4099-a1f0-aeeb87ad2dc6",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 3566582,
+            "name": "Peter Gordon",
+            "picture": null,
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 3648197,
+            "name": "\"Blue\" Gene Tyranny",
+            "picture": null,
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 30068,
+            "name": "Scott Walker",
+            "picture": "22b84253-e162-44d0-85cd-645249b34696",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 5168281,
+            "name": "Jill Kroesen",
+            "picture": null,
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 3566050,
+            "name": "Arthur Russell",
+            "picture": "04e68243-5237-4c1a-a637-790caeb8b86a",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 3592225,
+            "name": "Joe Mubare",
+            "picture": null,
+            "type": "MAIN"
+          }
+        ],
+        "publicPlaylist": true,
+        "squareImage": "fc92e6a8-7404-4ab0-9a01-f68c77002e08",
+        "title": "kts test 3",
+        "type": "EDITORIAL",
+        "url": "http://www.tidal.com/playlist/752575fa-33cd-42d1-a44e-26ad30aadb04",
+        "uuid": "752575fa-33cd-42d1-a44e-26ad30aadb04"
+      },
+      {
+        "created": "2017-06-16T00:00:00.000+0000",
+        "creator": {},
+        "customImageUrl": null,
+        "description": "Even though how we consume music has now changed, testing music in an automobile is still the tradition to judge its merit. Take a ride with Elliott Wilson and your favorite artist.",
+        "duration": 49870,
+        "image": "e6a4b4d9-d700-420c-ab23-8a71e16e482c",
+        "lastItemAddedAt": "2020-03-10T00:00:00.000+0000",
+        "lastUpdated": "2021-01-28T00:00:00.000+0000",
+        "numberOfTracks": 0,
+        "numberOfVideos": 45,
+        "popularity": 2,
+        "promotedArtists": [
+          {
+            "handle": null,
+            "id": 9763947,
+            "name": "Car Test",
+            "picture": "bc119b25-6c29-42be-b57b-164111385f60",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 4899960,
+            "name": "Jhené Aiko",
+            "picture": "46c5d0b3-20a3-4f63-8db0-d194878d9450",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 7686,
+            "name": "The Alchemist",
+            "picture": "8fb3fc5f-2c2f-4a6b-bc41-8c918159f075",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 4839917,
+            "name": "Boldy James",
+            "picture": "21e0d3a0-1eeb-47d6-b6e5-1a2194ece3bf",
+            "type": "MAIN"
+          }
+        ],
+        "publicPlaylist": true,
+        "squareImage": "3b0da663-b0e0-41ce-b654-5a6b17d42e4a",
+        "title": "Car Test with Elliott Wilson",
+        "type": "PODCAST",
+        "url": "http://www.tidal.com/playlist/b6c8ce02-8ee3-49fc-8f8e-8018436ec55d",
+        "uuid": "b6c8ce02-8ee3-49fc-8f8e-8018436ec55d"
+      },
+      {
+        "created": "2024-05-28T00:00:00.000+0000",
+        "creator": {},
+        "customImageUrl": null,
+        "description": "test",
+        "duration": 15,
+        "image": null,
+        "lastItemAddedAt": "2025-06-25T00:00:00.000+0000",
+        "lastUpdated": "2025-07-04T00:00:00.000+0000",
+        "numberOfTracks": 1,
+        "numberOfVideos": 0,
+        "popularity": 0,
+        "promotedArtists": [
+          {
+            "handle": null,
+            "id": 3668397,
+            "name": "Owen Pallett",
+            "picture": "c9a7ce2b-04e8-46ec-89cb-6cf1c05d020d",
+            "type": "MAIN"
+          }
+        ],
+        "publicPlaylist": true,
+        "squareImage": "a56b2e14-5a80-4a39-a103-f3ee640c9db2",
+        "title": "test",
+        "type": "EDITORIAL",
+        "url": "http://www.tidal.com/playlist/1ea8a388-fe22-4ab0-9d5c-1551064d8e68",
+        "uuid": "1ea8a388-fe22-4ab0-9d5c-1551064d8e68"
+      },
+      {
+        "created": "2025-02-17T00:00:00.000+0000",
+        "creator": {
+          "artistRoles": null,
+          "artistTypes": null,
+          "handle": null,
+          "id": 53146710,
+          "mixes": null,
+          "name": "Ole Kjørr",
+          "picture": "73d1e9cf-aba2-48cd-b341-43fe61bd5046",
+          "popularity": 0,
+          "selectedAlbumCoverFallback": null,
+          "spotlighted": false,
+          "url": null,
+          "userId": null
+        },
+        "customImageUrl": null,
+        "description": null,
+        "duration": 561,
+        "image": null,
+        "lastItemAddedAt": "2025-02-17T00:00:00.000+0000",
+        "lastUpdated": "2025-02-17T00:00:00.000+0000",
+        "numberOfTracks": 2,
+        "numberOfVideos": 0,
+        "popularity": 0,
+        "promotedArtists": [],
+        "publicPlaylist": true,
+        "squareImage": null,
+        "title": "Curated uploads test",
+        "type": "ARTIST",
+        "url": "http://www.tidal.com/playlist/6a4a3123-cfa9-4d1f-8a73-58667144fb57",
+        "uuid": "6a4a3123-cfa9-4d1f-8a73-58667144fb57"
+      },
+      {
+        "created": "2020-04-14T00:00:00.000+0000",
+        "creator": {
+          "artistRoles": null,
+          "artistTypes": null,
+          "handle": null,
+          "id": 16983733,
+          "mixes": null,
+          "name": "NNAMDÏ",
+          "picture": "e6ce7213-1266-4153-817f-b4fb56ed3239",
+          "popularity": 0,
+          "selectedAlbumCoverFallback": null,
+          "spotlighted": false,
+          "url": null,
+          "userId": null
+        },
+        "customImageUrl": null,
+        "description": "\"This playlist is a litmus test for me. It compiles a handful of freaky songs that kind of helped mold the more abrasive and adventurous side of my creativity. Songs that definitely fucked me up in a very specific way the first time I heard them. This is a special batch, and depending on how folks react to these playlist I think it’s kind of a test on if they can really hang haha and how freaky our friendship will be.\" -- NNAMDÏ",
+        "duration": 4065,
+        "image": "ccfa6667-90ee-4142-8506-092ebd8dba6d",
+        "lastItemAddedAt": "2020-04-14T00:00:00.000+0000",
+        "lastUpdated": "2020-04-14T00:00:00.000+0000",
+        "numberOfTracks": 12,
+        "numberOfVideos": 0,
+        "popularity": 0,
+        "promotedArtists": [],
+        "publicPlaylist": true,
+        "squareImage": "73a11289-575f-434c-9b8a-ff97314cbe39",
+        "title": "NNAMDÏ: Litmus Test",
+        "type": "ARTIST",
+        "url": "http://www.tidal.com/playlist/d2b6f19a-1aa6-4629-856e-e090c9120bc9",
+        "uuid": "d2b6f19a-1aa6-4629-856e-e090c9120bc9"
+      },
+      {
+        "created": "2024-07-09T00:00:00.000+0000",
+        "creator": {},
+        "customImageUrl": null,
+        "description": "sadfasdf 2025",
+        "duration": 4155,
+        "image": null,
+        "lastItemAddedAt": "2025-10-31T00:00:00.000+0000",
+        "lastUpdated": "2025-10-31T00:00:00.000+0000",
+        "numberOfTracks": 25,
+        "numberOfVideos": 0,
+        "popularity": 0,
+        "promotedArtists": [
+          {
+            "handle": null,
+            "id": 9230405,
+            "name": "Reuben Vincent",
+            "picture": "e7d8507f-4019-40b7-822c-606fcba78800",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 3551443,
+            "name": "9th Wonder",
+            "picture": "1e6b1499-90a6-4897-9d23-e2c26800ce53",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 8870800,
+            "name": "Abby Jasmine",
+            "picture": "dc6d39b9-f14e-4ad4-9285-bc93b897c36d",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 62407504,
+            "name": "Lelo",
+            "picture": "50de3cd7-1f8b-4150-85c7-1e0a2d75c88b",
+            "type": "MAIN"
+          }
+        ],
+        "publicPlaylist": true,
+        "squareImage": null,
+        "title": "jn new test",
+        "type": "EDITORIAL",
+        "url": "http://www.tidal.com/playlist/85a09f0f-8edc-4cd1-b27f-6e72fc389b13",
+        "uuid": "85a09f0f-8edc-4cd1-b27f-6e72fc389b13"
+      },
+      {
+        "created": "2024-07-17T00:00:00.000+0000",
+        "creator": {},
+        "customImageUrl": null,
+        "description": null,
+        "duration": 758,
+        "image": null,
+        "lastItemAddedAt": "2024-07-23T00:00:00.000+0000",
+        "lastUpdated": "2024-07-23T00:00:00.000+0000",
+        "numberOfTracks": 3,
+        "numberOfVideos": 0,
+        "popularity": 0,
+        "promotedArtists": [
+          {
+            "handle": null,
+            "id": 1566,
+            "name": "Beyoncé",
+            "picture": "0073e74d-ccf0-41d6-855d-374fdf71e5ed",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 7804,
+            "name": "JAY Z",
+            "picture": "a437c542-e9b5-4050-aced-c75ca0565c4f",
+            "type": "MAIN"
+          }
+        ],
+        "publicPlaylist": true,
+        "squareImage": "5aaeb70d-f392-45b0-bf3f-61faddf3cd46",
+        "title": "KTS test 2",
+        "type": "EDITORIAL",
+        "url": "http://www.tidal.com/playlist/0c938c5d-6d66-4da9-8bcc-c703311c6478",
+        "uuid": "0c938c5d-6d66-4da9-8bcc-c703311c6478"
+      },
+      {
+        "created": "2022-04-08T11:44:58.000+0000",
+        "creator": {
+          "id": 30919182,
+          "name": null,
+          "picture": null,
+          "type": "USER"
+        },
+        "customImageUrl": null,
+        "description": "Testcases include: Video, Lowfi Track, MQA track, track shorter than 30 sec, Track without Album cover, unavailable track, duplicate tracks",
+        "duration": 218,
+        "image": "3a26288e-3261-4448-900b-07f17247db85",
+        "lastItemAddedAt": "2023-02-01T08:46:35.000+0000",
+        "lastUpdated": "2022-04-11T13:11:55.000+0000",
+        "numberOfTracks": 8,
+        "numberOfVideos": 2,
+        "popularity": 0,
+        "promotedArtists": [],
+        "publicPlaylist": true,
+        "squareImage": "f06f6f42-1c19-49c7-8b58-69bf77156ff2",
+        "title": "BOOMBOX TEST",
+        "type": "USER",
+        "url": "http://www.tidal.com/playlist/9623df21-a772-4dd8-95ff-deebd287f67e",
+        "uuid": "9623df21-a772-4dd8-95ff-deebd287f67e"
+      },
+      {
+        "created": "2022-03-10T00:00:00.000+0000",
+        "creator": {
+          "artistRoles": null,
+          "artistTypes": null,
+          "handle": null,
+          "id": 7884422,
+          "mixes": null,
+          "name": "Mr Ranum",
+          "picture": "d21f99b7-df7b-4083-80f9-550c2ee6f41a",
+          "popularity": 0,
+          "selectedAlbumCoverFallback": null,
+          "spotlighted": false,
+          "url": null,
+          "userId": null
+        },
+        "customImageUrl": null,
+        "description": null,
+        "duration": 235,
+        "image": null,
+        "lastItemAddedAt": "2022-03-10T00:00:00.000+0000",
+        "lastUpdated": "2024-06-04T00:00:00.000+0000",
+        "numberOfTracks": 1,
+        "numberOfVideos": 0,
+        "popularity": 0,
+        "promotedArtists": [
+          {
+            "handle": null,
+            "id": 25733,
+            "name": "Crash Test Dummies",
+            "picture": "28ec014c-67bc-4985-92d0-e9956961383a",
+            "type": "MAIN"
+          }
+        ],
+        "publicPlaylist": true,
+        "squareImage": null,
+        "title": "R test",
+        "type": "ARTIST",
+        "url": "http://www.tidal.com/playlist/afc9bddf-9d98-4cb4-abde-1d483730bbf6",
+        "uuid": "afc9bddf-9d98-4cb4-abde-1d483730bbf6"
+      },
+      {
+        "created": "2018-08-29T00:00:00.000+0000",
+        "creator": {
+          "artistRoles": null,
+          "artistTypes": null,
+          "handle": null,
+          "id": 0,
+          "mixes": null,
+          "name": "Bowers & Wilkins",
+          "picture": null,
+          "popularity": 0,
+          "selectedAlbumCoverFallback": null,
+          "spotlighted": false,
+          "url": null,
+          "userId": null
+        },
+        "customImageUrl": null,
+        "description": "\"We asked you, the Bowers & Wilkins community, what your ultimate hi-fi system test tracks were. Your response was so overwhelming that we compiled our favourite test tracks into the first ever fan-made Bowers & Wilkins playlist. This is Ultimate System Testers.\" #SoundMatters (Photo provided by Bowers & Wilkins)",
+        "duration": 32395,
+        "image": "75da06f2-af22-4bb2-8e4e-7e3e1c345e47",
+        "lastItemAddedAt": null,
+        "lastUpdated": "2023-04-19T00:00:00.000+0000",
+        "numberOfTracks": 78,
+        "numberOfVideos": 0,
+        "popularity": 63,
+        "promotedArtists": [
+          {
+            "handle": null,
+            "id": 14143,
+            "name": "Steely Dan",
+            "picture": "51fb4ed9-97bd-4843-8746-f232ea73dfec",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 8853,
+            "name": "Gorillaz",
+            "picture": "81e5ce93-c1dd-4ad3-b501-538047fa9765",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 3590649,
+            "name": "Sergei Prokofiev",
+            "picture": "6967dd56-5b44-431e-8185-ae790c1dff8c",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 3580921,
+            "name": "Fat Freddy's Drop",
+            "picture": "f89105cf-c847-4050-93bd-6c4b4646bb56",
+            "type": "MAIN"
+          }
+        ],
+        "publicPlaylist": true,
+        "squareImage": "7ad81cd2-4ba0-4cd2-b93e-d70ad34325e0",
+        "title": "Ultimate System Testers",
+        "type": "EDITORIAL",
+        "url": "http://www.tidal.com/playlist/abe0bf4b-2f61-4601-be0a-c24fa8e6c521",
+        "uuid": "abe0bf4b-2f61-4601-be0a-c24fa8e6c521"
+      },
+      {
+        "created": "2018-04-18T00:00:00.000+0000",
+        "creator": {},
+        "customImageUrl": null,
+        "description": "A rough guide to five decades of hard rock and metal. (Cover: System Of A Down - celebrating 'Hypnotize' @ 20 / Photo: Rovi)",
+        "duration": 50952,
+        "image": "0932071c-4e4c-48c9-ac39-c4747aff5a74",
+        "lastItemAddedAt": "2025-11-21T00:00:00.000+0000",
+        "lastUpdated": "2025-11-21T00:00:00.000+0000",
+        "numberOfTracks": 171,
+        "numberOfVideos": 0,
+        "popularity": 84,
+        "promotedArtists": [
+          {
+            "handle": null,
+            "id": 721,
+            "name": "System Of A Down",
+            "picture": "b45f6499-0636-4874-9e41-796be9a8c2b8",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 3593337,
+            "name": "At The Gates",
+            "picture": "926099fa-b662-40ce-9eae-a07599960ffa",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 14123,
+            "name": "Linkin Park",
+            "picture": "fbd7e516-5e69-439d-babb-485b98f60f89",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 37277,
+            "name": "Slipknot",
+            "picture": "90bc8e84-fbad-4120-b388-73eb445f16d5",
+            "type": "MAIN"
+          }
+        ],
+        "publicPlaylist": true,
+        "squareImage": "01ee71e0-7447-4afe-9aef-449ad6c6705a",
+        "title": "Metal Classics",
+        "type": "EDITORIAL",
+        "url": "http://www.tidal.com/playlist/7678d3a6-c55c-4037-83d8-c6ba3b9fd236",
+        "uuid": "7678d3a6-c55c-4037-83d8-c6ba3b9fd236"
+      },
+      {
+        "created": "2014-09-30T00:00:00.000+0000",
+        "creator": {},
+        "customImageUrl": null,
+        "description": "What a memorable decade! R.E.M. and U2 ascended as world stars, while grunge changed many people's perception of what could top the charts. Pop-punk (Green Day, The Offspring) and Britpop (Oasis, Blur) were born, just as hip-hop was gaining traction on the charts (Jay-Z, Eminem). Many promising hitmakers would go on to have long, healthy careers, while others would never see the 2000s. But they all belong in our collective memory of the 1990's. (Cover: The Notorious B.I.G. - Ready to Die, Bad Boy/WMG)",
+        "duration": 41095,
+        "image": "c40ffe70-5619-425f-9ccb-e15885ff8326",
+        "lastItemAddedAt": "2025-02-10T00:00:00.000+0000",
+        "lastUpdated": "2025-02-10T00:00:00.000+0000",
+        "numberOfTracks": 150,
+        "numberOfVideos": 0,
+        "popularity": 84,
+        "promotedArtists": [
+          {
+            "handle": null,
+            "id": 7804,
+            "name": "JAY Z",
+            "picture": "a437c542-e9b5-4050-aced-c75ca0565c4f",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 3565368,
+            "name": "The Notorious B.I.G.",
+            "picture": "c9958b83-d473-450f-91f7-e32a24718753",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 19368,
+            "name": "Nirvana",
+            "picture": "354251d0-d434-411a-a889-06cf7daeffef",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 17275,
+            "name": "Eminem",
+            "picture": "695e593e-451a-4dcc-ae3f-84e3023bbd1f",
+            "type": "MAIN"
+          }
+        ],
+        "publicPlaylist": true,
+        "squareImage": "39dcfb02-fa45-4df4-ad1b-9bab68e34e3f",
+        "title": "Remember...the 1990s",
+        "type": "EDITORIAL",
+        "url": "http://www.tidal.com/playlist/549e6e94-05f2-4c5c-91d5-92a08a03665a",
+        "uuid": "549e6e94-05f2-4c5c-91d5-92a08a03665a"
+      },
+      {
+        "created": "2019-01-03T00:00:00.000+0000",
+        "creator": {},
+        "customImageUrl": null,
+        "description": "Pop melodies laced over future bass, EDM, trap, and dance inspired beats. (Cover: Parris Goebel / Photo: Mad Decent/press)   \n",
+        "duration": 8977,
+        "image": "944789bd-6ba4-4724-94d0-617a37d69ed7",
+        "lastItemAddedAt": "2025-12-05T00:00:00.000+0000",
+        "lastUpdated": "2025-12-05T00:00:00.000+0000",
+        "numberOfTracks": 50,
+        "numberOfVideos": 0,
+        "popularity": 77,
+        "promotedArtists": [
+          {
+            "handle": null,
+            "id": 13911373,
+            "name": "Parris Goebel",
+            "picture": null,
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 5413764,
+            "name": "DVBBS",
+            "picture": "7573c1d0-2042-4576-b2b3-a9efe7366815",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 3544250,
+            "name": "Badger",
+            "picture": null,
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 11141406,
+            "name": "Alex Bone",
+            "picture": "1a948388-f4db-4be6-b6db-0e43d5810730",
+            "type": "MAIN"
+          }
+        ],
+        "publicPlaylist": true,
+        "squareImage": "863d4ca5-4d92-4c21-ba91-ae853259cff9",
+        "title": "Dance Pop",
+        "type": "EDITORIAL",
+        "url": "http://www.tidal.com/playlist/65670802-cc24-4eee-879a-ce034e318d61",
+        "uuid": "65670802-cc24-4eee-879a-ce034e318d61"
+      },
+      {
+        "created": "2018-06-19T00:00:00.000+0000",
+        "creator": {},
+        "customImageUrl": null,
+        "description": "Rap songs that are suitable for embracing your maturity. Listen up, youngsters, there’s a lesson for you here. (Cover: Ludacris // Photo: Def Jam, Press)",
+        "duration": 9536,
+        "image": "aa6c7239-2213-459c-a267-9903643c870c",
+        "lastItemAddedAt": "2025-12-05T00:00:00.000+0000",
+        "lastUpdated": "2025-12-05T00:00:00.000+0000",
+        "numberOfTracks": 54,
+        "numberOfVideos": 0,
+        "popularity": 74,
+        "promotedArtists": [
+          {
+            "handle": null,
+            "id": 24907,
+            "name": "Ludacris",
+            "picture": "e4a99d8e-6ab3-4470-a727-f41006d666cd",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 3894231,
+            "name": "Big K.R.I.T.",
+            "picture": "2021e89d-f4bd-4d41-9af7-da47dc7564e8",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 15038,
+            "name": "Paul Wall",
+            "picture": "e1d3f52f-ddb8-436d-a1a9-6eee70ec8408",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 3639896,
+            "name": "Slim Thug",
+            "picture": "ff1e95d5-1b11-4614-aabe-ec0830571042",
+            "type": "MAIN"
+          }
+        ],
+        "publicPlaylist": true,
+        "squareImage": "bc331c89-14dd-46ee-8d98-c3a2518cfc10",
+        "title": "Grown Rap",
+        "type": "EDITORIAL",
+        "url": "http://www.tidal.com/playlist/9dc20079-abf3-49cd-beeb-130a46be1e25",
+        "uuid": "9dc20079-abf3-49cd-beeb-130a46be1e25"
+      },
+      {
+        "created": "2016-02-24T00:00:00.000+0000",
+        "creator": {},
+        "customImageUrl": null,
+        "description": "The new songs you need to know from across hard rock and metal spectrum. (Cover: Sylosis / Photo: Jake Owens)                ",
+        "duration": 11867,
+        "image": "8cbf1cfb-827e-49fa-a392-824030d925df",
+        "lastItemAddedAt": "2025-11-28T00:00:00.000+0000",
+        "lastUpdated": "2025-11-28T00:00:00.000+0000",
+        "numberOfTracks": 50,
+        "numberOfVideos": 0,
+        "popularity": 73,
+        "promotedArtists": [
+          {
+            "handle": null,
+            "id": 3565337,
+            "name": "Sylosis",
+            "picture": "6b4d0fcb-2577-4d4d-814f-c364c00a5cba",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 7246355,
+            "name": "Equilibrium",
+            "picture": "a9297b20-168a-4030-8392-b8aeb444fa35",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 3673376,
+            "name": "Rotten Sound",
+            "picture": "ec48bcc3-9d0a-4db4-8fae-128b0e1ec287",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 5241310,
+            "name": "Vilt",
+            "picture": null,
+            "type": "MAIN"
+          }
+        ],
+        "publicPlaylist": true,
+        "squareImage": "3423c2fd-358d-4281-a9c4-9bc72ee972b8",
+        "title": "The Metallist: Best New Metal & Hard Rock",
+        "type": "EDITORIAL",
+        "url": "http://www.tidal.com/playlist/7c50bdc8-a448-452c-9289-20815c6140e9",
+        "uuid": "7c50bdc8-a448-452c-9289-20815c6140e9"
+      },
+      {
+        "created": "2021-07-08T00:00:00.000+0000",
+        "creator": {},
+        "customImageUrl": null,
+        "description": "A set of wheels, quality company and an epic \nsoundtrack are all key ingredients for hitting the \nroad. \n(Photo: Pablo Garcia Saldana, press)",
+        "duration": 14491,
+        "image": "01b756ff-72f8-4396-9d3b-fe42f1dea0df",
+        "lastItemAddedAt": "2025-07-25T00:00:00.000+0000",
+        "lastUpdated": "2025-07-25T00:00:00.000+0000",
+        "numberOfTracks": 64,
+        "numberOfVideos": 0,
+        "popularity": 67,
+        "promotedArtists": [
+          {
+            "handle": null,
+            "id": 4611746,
+            "name": "Glass Animals",
+            "picture": "a1182f38-d209-4109-a656-f2d1d408275b",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 64665,
+            "name": "OneRepublic",
+            "picture": "470e6c30-3198-4297-a6bb-de7e3ad6265d",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 2528,
+            "name": "Spin Doctors",
+            "picture": "19f7ae91-c8bc-4359-aaf0-68bff0bdb0d1",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 3557299,
+            "name": "Taylor Swift",
+            "picture": "ffa46767-8d63-42bd-9dc7-827881ef460c",
+            "type": "MAIN"
+          }
+        ],
+        "publicPlaylist": true,
+        "squareImage": "9e583a30-d93a-405b-9e17-8d2e9729aaa4",
+        "title": "Family Road Trip: Pop",
+        "type": "EDITORIAL",
+        "url": "http://www.tidal.com/playlist/8f3edc95-16ff-4b91-95d1-dedf6be8e6a8",
+        "uuid": "8f3edc95-16ff-4b91-95d1-dedf6be8e6a8"
+      },
+      {
+        "created": "2019-04-08T00:00:00.000+0000",
+        "creator": {},
+        "customImageUrl": null,
+        "description": "The perfect pre-game needs the perfect playlist. These party starters are guaranteed to get things going! (Photo: Unsplash)",
+        "duration": 18217,
+        "image": "6ea00c0c-e945-42f2-8c77-6005c91abc87",
+        "lastItemAddedAt": "2024-04-03T00:00:00.000+0000",
+        "lastUpdated": "2025-10-03T00:00:00.000+0000",
+        "numberOfTracks": 99,
+        "numberOfVideos": 0,
+        "popularity": 69,
+        "promotedArtists": [
+          {
+            "handle": null,
+            "id": 4332277,
+            "name": "Ariana Grande",
+            "picture": "1c496bca-2823-4ef3-8ec7-f927d0e3edf7",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 3765561,
+            "name": "PNAU",
+            "picture": "ae9d2734-7ef8-40b0-8071-702d595a9591",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 6317221,
+            "name": "Tom Walker",
+            "picture": "0b817df0-53df-4e6f-9804-fb570102a1e8",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 3815995,
+            "name": "VIZE",
+            "picture": "a712c358-d2ad-4718-8e3b-3943818cc91f",
+            "type": "MAIN"
+          }
+        ],
+        "publicPlaylist": true,
+        "squareImage": "e1eb7ff7-d263-4a9e-86bd-474ff40b3b69",
+        "title": "Pop Party Hits",
+        "type": "EDITORIAL",
+        "url": "http://www.tidal.com/playlist/230b543f-8395-47dc-b3d5-958f39154e4d",
+        "uuid": "230b543f-8395-47dc-b3d5-958f39154e4d"
+      },
+      {
+        "created": "2020-06-25T00:00:00.000+0000",
+        "creator": {},
+        "customImageUrl": null,
+        "description": "Experience every single detail of some of our favorite tracks available in HiRes FLAC. With our TIDAL Headphone Classics playlists, we highlight the very best examples of high fidelity audio available on the TIDAL platform: Get the most out of your stereo, your headphones, and your TIDAL membership. (Cover: Gojira / Photo: Gabrielle Duplantier)",
+        "duration": 16077,
+        "image": "e98afde9-f339-47cc-be8f-6a5d0e53215d",
+        "lastItemAddedAt": "2024-07-16T00:00:00.000+0000",
+        "lastUpdated": "2024-07-30T00:00:00.000+0000",
+        "numberOfTracks": 50,
+        "numberOfVideos": 0,
+        "popularity": 69,
+        "promotedArtists": [
+          {
+            "handle": null,
+            "id": 615,
+            "name": "Ozzy Osbourne",
+            "picture": "20b76d1a-2130-4d3a-a30f-7a1b9faec359",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 86,
+            "name": "Black Sabbath",
+            "picture": "6a2874d8-f693-4e0a-a4c8-682c990b5e13",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 3883303,
+            "name": "Gojira",
+            "picture": "f41fe643-4609-436d-bb32-bac2e2e646ae",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 8405,
+            "name": "Metallica",
+            "picture": "0b6a87b1-54a4-4014-9ac2-a2c7b978ae19",
+            "type": "MAIN"
+          }
+        ],
+        "publicPlaylist": true,
+        "squareImage": "e56ffd8e-33f7-4d0a-8f9f-f3f64284467a",
+        "title": "Metal: Headphone Classics",
+        "type": "EDITORIAL",
+        "url": "http://www.tidal.com/playlist/975af1e0-5c5c-4884-82d4-83a5e056fdcc",
+        "uuid": "975af1e0-5c5c-4884-82d4-83a5e056fdcc"
+      },
+      {
+        "created": "2017-11-17T00:00:00.000+0000",
+        "creator": {},
+        "customImageUrl": null,
+        "description": "Ennio Morricone (1928 - 2020) was one of the greatest movie composers of all time. Since 1946, Morricone composed over 500 scores for cinema and television, as well as over 100 classical works. His filmography includes over 70 award-winning films, including iconic movies by Sergio Leone ('A Fistful of Dollars,' 'For a Few Dollars More,' 'The Good, the Bad and the Ugly' and 'Once Upon a Time in the West'), Giuseppe Tornatore ('Cinema Paradiso'), and also major films like 'The Thing,' 'The Mission,' 'The Untouchables,' 'Bugsy,' 'In the Line of Fire' and 'The Hateful Eight' to name a few. Enjoy this playlist with just some of the highlights from his work over the years. (Photo: Rovi)",
+        "duration": 4570,
+        "image": "0ef71e66-e86c-4ca1-ad3a-bb44224cda53",
+        "lastItemAddedAt": "2025-01-13T00:00:00.000+0000",
+        "lastUpdated": "2025-01-13T00:00:00.000+0000",
+        "numberOfTracks": 25,
+        "numberOfVideos": 0,
+        "popularity": 64,
+        "promotedArtists": [
+          {
+            "handle": null,
+            "id": 4082,
+            "name": "Ennio Morricone",
+            "picture": "06231bb7-aac8-4230-9b0c-c47e63ac7e29",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 4677278,
+            "name": "Czech National Symphony Orchestra, Prague",
+            "picture": null,
+            "type": "MAIN"
+          }
+        ],
+        "publicPlaylist": true,
+        "squareImage": "6384ad1c-a566-415b-83ab-4bab2d1f57d4",
+        "title": "Ennio Morricone Essentials",
+        "type": "EDITORIAL",
+        "url": "http://www.tidal.com/playlist/fa2b796e-dcd8-422f-9217-8c4d29e3fd1b",
+        "uuid": "fa2b796e-dcd8-422f-9217-8c4d29e3fd1b"
+      },
+      {
+        "created": "2018-07-10T00:00:00.000+0000",
+        "creator": {},
+        "customImageUrl": null,
+        "description": "The top praise and worship songs to bring you peace and renew your soul! (Cover: Equippers Revolution / Photo: Dream, press) ",
+        "duration": 19145,
+        "image": "eb842fb1-0e35-4f15-816c-65d59c6e2a32",
+        "lastItemAddedAt": "2024-11-15T00:00:00.000+0000",
+        "lastUpdated": "2024-11-15T00:00:00.000+0000",
+        "numberOfTracks": 59,
+        "numberOfVideos": 0,
+        "popularity": 63,
+        "promotedArtists": [
+          {
+            "handle": null,
+            "id": 9900121,
+            "name": "VOUS Worship",
+            "picture": "07464beb-bad6-474f-9eb1-2181e6c4b9a1",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 7143494,
+            "name": "Equippers Revolution",
+            "picture": "c8443ca6-a1ac-4410-9484-53be4b17abf9",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 18909177,
+            "name": "Jordan St. Cyr",
+            "picture": "a6393c60-5c67-45f9-b4d8-a396c9d81a20",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 6341835,
+            "name": "Red Rocks Worship",
+            "picture": "43180d1e-178a-4bf8-921e-e2b6f640f673",
+            "type": "MAIN"
+          }
+        ],
+        "publicPlaylist": true,
+        "squareImage": "76357101-fea2-4857-9162-c41f2d456828",
+        "title": "Praise & Worship",
+        "type": "EDITORIAL",
+        "url": "http://www.tidal.com/playlist/11fc6f5d-5793-4d68-ae1a-b258fe502c86",
+        "uuid": "11fc6f5d-5793-4d68-ae1a-b258fe502c86"
+      },
+      {
+        "created": "2021-12-15T00:00:00.000+0000",
+        "creator": {},
+        "customImageUrl": null,
+        "description": "The 1980s saw metal and hard rock become extremely popular genres. Bands like AC/DC, Iron Maiden, Metallica, Guns N' Roses and Judas Priest became megastars, filling stadiums across the globe and selling millions of records. The decade also saw the development of extreme subgenres like thrash and death metal, and even the early beginnings of black metal. (Cover: Metallica - 'Master of Puppets', Blackened Records)",
+        "duration": 15179,
+        "image": "f5613986-a0c9-4a2c-8df4-6c4574d05cbb",
+        "lastItemAddedAt": "2022-06-20T00:00:00.000+0000",
+        "lastUpdated": "2022-06-20T00:00:00.000+0000",
+        "numberOfTracks": 53,
+        "numberOfVideos": 0,
+        "popularity": 64,
+        "promotedArtists": [
+          {
+            "handle": null,
+            "id": 945,
+            "name": "AC/DC",
+            "picture": "8a620f4f-0b64-4255-9a4e-9edb54455bad",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 8405,
+            "name": "Metallica",
+            "picture": "0b6a87b1-54a4-4014-9ac2-a2c7b978ae19",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 9196,
+            "name": "Iron Maiden",
+            "picture": "7d9a4e6c-cd37-48fe-8456-1b8b3b0adb1e",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 701,
+            "name": "Judas Priest",
+            "picture": "a02c4b17-4d98-4652-b1b3-6311070bb4b5",
+            "type": "MAIN"
+          }
+        ],
+        "publicPlaylist": true,
+        "squareImage": "4f970a0a-02e1-4e9d-af7c-c94483c592de",
+        "title": "1980s Metal & Hard Rock",
+        "type": "EDITORIAL",
+        "url": "http://www.tidal.com/playlist/a5e9e2db-9e57-4467-bba6-64d83df62a1c",
+        "uuid": "a5e9e2db-9e57-4467-bba6-64d83df62a1c"
+      },
+      {
+        "created": "2016-04-19T00:00:00.000+0000",
+        "creator": {},
+        "customImageUrl": null,
+        "description": "Outspoken firebrands and activists Rage Against the Machine educated masses of heavy-music fans by injecting their Molotov cocktail of rap, hardcore punk, funk and metal with a sobering dose of fiercely polemical, politically charged urgency. Crashing the mainstream in 1992 with “Killing in the Name” — their sonic protest against police brutality and systemic racism — the band planted their flag in the scene with their triple-platinum self-titled debut. Celebrate that landmark hard-rock LP and other explosive tracks from throughout their discography with these Essentials. (Photo and bio: Rovi)",
+        "duration": 6876,
+        "image": "fe98ee46-d188-42c9-aa16-2823e0420422",
+        "lastItemAddedAt": "2022-11-02T00:00:00.000+0000",
+        "lastUpdated": "2023-10-30T00:00:00.000+0000",
+        "numberOfTracks": 25,
+        "numberOfVideos": 0,
+        "popularity": 63,
+        "promotedArtists": [
+          {
+            "handle": null,
+            "id": 741,
+            "name": "Rage Against The Machine",
+            "picture": "cb6955c7-1ffc-48d8-b3e3-d10d19a38e07",
+            "type": "MAIN"
+          }
+        ],
+        "publicPlaylist": true,
+        "squareImage": "61c56318-8104-40a4-8a68-9576987520e5",
+        "title": "Rage Against the Machine Essentials",
+        "type": "EDITORIAL",
+        "url": "http://www.tidal.com/playlist/4f4376bc-313d-476d-8acb-ae8f5560d6e5",
+        "uuid": "4f4376bc-313d-476d-8acb-ae8f5560d6e5"
+      },
+      {
+        "created": "2022-01-06T00:00:00.000+0000",
+        "creator": {},
+        "customImageUrl": null,
+        "description": "The 2000s were fantastic for metal and hard rock. A lot of the biggest and most influential bands turned to a more heavy and aggressive sound, which set the stage for the following years. The decade also introduced many inspiring female personalities to the metal audience, which drove the music in great new directions. (Cover: Mastodon - 'Leviathan', Relapse Records)",
+        "duration": 25163,
+        "image": "76e2f7aa-50fc-4588-b208-aefde38b2a4a",
+        "lastItemAddedAt": "2022-04-27T00:00:00.000+0000",
+        "lastUpdated": "2023-06-16T00:00:00.000+0000",
+        "numberOfTracks": 79,
+        "numberOfVideos": 0,
+        "popularity": 63,
+        "promotedArtists": [
+          {
+            "handle": null,
+            "id": 15346,
+            "name": "Mastodon",
+            "picture": "be1e9246-46ae-4b27-a238-deea24989226",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 37277,
+            "name": "Slipknot",
+            "picture": "90bc8e84-fbad-4120-b388-73eb445f16d5",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 14135,
+            "name": "Disturbed",
+            "picture": "239d5292-9c3f-4ff1-a4bf-df5ca0666197",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 16386,
+            "name": "Slayer",
+            "picture": "31e99ea6-65bb-4f67-880b-44cfb294f3dc",
+            "type": "MAIN"
+          }
+        ],
+        "publicPlaylist": true,
+        "squareImage": "cb59c6e6-f6e1-438b-9f58-7808e7379e0e",
+        "title": "2000s Metal & Hard Rock",
+        "type": "EDITORIAL",
+        "url": "http://www.tidal.com/playlist/f4db5ec6-be8e-4bd0-afb0-2c427a0ddb50",
+        "uuid": "f4db5ec6-be8e-4bd0-afb0-2c427a0ddb50"
+      },
+      {
+        "created": "2020-11-09T00:00:00.000+0000",
+        "creator": {},
+        "customImageUrl": null,
+        "description": "Fender’s Telecaster was the first mass-produced solidbody electric guitar of note, and seven decades later it remains a staple of blues, country, rock, R&B and even jazz. What’s more, the functional, customizable instrument has been a crucial vehicle for the seamless mixing and melding of American genres. (Photo: Felipe Randolfi/Unsplash)",
+        "duration": 7865,
+        "image": null,
+        "lastItemAddedAt": "2023-08-14T00:00:00.000+0000",
+        "lastUpdated": "2023-08-15T00:00:00.000+0000",
+        "numberOfTracks": 34,
+        "numberOfVideos": 0,
+        "popularity": 60,
+        "promotedArtists": [
+          {
+            "handle": null,
+            "id": 15223,
+            "name": "Roy Buchanan",
+            "picture": "f2f73069-11e6-403f-9d94-0293c9ef96f0",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 14641,
+            "name": "Danny Gatton",
+            "picture": "91a7f63b-df78-4642-b4c2-e2055ca88b6b",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 3962585,
+            "name": "Jimmy Bryant",
+            "picture": null,
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 4851718,
+            "name": "Tom Principato and Danny Gatt",
+            "picture": null,
+            "type": "MAIN"
+          }
+        ],
+        "publicPlaylist": true,
+        "squareImage": "993d105b-dd3f-475e-bf5f-b1576db6cd3b",
+        "title": "Musicology: Fender Telecaster",
+        "type": "EDITORIAL",
+        "url": "http://www.tidal.com/playlist/b0de26f4-63c2-4644-92c9-ad903c69045e",
+        "uuid": "b0de26f4-63c2-4644-92c9-ad903c69045e"
+      },
+      {
+        "created": "2018-11-01T00:00:00.000+0000",
+        "creator": {},
+        "customImageUrl": null,
+        "description": "You want it hard, loud and heavy for a maximum work out session? There is no return with this playlist of headbangers only. (Photo: Unsplash) ",
+        "duration": 12288,
+        "image": "77e0c02d-b442-4e39-9212-3345ed320e90",
+        "lastItemAddedAt": "2025-08-01T00:00:00.000+0000",
+        "lastUpdated": "2025-08-01T00:00:00.000+0000",
+        "numberOfTracks": 50,
+        "numberOfVideos": 0,
+        "popularity": 61,
+        "promotedArtists": [
+          {
+            "handle": null,
+            "id": 3139,
+            "name": "Lamb of God",
+            "picture": "671195b7-a6a6-49d2-b7a3-2108baf78838",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 3659606,
+            "name": "We Came As Romans",
+            "picture": "8a15b447-4262-40b3-8a55-b5cab010c1b2",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 3569638,
+            "name": "Heaven Shall Burn",
+            "picture": "445f3ecf-0a13-47e6-a4ae-9897bec9d88a",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 5440416,
+            "name": "Employed To Serve",
+            "picture": "c5001ab2-fbd1-4e98-9997-e0a20c8db9e3",
+            "type": "MAIN"
+          }
+        ],
+        "publicPlaylist": true,
+        "squareImage": "bbdc2851-b901-4e32-91fc-3a2a83be9f72",
+        "title": "Metal Workout ",
+        "type": "EDITORIAL",
+        "url": "http://www.tidal.com/playlist/772ed2cd-1113-45ff-a32b-53863912b4bf",
+        "uuid": "772ed2cd-1113-45ff-a32b-53863912b4bf"
+      },
+      {
+        "created": "2023-01-08T00:00:00.000+0000",
+        "creator": {},
+        "customImageUrl": null,
+        "description": "Relive the biggest hits, treasured songs and forgotten favorites from 1993. [The playlist follows the rule of first release date]. (Cover: Wu-Tang Clan - Enter the Wu-Tang (36 Chambers), RCA/Sony)",
+        "duration": 23116,
+        "image": null,
+        "lastItemAddedAt": "2023-01-08T00:00:00.000+0000",
+        "lastUpdated": "2023-01-08T00:00:00.000+0000",
+        "numberOfTracks": 88,
+        "numberOfVideos": 0,
+        "popularity": 62,
+        "promotedArtists": [],
+        "publicPlaylist": true,
+        "squareImage": "75475715-efec-4b3b-941d-e706504d036e",
+        "title": "1993! Songs of the Year",
+        "type": "EDITORIAL",
+        "url": "http://www.tidal.com/playlist/0f830c14-3c16-47e8-9ceb-61af4beb0b0a",
+        "uuid": "0f830c14-3c16-47e8-9ceb-61af4beb0b0a"
+      }
+    ],
+    "limit": 30,
+    "offset": 0,
+    "totalNumberOfItems": 204
+  },
+  "topHits": [
+    {
+      "type": "ARTISTS",
+      "value": {
+        "artistRoles": [
+          {
+            "category": "Artist",
+            "categoryId": -1
+          },
+          {
+            "category": "Producer",
+            "categoryId": 1
+          },
+          {
+            "category": "Performer",
+            "categoryId": 11
+          },
+          {
+            "category": "Songwriter",
+            "categoryId": 2
+          }
+        ],
+        "artistTypes": [
+          "ARTIST",
+          "CONTRIBUTOR"
+        ],
+        "handle": null,
+        "id": 25733,
+        "mixes": {
+          "ARTIST_MIX": "0009a57ac9b5a40d812c7f51b0f92f"
+        },
+        "name": "Crash Test Dummies",
+        "picture": "28ec014c-67bc-4985-92d0-e9956961383a",
+        "popularity": 69,
+        "selectedAlbumCoverFallback": null,
+        "spotlighted": false,
+        "url": "http://www.tidal.com/artist/25733",
+        "userId": null
+      }
+    },
+    {
+      "type": "TRACKS",
+      "value": {
+        "accessType": null,
+        "adSupportedStreamReady": true,
+        "album": {
+          "cover": "4029c6dc-cf7f-4cf7-bded-a2df8e97c8f4",
+          "id": 35132867,
+          "releaseDate": "2010-03-23",
+          "title": "How To Train Your Dragon (Music From The Motion Picture)",
+          "vibrantColor": "#99ccdf",
+          "videoCover": null
+        },
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 55092,
+            "name": "John Powell",
+            "picture": "cc235ab2-3b9d-49a6-80d0-da2a92e0062e",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "bpm": 112,
+        "copyright": "℗ 2010 DreamWorks Animation L.L.C.",
+        "djReady": true,
+        "duration": 156,
+        "editable": false,
+        "explicit": false,
+        "id": 35132878,
+        "isrc": "US3M51001211",
+        "key": "D",
+        "keyScale": "MAJOR",
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "mixes": {
+          "TRACK_MIX": "001d682bfe2f515872aaf2b9ec33b3"
+        },
+        "payToStream": false,
+        "peak": 0.990082,
+        "popularity": 72,
+        "premiumStreamingOnly": false,
+        "replayGain": -9.82,
+        "spotlighted": false,
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2013-09-06T00:00:00.000+0000",
+        "title": "Test Drive",
+        "trackNumber": 11,
+        "upload": false,
+        "url": "http://www.tidal.com/track/35132878",
+        "version": "From How To Train Your Dragon Music From The Motion Picture",
+        "volumeNumber": 1
+      }
+    },
+    {
+      "type": "TRACKS",
+      "value": {
+        "accessType": null,
+        "adSupportedStreamReady": true,
+        "album": {
+          "cover": "f6e5c920-d8d3-4f62-94b9-53282e4eda61",
+          "id": 339005006,
+          "releaseDate": "2018-10-26",
+          "title": "BALLADS 1",
+          "vibrantColor": "#733430",
+          "videoCover": null
+        },
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 5888982,
+            "name": "Joji",
+            "picture": "a0df2315-b6cd-40cc-993d-a7f9cb2ea20c",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "bpm": 150,
+        "copyright": "(P) 2018 88rising Records LLC",
+        "djReady": true,
+        "duration": 179,
+        "editable": false,
+        "explicit": true,
+        "id": 339005009,
+        "isrc": "ZZOPM1800561",
+        "key": "C",
+        "keyScale": "MINOR",
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "mixes": {
+          "TRACK_MIX": "00145e382e1b85f4ae955c4512b03b"
+        },
+        "payToStream": false,
+        "peak": 0.967224,
+        "popularity": 68,
+        "premiumStreamingOnly": false,
+        "replayGain": -9.12,
+        "spotlighted": false,
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2024-01-16T00:00:00.000+0000",
+        "title": "TEST DRIVE",
+        "trackNumber": 3,
+        "upload": false,
+        "url": "http://www.tidal.com/track/339005009",
+        "version": null,
+        "volumeNumber": 1
+      }
+    },
+    {
+      "type": "TRACKS",
+      "value": {
+        "accessType": null,
+        "adSupportedStreamReady": true,
+        "album": {
+          "cover": "6db02810-18e0-43e8-8713-c9dd3ca1d690",
+          "id": 325149,
+          "releaseDate": "2002-07-16",
+          "title": "Yoshimi Battles the Pink Robots",
+          "vibrantColor": "#e5d18e",
+          "videoCover": null
+        },
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 13857,
+            "name": "The Flaming Lips",
+            "picture": "b75b2970-b6c7-4342-a1b0-ca8799b0cda1",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "bpm": 164,
+        "copyright": "℗ 2002 Warner Records Inc.",
+        "djReady": true,
+        "duration": 257,
+        "editable": false,
+        "explicit": false,
+        "id": 325150,
+        "isrc": "USWB10200885",
+        "key": "A",
+        "keyScale": "MAJOR",
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "mixes": {
+          "TRACK_MIX": "0013e5bafa6f037d394bd7fa0d5b59"
+        },
+        "payToStream": false,
+        "peak": 0.997375,
+        "popularity": 68,
+        "premiumStreamingOnly": false,
+        "replayGain": -11.55,
+        "spotlighted": false,
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2006-04-18T00:00:00.000+0000",
+        "title": "Fight Test",
+        "trackNumber": 1,
+        "upload": false,
+        "url": "http://www.tidal.com/track/325150",
+        "version": null,
+        "volumeNumber": 1
+      }
+    },
+    {
+      "type": "ALBUMS",
+      "value": {
+        "adSupportedStreamReady": true,
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 4315444,
+            "name": "A$AP Rocky",
+            "picture": "410553b6-fe93-46ed-aa93-0a96f4a17af0",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "copyright": "(P) 2018 A$AP Rocky Recordings LLC/RCA Records. Marketed & Distributed by Polo Grounds Music/RCA Records.",
+        "cover": "5fbcd278-4a53-487a-beb7-72a3d2cac957",
+        "djReady": true,
+        "duration": 3145,
+        "explicit": true,
+        "id": 89179624,
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS",
+            "HIRES_LOSSLESS"
+          ]
+        },
+        "numberOfTracks": 15,
+        "numberOfVideos": 0,
+        "numberOfVolumes": 1,
+        "payToStream": false,
+        "popularity": 84,
+        "premiumStreamingOnly": false,
+        "releaseDate": "2018-05-25",
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2018-05-25T00:00:00.000+0000",
+        "title": "TESTING",
+        "type": "ALBUM",
+        "upc": "886447076446",
+        "upload": false,
+        "url": "http://www.tidal.com/album/89179624",
+        "version": null,
+        "vibrantColor": "#d96d13",
+        "videoCover": "a058249e-2c7a-4632-a017-83a233d66080"
+      }
+    },
+    {
+      "type": "ALBUMS",
+      "value": {
+        "adSupportedStreamReady": true,
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 7975889,
+            "name": "J A Y  E L E C T R O N I C A",
+            "picture": "4a416383-2d69-444a-8073-a4048b6d6ebc",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "copyright": "© 2020 Roc Nation, LLC",
+        "cover": "a671dcf6-8617-41b8-b086-66b9bab6fb85",
+        "djReady": true,
+        "duration": 2373,
+        "explicit": true,
+        "id": 134189401,
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS",
+            "HIRES_LOSSLESS"
+          ]
+        },
+        "numberOfTracks": 10,
+        "numberOfVideos": 0,
+        "numberOfVolumes": 1,
+        "payToStream": false,
+        "popularity": 78,
+        "premiumStreamingOnly": false,
+        "releaseDate": "2020-03-13",
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2020-03-13T00:00:00.000+0000",
+        "title": "A Written Testimony",
+        "type": "ALBUM",
+        "upc": "00810045110479",
+        "upload": false,
+        "url": "http://www.tidal.com/album/134189401",
+        "version": null,
+        "vibrantColor": "#7cb1c1",
+        "videoCover": "7a9215a0-6561-4752-9afa-8b3c4883f5b8"
+      }
+    },
+    {
+      "type": "ALBUMS",
+      "value": {
+        "adSupportedStreamReady": true,
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 14686,
+            "name": "Missy Elliott",
+            "picture": "1ad5d9ef-e951-4762-85fb-e7dba3a3b4d2",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "copyright": "© 2003 Elektra Entertainment  Group Inc for the United States and WEA International Inc. for the world outside of the United States.",
+        "cover": "f00ccb9d-7e97-4194-b9bf-c355d3c86058",
+        "djReady": true,
+        "duration": 3374,
+        "explicit": true,
+        "id": 3392402,
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "numberOfTracks": 16,
+        "numberOfVideos": 0,
+        "numberOfVolumes": 1,
+        "payToStream": false,
+        "popularity": 67,
+        "premiumStreamingOnly": false,
+        "releaseDate": "2003-11-25",
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2005-02-22T00:00:00.000+0000",
+        "title": "This Is Not a Test!",
+        "type": "ALBUM",
+        "upc": "075596290562",
+        "upload": false,
+        "url": "http://www.tidal.com/album/3392402",
+        "version": null,
+        "vibrantColor": "#9b3e33",
+        "videoCover": null
+      }
+    },
+    {
+      "type": "ARTISTS",
+      "value": {
+        "artistRoles": [
+          {
+            "category": "Artist",
+            "categoryId": -1
+          },
+          {
+            "category": "Songwriter",
+            "categoryId": 2
+          },
+          {
+            "category": "Production team",
+            "categoryId": 10
+          },
+          {
+            "category": "Producer",
+            "categoryId": 1
+          },
+          {
+            "category": "Engineer",
+            "categoryId": 3
+          },
+          {
+            "category": "Performer",
+            "categoryId": 11
+          }
+        ],
+        "artistTypes": [
+          "ARTIST",
+          "CONTRIBUTOR"
+        ],
+        "handle": null,
+        "id": 14813,
+        "mixes": {
+          "ARTIST_MIX": "000903bf4f6ecd56c55ecf03e39577"
+        },
+        "name": "Testament",
+        "picture": "8ad9b681-167f-446c-876c-789fc1f30fe0",
+        "popularity": 69,
+        "selectedAlbumCoverFallback": null,
+        "spotlighted": false,
+        "url": "http://www.tidal.com/artist/14813",
+        "userId": null
+      }
+    },
+    {
+      "type": "ARTISTS",
+      "value": {
+        "artistRoles": [
+          {
+            "category": "Artist",
+            "categoryId": -1
+          },
+          {
+            "category": "Songwriter",
+            "categoryId": 2
+          },
+          {
+            "category": "Producer",
+            "categoryId": 1
+          },
+          {
+            "category": "Performer",
+            "categoryId": 11
+          }
+        ],
+        "artistTypes": [
+          "ARTIST",
+          "CONTRIBUTOR"
+        ],
+        "handle": null,
+        "id": 22178906,
+        "mixes": {
+          "ARTIST_MIX": "000ed48c21bf80eab0fbe6ea4d8f14"
+        },
+        "name": "Lorien Testard",
+        "picture": "7bbcff67-29c5-4521-88c5-e95f84176ffd",
+        "popularity": 55,
+        "selectedAlbumCoverFallback": "7bbcff67-29c5-4521-88c5-e95f84176ffd",
+        "spotlighted": false,
+        "url": "http://www.tidal.com/artist/22178906",
+        "userId": null
+      }
+    },
+    {
+      "type": "PLAYLISTS",
+      "value": {
+        "created": "2025-02-04T00:00:00.000+0000",
+        "creator": {},
+        "customImageUrl": null,
+        "description": null,
+        "duration": 1032,
+        "image": null,
+        "lastItemAddedAt": "2025-02-06T00:00:00.000+0000",
+        "lastUpdated": "2025-02-06T00:00:00.000+0000",
+        "numberOfTracks": 5,
+        "numberOfVideos": 0,
+        "popularity": 12,
+        "promotedArtists": [
+          {
+            "handle": null,
+            "id": 1566,
+            "name": "Beyoncé",
+            "picture": "0073e74d-ccf0-41d6-855d-374fdf71e5ed",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 4761957,
+            "name": "The Weeknd",
+            "picture": "5598dc62-acf6-49f1-b468-192ad3555278",
+            "type": "MAIN"
+          },
+          {
+            "handle": "olekjorr",
+            "id": 53146710,
+            "name": "Ole Kjørr",
+            "picture": "b1b949a3-ef79-47b6-9b19-a71ea0770b8d",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 3534754,
+            "name": "Lady Gaga",
+            "picture": "1594f44b-f4ed-4bec-80aa-276e0e759063",
+            "type": "MAIN"
+          }
+        ],
+        "publicPlaylist": true,
+        "squareImage": "45a62d6e-ec30-4c13-b38c-c4e7ec6803da",
+        "title": "upload test (New Releases)",
+        "type": "EDITORIAL",
+        "url": "http://www.tidal.com/playlist/e6fde783-fdfd-44bf-834d-cd276305838c",
+        "uuid": "e6fde783-fdfd-44bf-834d-cd276305838c"
+      }
+    },
+    {
+      "type": "PLAYLISTS",
+      "value": {
+        "created": "2020-06-30T00:00:00.000+0000",
+        "creator": {},
+        "customImageUrl": null,
+        "description": null,
+        "duration": 232,
+        "image": null,
+        "lastItemAddedAt": "2020-06-30T00:00:00.000+0000",
+        "lastUpdated": "2024-06-04T00:00:00.000+0000",
+        "numberOfTracks": 1,
+        "numberOfVideos": 0,
+        "popularity": 11,
+        "promotedArtists": [
+          {
+            "handle": null,
+            "id": 4551892,
+            "name": "Arctic Moon",
+            "picture": "0c8b39ad-8ed3-4383-8b92-0366783e792c",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 6441130,
+            "name": "Truewave",
+            "picture": null,
+            "type": "MAIN"
+          }
+        ],
+        "publicPlaylist": true,
+        "squareImage": null,
+        "title": "test",
+        "type": "EDITORIAL",
+        "url": "http://www.tidal.com/playlist/19438132-4c2a-4250-929a-d06d7b6b5194",
+        "uuid": "19438132-4c2a-4250-929a-d06d7b6b5194"
+      }
+    },
+    {
+      "type": "PLAYLISTS",
+      "value": {
+        "created": "2024-05-31T00:00:00.000+0000",
+        "creator": {},
+        "customImageUrl": null,
+        "description": "Lorem ipsum dolor sit amet",
+        "duration": 8925,
+        "image": "aa7f54ac-6bc7-43cb-92b6-9169c47a7087",
+        "lastItemAddedAt": "2024-07-23T00:00:00.000+0000",
+        "lastUpdated": "2024-07-23T00:00:00.000+0000",
+        "numberOfTracks": 40,
+        "numberOfVideos": 0,
+        "popularity": 9,
+        "promotedArtists": [
+          {
+            "handle": null,
+            "id": 3816041,
+            "name": "Kendrick Lamar",
+            "picture": "84d81b7a-a12e-4a3e-bda4-d0527cb1c8cf",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 3618971,
+            "name": "Future",
+            "picture": "c03703be-e66d-4163-9324-6834631d2aa0",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 5416271,
+            "name": "SZA",
+            "picture": "30b0349b-e229-4099-a1f0-aeeb87ad2dc6",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 11000875,
+            "name": "GloRilla",
+            "picture": "006fb74b-7035-4c78-986f-df1056bbb021",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 10063175,
+            "name": "Sexyy Red",
+            "picture": "e549ab52-bebb-46fa-8bd8-df4eab0d8bf0",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 22180418,
+            "name": "Bossman Dlow",
+            "picture": "490e3a4d-7acb-46f2-b88e-7d276e78c5e5",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 6200831,
+            "name": "Bryson Tiller",
+            "picture": "681222f7-8e9c-4ce2-b5a2-9aa4a8ed7a3a",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 7279286,
+            "name": "21 Savage",
+            "picture": "7b875bcb-fb00-460e-a94c-7e5c15ddd9f8",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 4100869,
+            "name": "Childish Gambino",
+            "picture": "4f699aea-6614-48fe-9664-323db832434e",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 5944768,
+            "name": "Shaboozey",
+            "picture": "1b7cf9c3-015e-47e6-abf8-f02312c38176",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 3918024,
+            "name": "Big Sean",
+            "picture": "aa85ddbd-c0f7-439f-a381-397ea5776c83",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 9279273,
+            "name": "Don Toliver",
+            "picture": "787cf118-7b7f-4d86-96c7-5c42ef9133c8",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 3632070,
+            "name": "Drake",
+            "picture": "3812d980-630e-4948-a72e-f21a546ec2e3",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 10775319,
+            "name": "Tommy Richman",
+            "picture": "5ca64161-5deb-4381-9fbe-780a7c1eab31",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 17275,
+            "name": "Eminem",
+            "picture": "695e593e-451a-4dcc-ae3f-84e3023bbd1f",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 4751756,
+            "name": "Sabrina Carpenter",
+            "picture": "854a8a1a-43f1-44b2-8e59-474e83abd578",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 18695,
+            "name": "The Cure",
+            "picture": "04f5178d-c9a6-46a1-83a0-4d3f964d5890",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 6191624,
+            "name": "Kevin McCormick",
+            "picture": null,
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 27894830,
+            "name": "Bruce Liu",
+            "picture": "57d6dbaf-396d-4f47-ba73-23b516d2267d",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 4467650,
+            "name": "Igor Levit",
+            "picture": "ced58e79-5048-411d-9e0b-02aa5a295374",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 1566,
+            "name": "Beyoncé",
+            "picture": "0073e74d-ccf0-41d6-855d-374fdf71e5ed",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 7804,
+            "name": "JAY Z",
+            "picture": "a437c542-e9b5-4050-aced-c75ca0565c4f",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 16357015,
+            "name": "Sean Shibe",
+            "picture": "53ea4b32-baef-4c84-80db-13bee3ae163f",
+            "type": "MAIN"
+          }
+        ],
+        "publicPlaylist": true,
+        "squareImage": "aa7f54ac-6bc7-43cb-92b6-9169c47a7087",
+        "title": "KTS test",
+        "type": "EDITORIAL",
+        "url": "http://www.tidal.com/playlist/bbdd45d6-ac22-4f75-9b73-7bf89ed5d2a0",
+        "uuid": "bbdd45d6-ac22-4f75-9b73-7bf89ed5d2a0"
+      }
+    }
+  ],
+  "tracks": {
+    "items": [
+      {
+        "accessType": null,
+        "adSupportedStreamReady": true,
+        "album": {
+          "cover": "4029c6dc-cf7f-4cf7-bded-a2df8e97c8f4",
+          "id": 35132867,
+          "releaseDate": "2010-03-23",
+          "title": "How To Train Your Dragon (Music From The Motion Picture)",
+          "vibrantColor": "#99ccdf",
+          "videoCover": null
+        },
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 55092,
+            "name": "John Powell",
+            "picture": "cc235ab2-3b9d-49a6-80d0-da2a92e0062e",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "bpm": 112,
+        "copyright": "℗ 2010 DreamWorks Animation L.L.C.",
+        "djReady": true,
+        "duration": 156,
+        "editable": false,
+        "explicit": false,
+        "id": 35132878,
+        "isrc": "US3M51001211",
+        "key": "D",
+        "keyScale": "MAJOR",
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "mixes": {
+          "TRACK_MIX": "001d682bfe2f515872aaf2b9ec33b3"
+        },
+        "payToStream": false,
+        "peak": 0.990082,
+        "popularity": 72,
+        "premiumStreamingOnly": false,
+        "replayGain": -9.82,
+        "spotlighted": false,
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2013-09-06T00:00:00.000+0000",
+        "title": "Test Drive",
+        "trackNumber": 11,
+        "upload": false,
+        "url": "http://www.tidal.com/track/35132878",
+        "version": "From How To Train Your Dragon Music From The Motion Picture",
+        "volumeNumber": 1
+      },
+      {
+        "accessType": null,
+        "adSupportedStreamReady": true,
+        "album": {
+          "cover": "f6e5c920-d8d3-4f62-94b9-53282e4eda61",
+          "id": 339005006,
+          "releaseDate": "2018-10-26",
+          "title": "BALLADS 1",
+          "vibrantColor": "#733430",
+          "videoCover": null
+        },
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 5888982,
+            "name": "Joji",
+            "picture": "a0df2315-b6cd-40cc-993d-a7f9cb2ea20c",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "bpm": 150,
+        "copyright": "(P) 2018 88rising Records LLC",
+        "djReady": true,
+        "duration": 179,
+        "editable": false,
+        "explicit": true,
+        "id": 339005009,
+        "isrc": "ZZOPM1800561",
+        "key": "C",
+        "keyScale": "MINOR",
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "mixes": {
+          "TRACK_MIX": "00145e382e1b85f4ae955c4512b03b"
+        },
+        "payToStream": false,
+        "peak": 0.967224,
+        "popularity": 68,
+        "premiumStreamingOnly": false,
+        "replayGain": -9.12,
+        "spotlighted": false,
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2024-01-16T00:00:00.000+0000",
+        "title": "TEST DRIVE",
+        "trackNumber": 3,
+        "upload": false,
+        "url": "http://www.tidal.com/track/339005009",
+        "version": null,
+        "volumeNumber": 1
+      },
+      {
+        "accessType": null,
+        "adSupportedStreamReady": true,
+        "album": {
+          "cover": "6db02810-18e0-43e8-8713-c9dd3ca1d690",
+          "id": 325149,
+          "releaseDate": "2002-07-16",
+          "title": "Yoshimi Battles the Pink Robots",
+          "vibrantColor": "#e5d18e",
+          "videoCover": null
+        },
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 13857,
+            "name": "The Flaming Lips",
+            "picture": "b75b2970-b6c7-4342-a1b0-ca8799b0cda1",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "bpm": 164,
+        "copyright": "℗ 2002 Warner Records Inc.",
+        "djReady": true,
+        "duration": 257,
+        "editable": false,
+        "explicit": false,
+        "id": 325150,
+        "isrc": "USWB10200885",
+        "key": "A",
+        "keyScale": "MAJOR",
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "mixes": {
+          "TRACK_MIX": "0013e5bafa6f037d394bd7fa0d5b59"
+        },
+        "payToStream": false,
+        "peak": 0.997375,
+        "popularity": 68,
+        "premiumStreamingOnly": false,
+        "replayGain": -11.55,
+        "spotlighted": false,
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2006-04-18T00:00:00.000+0000",
+        "title": "Fight Test",
+        "trackNumber": 1,
+        "upload": false,
+        "url": "http://www.tidal.com/track/325150",
+        "version": null,
+        "volumeNumber": 1
+      },
+      {
+        "accessType": null,
+        "adSupportedStreamReady": true,
+        "album": {
+          "cover": "bbc8951b-58d9-4ad6-806c-0f3a0fdefaba",
+          "id": 174185102,
+          "releaseDate": "2020-10-30",
+          "title": "Positions (Deluxe)",
+          "vibrantColor": "#FFFFFF",
+          "videoCover": null
+        },
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 4332277,
+            "name": "Ariana Grande",
+            "picture": "1c496bca-2823-4ef3-8ec7-f927d0e3edf7",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "bpm": 115,
+        "copyright": "℗ 2021 Republic Records, a division of UMG Recordings, Inc.",
+        "djReady": true,
+        "duration": 122,
+        "editable": false,
+        "explicit": false,
+        "id": 174185127,
+        "isrc": "USUM72102132",
+        "key": "F",
+        "keyScale": "MAJOR",
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS",
+            "HIRES_LOSSLESS"
+          ]
+        },
+        "mixes": {
+          "TRACK_MIX": "0013bb3be80cd71acd96e19a07ca81"
+        },
+        "payToStream": false,
+        "peak": 0.997415,
+        "popularity": 66,
+        "premiumStreamingOnly": false,
+        "replayGain": -9.89,
+        "spotlighted": false,
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2021-02-19T00:00:00.000+0000",
+        "title": "test drive",
+        "trackNumber": 16,
+        "upload": false,
+        "url": "http://www.tidal.com/track/174185127",
+        "version": null,
+        "volumeNumber": 1
+      },
+      {
+        "accessType": null,
+        "adSupportedStreamReady": true,
+        "album": {
+          "cover": "96d134b6-4a4d-42ac-9a53-d98f0b3ba32d",
+          "id": 12585823,
+          "releaseDate": "1993-01-01",
+          "title": "God Shuffled His Feet",
+          "vibrantColor": "#ebc06e",
+          "videoCover": null
+        },
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 25733,
+            "name": "Crash Test Dummies",
+            "picture": "28ec014c-67bc-4985-92d0-e9956961383a",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "bpm": 93,
+        "copyright": "(P) 1991 Sony Music Entertainment (Canada) Inc.",
+        "djReady": true,
+        "duration": 235,
+        "editable": false,
+        "explicit": false,
+        "id": 12585826,
+        "isrc": "CAA359300084",
+        "key": "Eb",
+        "keyScale": "MAJOR",
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "mixes": {
+          "TRACK_MIX": "0016176ccb3e44e406b0ddeb85bc8b"
+        },
+        "payToStream": false,
+        "peak": 0.997345,
+        "popularity": 71,
+        "premiumStreamingOnly": false,
+        "replayGain": -7.87,
+        "spotlighted": false,
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "1993-04-05T00:00:00.000+0000",
+        "title": "Mmm Mmm Mmm Mmm",
+        "trackNumber": 3,
+        "upload": false,
+        "url": "http://www.tidal.com/track/12585826",
+        "version": null,
+        "volumeNumber": 1
+      },
+      {
+        "accessType": null,
+        "adSupportedStreamReady": true,
+        "album": {
+          "cover": "99c3d582-9d6b-4073-84e0-c34c60d65c0f",
+          "id": 43003792,
+          "releaseDate": "1996-01-01",
+          "title": "44 Octobre",
+          "vibrantColor": "#FFFFFF",
+          "videoCover": null
+        },
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 5580560,
+            "name": "Frédéric Metthé",
+            "picture": null,
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "bpm": 132,
+        "copyright": "Jacmat.com",
+        "djReady": true,
+        "duration": 521,
+        "editable": false,
+        "explicit": false,
+        "id": 43003797,
+        "isrc": "FR6V89502085",
+        "key": "CSharp",
+        "keyScale": "MINOR",
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "mixes": {
+          "TRACK_MIX": "0013d1d0b3fec8872e06c7a55c4846"
+        },
+        "payToStream": false,
+        "peak": 1.0,
+        "popularity": 61,
+        "premiumStreamingOnly": false,
+        "replayGain": -3.37,
+        "spotlighted": false,
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2008-03-01T00:00:00.000+0000",
+        "title": "Sound Test",
+        "trackNumber": 5,
+        "upload": false,
+        "url": "http://www.tidal.com/track/43003797",
+        "version": null,
+        "volumeNumber": 1
+      },
+      {
+        "accessType": null,
+        "adSupportedStreamReady": true,
+        "album": {
+          "cover": "64931a69-27e5-4df0-9857-4f90b87c0d9c",
+          "id": 427399315,
+          "releaseDate": "2025-04-01",
+          "title": "F*CK U SKRILLEX YOU THINK UR ANDY WARHOL BUT UR NOT!! <3",
+          "vibrantColor": "#cfad75",
+          "videoCover": null
+        },
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 3853703,
+            "name": "Skrillex",
+            "picture": "58a0074f-f79f-4330-9bd4-87275230ae82",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 4518147,
+            "name": "Virtual Riot",
+            "picture": "c5bf0839-dea0-445d-9371-0a14db11aa31",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 5928153,
+            "name": "Nakeesha",
+            "picture": null,
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "bpm": 80,
+        "copyright": "℗ 2025 OWSLA/Atlantic Recording Corporation",
+        "djReady": true,
+        "duration": 66,
+        "editable": false,
+        "explicit": false,
+        "id": 427399329,
+        "isrc": "USAT22501804",
+        "key": "A",
+        "keyScale": "MINOR",
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS",
+            "HIRES_LOSSLESS"
+          ]
+        },
+        "mixes": {
+          "TRACK_MIX": "0010c91abe5e8f0e7d31b648b32850"
+        },
+        "payToStream": false,
+        "peak": 0.966051,
+        "popularity": 61,
+        "premiumStreamingOnly": false,
+        "replayGain": -11.02,
+        "spotlighted": false,
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2025-04-01T12:00:00.000+0000",
+        "title": "MIRCHI TEST",
+        "trackNumber": 14,
+        "upload": false,
+        "url": "http://www.tidal.com/track/427399329",
+        "version": null,
+        "volumeNumber": 1
+      },
+      {
+        "accessType": null,
+        "adSupportedStreamReady": true,
+        "album": {
+          "cover": "1595974f-9e22-4b41-a96a-ebd64ded0468",
+          "id": 151323574,
+          "releaseDate": "2016-06-24",
+          "title": "Indigo",
+          "vibrantColor": "#5161b0",
+          "videoCover": null
+        },
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 5171789,
+            "name": "River Tiber",
+            "picture": "26912ab6-34a2-464e-8145-c183cc887bc0",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "bpm": 163,
+        "copyright": "2016 River Tiber",
+        "djReady": true,
+        "duration": 313,
+        "editable": false,
+        "explicit": false,
+        "id": 151323577,
+        "isrc": "CAK471601203",
+        "key": "Eb",
+        "keyScale": "MINOR",
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "mixes": {
+          "TRACK_MIX": "00181dddefb014446495719ae0efe3"
+        },
+        "payToStream": false,
+        "peak": 1.0,
+        "popularity": 60,
+        "premiumStreamingOnly": false,
+        "replayGain": -9.43,
+        "spotlighted": false,
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2020-08-14T00:00:00.000+0000",
+        "title": "Acid Test",
+        "trackNumber": 3,
+        "upload": false,
+        "url": "http://www.tidal.com/track/151323577",
+        "version": null,
+        "volumeNumber": 1
+      },
+      {
+        "accessType": null,
+        "adSupportedStreamReady": true,
+        "album": {
+          "cover": "0df895cf-20d8-4033-b7b5-9115d5e45f9e",
+          "id": 1880184,
+          "releaseDate": "1991-01-01",
+          "title": "The Ghosts That Haunt Me",
+          "vibrantColor": "#ebd013",
+          "videoCover": null
+        },
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 25733,
+            "name": "Crash Test Dummies",
+            "picture": "28ec014c-67bc-4985-92d0-e9956961383a",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "bpm": 166,
+        "copyright": "(P) 1991 BMG Music Canada Inc.",
+        "djReady": true,
+        "duration": 272,
+        "editable": false,
+        "explicit": false,
+        "id": 1880261,
+        "isrc": "CAV169101324",
+        "key": "Bb",
+        "keyScale": "MAJOR",
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "mixes": {
+          "TRACK_MIX": "00124de5ecfdd15e0f07965efd1eee"
+        },
+        "payToStream": false,
+        "peak": 0.642609,
+        "popularity": 68,
+        "premiumStreamingOnly": false,
+        "replayGain": -3.37,
+        "spotlighted": false,
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "1991-04-05T00:00:00.000+0000",
+        "title": "Superman's Song",
+        "trackNumber": 3,
+        "upload": false,
+        "url": "http://www.tidal.com/track/1880261",
+        "version": null,
+        "volumeNumber": 1
+      },
+      {
+        "accessType": null,
+        "adSupportedStreamReady": true,
+        "album": {
+          "cover": "3caf51f5-aa83-4025-8081-14851dd3d2e1",
+          "id": 110717080,
+          "releaseDate": "2014-09-23",
+          "title": "Chinese Fountain",
+          "vibrantColor": "#eadf9f",
+          "videoCover": null
+        },
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 3932408,
+            "name": "The Growlers",
+            "picture": "c1fd8e95-ae88-48ee-b814-9f9a48566c52",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "DOLBY_ATMOS",
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "bpm": 115,
+        "copyright": "2014 Everloving, Inc.",
+        "djReady": true,
+        "duration": 249,
+        "editable": false,
+        "explicit": false,
+        "id": 110717090,
+        "isrc": "USER81404408",
+        "key": "G",
+        "keyScale": "MAJOR",
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS",
+            "DOLBY_ATMOS"
+          ]
+        },
+        "mixes": {
+          "TRACK_MIX": "00127919f9075bc910069a39f9b823"
+        },
+        "payToStream": false,
+        "peak": 0.99881,
+        "popularity": 58,
+        "premiumStreamingOnly": false,
+        "replayGain": -9.0,
+        "spotlighted": false,
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2014-09-23T00:00:00.000+0000",
+        "title": "Love Test",
+        "trackNumber": 8,
+        "upload": false,
+        "url": "http://www.tidal.com/track/110717090",
+        "version": null,
+        "volumeNumber": 1
+      },
+      {
+        "accessType": null,
+        "adSupportedStreamReady": true,
+        "album": {
+          "cover": "68435ccd-b786-42ca-9bce-5765b0088c1c",
+          "id": 1571053,
+          "releaseDate": "2002-01-29",
+          "title": "Come With Us",
+          "vibrantColor": "#f5cb83",
+          "videoCover": null
+        },
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 9124,
+            "name": "The Chemical Brothers",
+            "picture": "4985b1a0-7b62-41b6-b7e7-dd6aa601bc80",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "bpm": 127,
+        "copyright": "℗ 2002 Virgin Records Limited",
+        "djReady": true,
+        "duration": 467,
+        "editable": false,
+        "explicit": false,
+        "id": 1571063,
+        "isrc": "GBAAA0100921",
+        "key": "F",
+        "keyScale": "MAJOR",
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "mixes": {
+          "TRACK_MIX": "0012b6956702738935bc1d586f6b36"
+        },
+        "payToStream": false,
+        "peak": 0.979828,
+        "popularity": 57,
+        "premiumStreamingOnly": false,
+        "replayGain": -10.38,
+        "spotlighted": false,
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2002-01-29T00:00:00.000+0000",
+        "title": "The Test",
+        "trackNumber": 10,
+        "upload": false,
+        "url": "http://www.tidal.com/track/1571063",
+        "version": null,
+        "volumeNumber": 1
+      },
+      {
+        "accessType": null,
+        "adSupportedStreamReady": true,
+        "album": {
+          "cover": "f0995091-5b65-4fcc-999f-5594a07fd990",
+          "id": 318333076,
+          "releaseDate": "2014-09-02",
+          "title": "Test & Recognise (Remixes)",
+          "vibrantColor": "#FFFFFF",
+          "videoCover": null
+        },
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 4103193,
+            "name": "Seekae",
+            "picture": "91510b66-34d8-4903-807a-45ba5bffc264",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "bpm": 110,
+        "copyright": "© 2014 Future Classic",
+        "djReady": true,
+        "duration": 304,
+        "editable": false,
+        "explicit": false,
+        "id": 318333078,
+        "isrc": "AUFF01400535",
+        "key": "CSharp",
+        "keyScale": "MINOR",
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "mixes": {
+          "TRACK_MIX": "001b6d7dd7154ba8c9174d988d114c"
+        },
+        "payToStream": false,
+        "peak": 0.966766,
+        "popularity": 69,
+        "premiumStreamingOnly": false,
+        "replayGain": -9.35,
+        "spotlighted": false,
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2014-08-14T00:00:00.000+0000",
+        "title": "Test & Recognise (Flume Re-work)",
+        "trackNumber": 2,
+        "upload": false,
+        "url": "http://www.tidal.com/track/318333078",
+        "version": null,
+        "volumeNumber": 1
+      },
+      {
+        "accessType": null,
+        "adSupportedStreamReady": true,
+        "album": {
+          "cover": "3905e431-c3ab-494e-af84-4322002dd737",
+          "id": 169191733,
+          "releaseDate": "2017-01-12",
+          "title": "Starcrash",
+          "vibrantColor": "#FFFFFF",
+          "videoCover": null
+        },
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 7219687,
+            "name": "Stilz",
+            "picture": "668a00eb-624c-4825-b124-0a82379ea3ac",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 6065306,
+            "name": "The Encounter",
+            "picture": null,
+            "type": "FEATURED"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "bpm": 100,
+        "copyright": "Lazerdiscs Records",
+        "djReady": true,
+        "duration": 244,
+        "editable": false,
+        "explicit": false,
+        "id": 169191736,
+        "isrc": "ITXDW1600473",
+        "key": "D",
+        "keyScale": "MINOR",
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "mixes": {
+          "TRACK_MIX": "0016ba7567601155e63626b7a0f8f2"
+        },
+        "payToStream": false,
+        "peak": 0.990845,
+        "popularity": 57,
+        "premiumStreamingOnly": false,
+        "replayGain": -6.99,
+        "spotlighted": false,
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2020-12-16T00:00:00.000+0000",
+        "title": "Test Pilot",
+        "trackNumber": 2,
+        "upload": false,
+        "url": "http://www.tidal.com/track/169191736",
+        "version": null,
+        "volumeNumber": 1
+      },
+      {
+        "accessType": null,
+        "adSupportedStreamReady": true,
+        "album": {
+          "cover": "75a89348-9094-425c-8293-cf6c59f236ac",
+          "id": 81324587,
+          "releaseDate": "2017-11-17",
+          "title": "Fed Baby’s",
+          "vibrantColor": "#d06452",
+          "videoCover": null
+        },
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 6829747,
+            "name": "Moneybagg Yo",
+            "picture": "14019014-3c81-42b4-b44e-5c5aaba96d52",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 8222353,
+            "name": "YoungBoy Never Broke Again",
+            "picture": "4176a644-94a7-45d2-bb65-83e0607707ce",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 4193611,
+            "name": "Young Thug",
+            "picture": "6fc6f8ae-380d-44be-9c63-9e8f53b957e0",
+            "type": "FEATURED"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "bpm": 145,
+        "copyright": "℗ 2017 N-Less Entertainment, LLC",
+        "djReady": true,
+        "duration": 212,
+        "editable": false,
+        "explicit": true,
+        "id": 81324590,
+        "isrc": "USUG11701371",
+        "key": "E",
+        "keyScale": "MINOR",
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "mixes": {
+          "TRACK_MIX": "001c570dc49e9bb71e712147c256ab"
+        },
+        "payToStream": false,
+        "peak": 0.999969,
+        "popularity": 62,
+        "premiumStreamingOnly": false,
+        "replayGain": -11.38,
+        "spotlighted": false,
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2017-11-17T00:00:00.000+0000",
+        "title": "Mandatory Drug Test",
+        "trackNumber": 3,
+        "upload": false,
+        "url": "http://www.tidal.com/track/81324590",
+        "version": null,
+        "volumeNumber": 1
+      },
+      {
+        "accessType": null,
+        "adSupportedStreamReady": true,
+        "album": {
+          "cover": "906dbf00-d189-41b4-b489-0cb2e25a9f66",
+          "id": 155989753,
+          "releaseDate": "2020-09-25",
+          "title": "After School EP",
+          "vibrantColor": "#d9a39e",
+          "videoCover": null
+        },
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 5417763,
+            "name": "Melanie Martinez",
+            "picture": "caf08197-2f35-4641-8fb6-99c0fef6cf46",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "bpm": 172,
+        "copyright": "℗ 2020 Atlantic Recording Corporation",
+        "djReady": true,
+        "duration": 175,
+        "editable": false,
+        "explicit": false,
+        "id": 155989755,
+        "isrc": "USAT22005791",
+        "key": "C",
+        "keyScale": "MINOR",
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS",
+            "HIRES_LOSSLESS"
+          ]
+        },
+        "mixes": {
+          "TRACK_MIX": "00198a8a1ccb3ed6e262ae46171c12"
+        },
+        "payToStream": false,
+        "peak": 0.97729,
+        "popularity": 56,
+        "premiumStreamingOnly": false,
+        "replayGain": -8.99,
+        "spotlighted": false,
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2020-09-25T00:00:00.000+0000",
+        "title": "Test Me",
+        "trackNumber": 2,
+        "upload": false,
+        "url": "http://www.tidal.com/track/155989755",
+        "version": null,
+        "volumeNumber": 1
+      },
+      {
+        "accessType": null,
+        "adSupportedStreamReady": true,
+        "album": {
+          "cover": "7f1701f7-da87-429a-8256-da0a1f081f50",
+          "id": 68977311,
+          "releaseDate": "2017-01-13",
+          "title": "I See You",
+          "vibrantColor": "#9cbee2",
+          "videoCover": null
+        },
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 3632922,
+            "name": "The xx",
+            "picture": "35f77f4d-b0b9-4542-9ce4-73893be1d308",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "bpm": 120,
+        "copyright": "Young",
+        "djReady": true,
+        "duration": 236,
+        "editable": false,
+        "explicit": false,
+        "id": 68977321,
+        "isrc": "UK7MC1600094",
+        "key": "FSharp",
+        "keyScale": "MAJOR",
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "mixes": {
+          "TRACK_MIX": "001d9d4ceb12c43655eb9fd7efdd8c"
+        },
+        "payToStream": false,
+        "peak": 0.96463,
+        "popularity": 56,
+        "premiumStreamingOnly": false,
+        "replayGain": -8.94,
+        "spotlighted": false,
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2025-05-22T00:00:00.000+0000",
+        "title": "Test Me",
+        "trackNumber": 10,
+        "upload": false,
+        "url": "http://www.tidal.com/track/68977321",
+        "version": null,
+        "volumeNumber": 1
+      },
+      {
+        "accessType": null,
+        "adSupportedStreamReady": true,
+        "album": {
+          "cover": "19c19d34-63bf-4b1c-b5b9-27f7c758e61d",
+          "id": 185777943,
+          "releaseDate": "2004-02-24",
+          "title": "Madvillainy",
+          "vibrantColor": "#ee7739",
+          "videoCover": null
+        },
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 3525561,
+            "name": "Madvillain",
+            "picture": "62df49d4-5b58-46aa-83d5-18a39714f82a",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 19232,
+            "name": "Madlib",
+            "picture": "8008fb16-3382-47ad-a0cd-c26d44df161e",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 3503597,
+            "name": "MF DOOM",
+            "picture": "998a3ecf-ba85-4c2e-b172-5ae6700e09ef",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "bpm": 94,
+        "copyright": "2004 Stones Throw Records",
+        "djReady": true,
+        "duration": 90,
+        "editable": false,
+        "explicit": true,
+        "id": 185777956,
+        "isrc": "US2S70465013",
+        "key": "FSharp",
+        "keyScale": "MINOR",
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "mixes": {
+          "TRACK_MIX": "0019d9867a01c6c1d996ae8668c7e7"
+        },
+        "payToStream": false,
+        "peak": 0.956879,
+        "popularity": 65,
+        "premiumStreamingOnly": false,
+        "replayGain": -8.44,
+        "spotlighted": false,
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2004-03-24T00:00:00.000+0000",
+        "title": "Operation Lifesaver aka Mint Test",
+        "trackNumber": 13,
+        "upload": false,
+        "url": "http://www.tidal.com/track/185777956",
+        "version": null,
+        "volumeNumber": 1
+      },
+      {
+        "accessType": null,
+        "adSupportedStreamReady": true,
+        "album": {
+          "cover": "95537b72-41e0-4bd4-a32c-06439155707c",
+          "id": 424087536,
+          "releaseDate": "2025-03-19",
+          "title": "southbound / test drive",
+          "vibrantColor": "#1e597e",
+          "videoCover": null
+        },
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 9225136,
+            "name": "Artemas",
+            "picture": "2dff9d64-d829-42bf-b8b4-172a726b0273",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "bpm": 104,
+        "copyright": "℗ 2025 Artemas",
+        "djReady": true,
+        "duration": 189,
+        "editable": false,
+        "explicit": false,
+        "id": 424087538,
+        "isrc": "QZJ842501320",
+        "key": "FSharp",
+        "keyScale": "MINOR",
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS",
+            "HIRES_LOSSLESS"
+          ]
+        },
+        "mixes": {
+          "TRACK_MIX": "001cd1fbf8209c03bd2e871451b698"
+        },
+        "payToStream": false,
+        "peak": 0.97902,
+        "popularity": 55,
+        "premiumStreamingOnly": false,
+        "replayGain": -12.11,
+        "spotlighted": false,
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2025-03-19T00:00:00.000+0000",
+        "title": "test drive",
+        "trackNumber": 2,
+        "upload": false,
+        "url": "http://www.tidal.com/track/424087538",
+        "version": null,
+        "volumeNumber": 1
+      },
+      {
+        "accessType": null,
+        "adSupportedStreamReady": true,
+        "album": {
+          "cover": "231006ce-bb7c-4aa2-93d6-f9a4283cdc7a",
+          "id": 71830385,
+          "releaseDate": "2002-07-16",
+          "title": "Yoshimi Battles the Pink Robots",
+          "vibrantColor": "#e4d18c",
+          "videoCover": null
+        },
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 13857,
+            "name": "The Flaming Lips",
+            "picture": "b75b2970-b6c7-4342-a1b0-ca8799b0cda1",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "bpm": 164,
+        "copyright": "℗ 2003 Warner Records Inc.",
+        "djReady": true,
+        "duration": 254,
+        "editable": false,
+        "explicit": false,
+        "id": 71830386,
+        "isrc": "USWB11602506",
+        "key": "A",
+        "keyScale": "MAJOR",
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS",
+            "HIRES_LOSSLESS"
+          ]
+        },
+        "mixes": {
+          "TRACK_MIX": "001bfbc45689a287d71bf3f04ca764"
+        },
+        "payToStream": false,
+        "peak": 0.836654,
+        "popularity": 54,
+        "premiumStreamingOnly": false,
+        "replayGain": -10.29,
+        "spotlighted": false,
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2017-03-22T00:00:00.000+0000",
+        "title": "Fight Test",
+        "trackNumber": 1,
+        "upload": false,
+        "url": "http://www.tidal.com/track/71830386",
+        "version": null,
+        "volumeNumber": 1
+      },
+      {
+        "accessType": null,
+        "adSupportedStreamReady": true,
+        "album": {
+          "cover": "156bddfa-b5d7-404a-8d0d-019db88ef561",
+          "id": 7582863,
+          "releaseDate": "2011-08-23",
+          "title": "The R.E.D. Album",
+          "vibrantColor": "#d73730",
+          "videoCover": null
+        },
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 3701788,
+            "name": "The Game",
+            "picture": "61e83ebe-b38e-4f15-9326-e93da1d9399e",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 3963798,
+            "name": "Dr. Dre",
+            "picture": "1a705aec-4f48-40ba-a146-6f67e011680a",
+            "type": "FEATURED"
+          },
+          {
+            "handle": null,
+            "id": 8914,
+            "name": "Snoop Dogg",
+            "picture": "fb3fe652-ffe0-44a3-ba86-dd2b917c716b",
+            "type": "FEATURED"
+          },
+          {
+            "handle": null,
+            "id": 3521333,
+            "name": "SlY",
+            "picture": "ccbe926f-014f-4571-889f-cd59b6825443",
+            "type": "FEATURED"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "bpm": 94,
+        "copyright": "℗ 2011 DGC/Interscope Records",
+        "djReady": true,
+        "duration": 166,
+        "editable": false,
+        "explicit": true,
+        "id": 7582866,
+        "isrc": "USUM71112096",
+        "key": "C",
+        "keyScale": "MINOR",
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "mixes": {
+          "TRACK_MIX": "00114dc51f8dadbdcb0a6a301fa992"
+        },
+        "payToStream": false,
+        "peak": 0.999969,
+        "popularity": 54,
+        "premiumStreamingOnly": false,
+        "replayGain": -12.07,
+        "spotlighted": false,
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2011-08-23T00:00:00.000+0000",
+        "title": "Drug Test",
+        "trackNumber": 3,
+        "upload": false,
+        "url": "http://www.tidal.com/track/7582866",
+        "version": null,
+        "volumeNumber": 1
+      },
+      {
+        "accessType": null,
+        "adSupportedStreamReady": true,
+        "album": {
+          "cover": "91f2137b-3d80-4506-a9ab-0b482be2435e",
+          "id": 414389613,
+          "releaseDate": "2025-03-05",
+          "title": "The Test",
+          "vibrantColor": "#9acc85",
+          "videoCover": null
+        },
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 16701065,
+            "name": "Billy Nomates",
+            "picture": "a39793d3-3991-4565-b1c3-beafb407c4df",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "bpm": 152,
+        "copyright": "2025 Invada Records UK",
+        "djReady": true,
+        "duration": 230,
+        "editable": false,
+        "explicit": false,
+        "id": 414389614,
+        "isrc": "UKFGV2500006",
+        "key": "FSharp",
+        "keyScale": "MAJOR",
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS",
+            "HIRES_LOSSLESS"
+          ]
+        },
+        "mixes": {
+          "TRACK_MIX": "001545682f3e36b8dfc13500faa989"
+        },
+        "payToStream": false,
+        "peak": 0.988523,
+        "popularity": 55,
+        "premiumStreamingOnly": false,
+        "replayGain": -7.98,
+        "spotlighted": false,
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2025-03-05T08:00:00.000+0000",
+        "title": "The Test",
+        "trackNumber": 1,
+        "upload": false,
+        "url": "http://www.tidal.com/track/414389614",
+        "version": null,
+        "volumeNumber": 1
+      },
+      {
+        "accessType": null,
+        "adSupportedStreamReady": true,
+        "album": {
+          "cover": "e68f0821-4b4d-4173-b40e-e7490eaf5a1e",
+          "id": 99090030,
+          "releaseDate": "2007-09-03",
+          "title": "Little Dragon",
+          "vibrantColor": "#FFFFFF",
+          "videoCover": null
+        },
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 3519571,
+            "name": "Little Dragon",
+            "picture": "8258df60-c193-4869-b909-bf0a75d72b33",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "bpm": 125,
+        "copyright": "2007 Peacefrog Holdings Ltd",
+        "djReady": true,
+        "duration": 268,
+        "editable": false,
+        "explicit": false,
+        "id": 99090040,
+        "isrc": "GBEWK0700042",
+        "key": "CSharp",
+        "keyScale": "MAJOR",
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "mixes": {
+          "TRACK_MIX": "00124b51b25dc0a3e9a1e504f57c1e"
+        },
+        "payToStream": false,
+        "peak": 1.0,
+        "popularity": 50,
+        "premiumStreamingOnly": false,
+        "replayGain": -8.44,
+        "spotlighted": false,
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2011-05-30T00:00:00.000+0000",
+        "title": "Test",
+        "trackNumber": 10,
+        "upload": false,
+        "url": "http://www.tidal.com/track/99090040",
+        "version": null,
+        "volumeNumber": 1
+      },
+      {
+        "accessType": null,
+        "adSupportedStreamReady": true,
+        "album": {
+          "cover": "f72da4c8-d248-4839-b1a1-3f0c45f11570",
+          "id": 3049160,
+          "releaseDate": "1998-07-14",
+          "title": "Hello Nasty (Deluxe Edition/Remastered)",
+          "vibrantColor": "#ecd96e",
+          "videoCover": null
+        },
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 8963,
+            "name": "Beastie Boys",
+            "picture": "a1ca4435-0f4a-4de6-94e5-c8277cf8755d",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "bpm": 98,
+        "copyright": "℗ 2009 Capitol Records, LLC, Grand Royal and Beastie Boys",
+        "djReady": true,
+        "duration": 133,
+        "editable": false,
+        "explicit": false,
+        "id": 3049169,
+        "isrc": "USCA20903762",
+        "key": "C",
+        "keyScale": "MINOR",
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "mixes": {
+          "TRACK_MIX": "00149849954393fa876fd87dd4464e"
+        },
+        "payToStream": false,
+        "peak": 1.0,
+        "popularity": 58,
+        "premiumStreamingOnly": false,
+        "replayGain": -9.52,
+        "spotlighted": false,
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2009-08-25T00:00:00.000+0000",
+        "title": "Just A Test",
+        "trackNumber": 5,
+        "upload": false,
+        "url": "http://www.tidal.com/track/3049169",
+        "version": "Remastered 2009",
+        "volumeNumber": 1
+      },
+      {
+        "accessType": null,
+        "adSupportedStreamReady": true,
+        "album": {
+          "cover": "0008d064-1dd5-4c68-9680-680ef567ced8",
+          "id": 173946357,
+          "releaseDate": "2020-10-30",
+          "title": "Positions (Deluxe)",
+          "vibrantColor": "#FFFFFF",
+          "videoCover": null
+        },
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 4332277,
+            "name": "Ariana Grande",
+            "picture": "1c496bca-2823-4ef3-8ec7-f927d0e3edf7",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "bpm": 115,
+        "copyright": "℗ 2021 Republic Records, a division of UMG Recordings, Inc.",
+        "djReady": true,
+        "duration": 122,
+        "editable": false,
+        "explicit": false,
+        "id": 173946384,
+        "isrc": "USUM72102132",
+        "key": "F",
+        "keyScale": "MAJOR",
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "mixes": {
+          "TRACK_MIX": "001f4ba1a7fc977d59a7373529aa5d"
+        },
+        "payToStream": false,
+        "peak": 0.997406,
+        "popularity": 53,
+        "premiumStreamingOnly": false,
+        "replayGain": -9.89,
+        "spotlighted": false,
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2021-02-19T00:00:00.000+0000",
+        "title": "test drive",
+        "trackNumber": 16,
+        "upload": false,
+        "url": "http://www.tidal.com/track/173946384",
+        "version": null,
+        "volumeNumber": 1
+      },
+      {
+        "accessType": null,
+        "adSupportedStreamReady": true,
+        "album": {
+          "cover": "91196adc-1207-40dd-90c8-6fce20a16bb9",
+          "id": 41077893,
+          "releaseDate": "2015-03-03",
+          "title": "Test Pilot (Chilly Gonzales Re-Make)",
+          "vibrantColor": "#ee799e",
+          "videoCover": null
+        },
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 3565237,
+            "name": "TV On The Radio",
+            "picture": "a4fec3c8-d629-4332-81a9-ded3992099f3",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "bpm": 162,
+        "copyright": "℗ 2015 TV On The Radio/Girl From Nantucket, Inc., Under Exclusive License To Harvest Records",
+        "djReady": true,
+        "duration": 216,
+        "editable": false,
+        "explicit": false,
+        "id": 41077894,
+        "isrc": "USUG11500242",
+        "key": "G",
+        "keyScale": "MINOR",
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "mixes": {
+          "TRACK_MIX": "0016e73fb6efdc459bd60e5378c6b4"
+        },
+        "payToStream": false,
+        "peak": 0.999969,
+        "popularity": 53,
+        "premiumStreamingOnly": false,
+        "replayGain": -5.84,
+        "spotlighted": false,
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2015-03-03T00:00:00.000+0000",
+        "title": "Test Pilot",
+        "trackNumber": 1,
+        "upload": false,
+        "url": "http://www.tidal.com/track/41077894",
+        "version": "Chilly Gonzales Re-Make",
+        "volumeNumber": 1
+      },
+      {
+        "accessType": null,
+        "adSupportedStreamReady": true,
+        "album": {
+          "cover": "6ddd061a-0a21-49fd-a156-8ffa552858a5",
+          "id": 3981361,
+          "releaseDate": "2002-08-27",
+          "title": "The Best Smooth Jazz Ever",
+          "vibrantColor": "#88bfdd",
+          "videoCover": null
+        },
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 1068,
+            "name": "Patti Austin",
+            "picture": "0d713c66-6e7f-40cf-bd59-b94e98adf86d",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "bpm": 94,
+        "copyright": "℗ 1990 The Verve Music Group, a Division of UMG Recordings, Inc.",
+        "djReady": true,
+        "duration": 306,
+        "editable": false,
+        "explicit": false,
+        "id": 3981369,
+        "isrc": "USGR19500017",
+        "key": "A",
+        "keyScale": "MAJOR",
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "mixes": {
+          "TRACK_MIX": "00137e20ad357fb7d98000e08fad9a"
+        },
+        "payToStream": false,
+        "peak": 0.76709,
+        "popularity": 62,
+        "premiumStreamingOnly": false,
+        "replayGain": -8.13,
+        "spotlighted": false,
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2002-09-03T00:00:00.000+0000",
+        "title": "Through The Test Of Time",
+        "trackNumber": 8,
+        "upload": false,
+        "url": "http://www.tidal.com/track/3981369",
+        "version": null,
+        "volumeNumber": 1
+      },
+      {
+        "accessType": null,
+        "adSupportedStreamReady": true,
+        "album": {
+          "cover": "9f84b10e-83dd-40f5-8a6d-ef782e1c7ada",
+          "id": 233028,
+          "releaseDate": "2003-04-22",
+          "title": "Fight Test",
+          "vibrantColor": "#e7e297",
+          "videoCover": null
+        },
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 13857,
+            "name": "The Flaming Lips",
+            "picture": "b75b2970-b6c7-4342-a1b0-ca8799b0cda1",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "bpm": 164,
+        "copyright": "℗ 2002 Warner Records Inc.",
+        "djReady": true,
+        "duration": 257,
+        "editable": false,
+        "explicit": false,
+        "id": 233029,
+        "isrc": "USWB10200885",
+        "key": "A",
+        "keyScale": "MAJOR",
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "mixes": {
+          "TRACK_MIX": "001ca51f863f3b686d4572671a33b6"
+        },
+        "payToStream": false,
+        "peak": 0.997375,
+        "popularity": 52,
+        "premiumStreamingOnly": false,
+        "replayGain": -11.32,
+        "spotlighted": false,
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2016-11-18T00:00:00.000+0000",
+        "title": "Fight Test",
+        "trackNumber": 1,
+        "upload": false,
+        "url": "http://www.tidal.com/track/233029",
+        "version": null,
+        "volumeNumber": 1
+      },
+      {
+        "accessType": null,
+        "adSupportedStreamReady": true,
+        "album": {
+          "cover": "ce5a7693-1ead-474b-a8b2-b3cd94927f9c",
+          "id": 121047734,
+          "releaseDate": "2018-02-23",
+          "title": "Greatest Hits",
+          "vibrantColor": "#f49bb9",
+          "videoCover": null
+        },
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 6601698,
+            "name": "Remo Drive",
+            "picture": "ea805359-26fe-473e-b23d-821ee044467c",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "bpm": 120,
+        "copyright": "Remo Drive, under exclusive license to Epitaph",
+        "djReady": true,
+        "duration": 154,
+        "editable": false,
+        "explicit": false,
+        "id": 121047737,
+        "isrc": "USEP41745013",
+        "key": "G",
+        "keyScale": "MAJOR",
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS",
+            "HIRES_LOSSLESS"
+          ]
+        },
+        "mixes": {
+          "TRACK_MIX": "001bf1be940127b5077b7238233768"
+        },
+        "payToStream": false,
+        "peak": 0.943823,
+        "popularity": 56,
+        "premiumStreamingOnly": false,
+        "replayGain": -10.15,
+        "spotlighted": false,
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2018-02-23T00:00:00.000+0000",
+        "title": "Crash Test Rating",
+        "trackNumber": 3,
+        "upload": false,
+        "url": "http://www.tidal.com/track/121047737",
+        "version": null,
+        "volumeNumber": 1
+      },
+      {
+        "accessType": null,
+        "adSupportedStreamReady": true,
+        "album": {
+          "cover": "abe9b26e-82a7-4a2a-b6d9-3baa382be4ec",
+          "id": 295844084,
+          "releaseDate": "2022-09-09",
+          "title": "Hello, world!",
+          "vibrantColor": "#1386ad",
+          "videoCover": null
+        },
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 29508452,
+            "name": "Xdinary Heroes",
+            "picture": "9eb538db-699f-4b46-8fae-ca66c9dab8e6",
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "bpm": 165,
+        "copyright": "© 2022 JYP Entertainment",
+        "djReady": true,
+        "duration": 199,
+        "editable": false,
+        "explicit": false,
+        "id": 295844085,
+        "isrc": "US5TA2200067",
+        "key": "B",
+        "keyScale": "MAJOR",
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS"
+          ]
+        },
+        "mixes": {
+          "TRACK_MIX": "001651d026b1586c9be015c76cc2cc"
+        },
+        "payToStream": false,
+        "peak": 1.0,
+        "popularity": 52,
+        "premiumStreamingOnly": false,
+        "replayGain": -12.03,
+        "spotlighted": false,
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2023-05-30T00:00:00.000+0000",
+        "title": "Test Me",
+        "trackNumber": 1,
+        "upload": false,
+        "url": "http://www.tidal.com/track/295844085",
+        "version": null,
+        "volumeNumber": 1
+      },
+      {
+        "accessType": null,
+        "adSupportedStreamReady": true,
+        "album": {
+          "cover": "2dd69d6d-b523-4d39-8676-9d0a1ea633f3",
+          "id": 414584891,
+          "releaseDate": "2025-05-09",
+          "title": "GOLLIWOG",
+          "vibrantColor": "#cab67c",
+          "videoCover": null
+        },
+        "allowStreaming": true,
+        "artists": [
+          {
+            "handle": null,
+            "id": 4005410,
+            "name": "Billy Woods",
+            "picture": "f1787104-8971-40b8-b8f2-394559c270a6",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 9599957,
+            "name": "E L U C I D",
+            "picture": "d40e5163-b6a5-492e-812a-97502c6bc385",
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 4099240,
+            "name": "Cavalier",
+            "picture": null,
+            "type": "MAIN"
+          },
+          {
+            "handle": null,
+            "id": 3609383,
+            "name": "Willie Green",
+            "picture": null,
+            "type": "MAIN"
+          }
+        ],
+        "audioModes": [
+          "STEREO"
+        ],
+        "audioQuality": "LOSSLESS",
+        "bpm": 83,
+        "copyright": "Backwoodz Studioz",
+        "djReady": true,
+        "duration": 265,
+        "editable": false,
+        "explicit": true,
+        "id": 414584913,
+        "isrc": "UKXN22549567",
+        "key": "B",
+        "keyScale": "MINOR",
+        "mediaMetadata": {
+          "tags": [
+            "LOSSLESS",
+            "HIRES_LOSSLESS"
+          ]
+        },
+        "mixes": {
+          "TRACK_MIX": "001d5fff26e3c83d2f61da80044a2c"
+        },
+        "payToStream": false,
+        "peak": 0.896531,
+        "popularity": 55,
+        "premiumStreamingOnly": false,
+        "replayGain": -7.55,
+        "spotlighted": false,
+        "stemReady": false,
+        "streamReady": true,
+        "streamStartDate": "2025-05-07T00:00:00.000+0000",
+        "title": "Lead Paint Test",
+        "trackNumber": 17,
+        "upload": false,
+        "url": "http://www.tidal.com/track/414584913",
+        "version": null,
+        "volumeNumber": 1
+      }
+    ],
+    "limit": 30,
+    "offset": 0,
+    "totalNumberOfItems": 300
+  },
+  "videos": {
+    "items": [],
+    "limit": 30,
+    "offset": 0,
+    "totalNumberOfItems": 0
+  }
+}
