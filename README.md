@@ -5,7 +5,7 @@ A comprehensive Rust client library for the Tidal music streaming service API. T
 ## Features
 
 - **Complete Music API**: Access tracks, albums, artists, and playlists
-- **Audio Streaming**: Download and stream tracks in various quality levels
+- **Audio Streaming**: Stream tracks in various quality levels via DASH-MPEG
 - **Advanced Search**: Search across all content types with filtering
 - **User Management**: Manage favorites, playlists, and user data
 - **OAuth2 Authentication**: Device flow authentication with automatic token refresh
