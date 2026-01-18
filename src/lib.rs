@@ -15,15 +15,18 @@ pub use track::*;
 use arc_swap::ArcSwapOption;
 use async_recursion::async_recursion;
 use serde::{Deserialize, Serialize, de::DeserializeOwned};
+use std::collections::HashMap;
 use std::fmt::Display;
 use std::sync::{Arc, Mutex};
 use std::time::Duration;
 use strum_macros::{AsRefStr, EnumString};
 use tokio::sync::{Semaphore, SemaphorePermit};
 use tokio::time::sleep;
+use url::Url;
 
 pub(crate) static TIDAL_AUTH_API_BASE_URL: &str = "https://auth.tidal.com/v1";
-pub(crate) static TIDAL_API_BASE_URL: &str = "https://api.tidal.com/v1";
+pub(crate) static TIDAL_LOGIN_API_BASE_URL: &str = "https://login.tidal.com";
+pub(crate) static TIDAL_API_BASE_URL: &str = "https://openapi.tidal.com/v2";
 const INITIAL_BACKOFF_MILLIS: u64 = 100;
 const DEFAULT_MAX_BACKOFF_MILLIS: u64 = 5_000;
 
@@ -124,7 +127,7 @@ pub struct AuthzToken {
     #[serde(rename = "access_token")]
     pub access_token: String,
     /// Name of the client application
-    pub client_name: String,
+    pub client_name: Option<String>,
     /// Token expiration time in seconds
     #[serde(rename = "expires_in")]
     pub expires_in: i64,
@@ -136,8 +139,8 @@ pub struct AuthzToken {
     /// Type of token (typically "Bearer")
     #[serde(rename = "token_type")]
     pub token_type: String,
-    /// User information
-    pub user: User,
+    /// User  information
+    pub user: Option<User>,
     /// User ID (same as user.user_id but as i64)
     #[serde(rename = "user_id")]
     pub user_id: i64,
@@ -146,11 +149,16 @@ pub struct AuthzToken {
 impl AuthzToken {
     pub fn authz(&self) -> Option<Authz> {
         if let Some(refresh_token) = self.refresh_token.clone() {
+            let country_code = match &self.user {
+                Some(u) => Some(u.country_code.clone()),
+                None => None,
+            };
+
             Some(Authz {
                 access_token: self.access_token.clone(),
                 refresh_token: refresh_token,
-                user_id: self.user_id as u64,
-                country_code: Some(self.user.country_code.clone()),
+                user_id: Some(self.user_id as u64),
+                country_code,
             })
         } else {
             None
@@ -348,7 +356,7 @@ pub struct Authz {
     /// Refresh token for obtaining new access tokens
     pub refresh_token: String,
     /// User ID associated with these tokens
-    pub user_id: u64,
+    pub user_id: Option<u64>,
     /// User's country code (affects content availability)
     pub country_code: Option<String>,
 }
@@ -363,7 +371,7 @@ impl Authz {
         Self {
             access_token,
             refresh_token,
-            user_id,
+            user_id: Some(user_id),
             country_code,
         }
     }
@@ -620,7 +628,7 @@ impl TidalClient {
     ///
     /// Returns `None` if the client is not authenticated.
     pub fn get_user_id(&self) -> Option<u64> {
-        self.get_authz().map(|authz| authz.user_id)
+        self.get_authz().map(|authz| authz.user_id)?
     }
 
     /// Set the country code for API requests.
@@ -746,16 +754,18 @@ impl TidalClient {
                     .do_request(reqwest::Method::POST, &url, Some(params), None)
                     .await?;
 
+                let country_code = match resp.user {
+                    Some(u) => Some(u.country_code),
+                    None => None,
+                };
+
                 let new_authz = Authz {
                     access_token: resp.access_token,
                     refresh_token: resp
                         .refresh_token
                         .unwrap_or_else(|| authz.refresh_token.clone()),
-                    user_id: resp.user.user_id,
-                    country_code: match &authz.country_code {
-                        Some(country_code) => Some(country_code.clone()),
-                        None => Some(resp.user.country_code.clone()),
-                    },
+                    user_id: Some(resp.user_id as u64),
+                    country_code: country_code,
                 };
 
                 // Single, quick swap visible to all readers
@@ -1034,6 +1044,72 @@ impl TidalClient {
         Ok(resp)
     }
 
+    pub fn get_authorize_url(
+        &self,
+        redirect_uri: &str,
+        scopes: &str,
+        code_challenge: &str,
+        state: Option<&str>,
+    ) -> Result<String, Error> {
+        let login_url = format!("{TIDAL_LOGIN_API_BASE_URL}/authorize");
+
+        let mut payload: HashMap<&str, &str> = HashMap::new();
+        payload.insert("response_type", "code");
+        payload.insert("client_id", self.client_id.as_str());
+        payload.insert("redirect_uri", redirect_uri);
+        payload.insert("scope", scopes);
+        payload.insert("code_challenge", code_challenge);
+        payload.insert("code_challenge_method", "S256");
+        payload.insert("state", state.unwrap_or(""));
+
+        match Url::parse_with_params(login_url.as_str(), payload) {
+            Ok(u) => Ok(String::from(u.as_str())),
+            Err(_) => Err(Error::NoPrimaryUrl),
+        }
+    }
+
+    pub async fn pkce_authorize(
+        &self,
+        code: &str,
+        redirect_uri: &str,
+        code_verifier: &str,
+        scopes: &str,
+    ) -> Result<AuthzToken, Error> {
+        let url = format!("{TIDAL_AUTH_API_BASE_URL}/oauth2/token");
+
+        let params = serde_json::json!({
+            "client_id": &self.client_id,
+            "code_verifier": code_verifier,
+            "code": code,
+            "grant_type": "authorization_code",
+            "redirect_uri": redirect_uri,
+            "scope": scopes
+        });
+
+        let resp: AuthzToken = self
+            .do_request(reqwest::Method::POST, &url, Some(params), None)
+            .await?;
+
+        let country_code = match &resp.user {
+            Some(u) => Some(u.country_code.clone()),
+            None => None,
+        };
+
+        let authz = Authz {
+            access_token: resp.access_token.clone(),
+            refresh_token: resp
+                .refresh_token
+                .clone()
+                .expect("No refresh token received from Tidal after authorization"),
+            user_id: Some(resp.user_id as u64),
+            country_code,
+        };
+
+        self.authz.store(Some(Arc::new(authz)));
+
+        Ok(resp)
+    }
+
     /// Complete the OAuth2 device authorization flow.
     ///
     /// Call this method after the user has visited the authorization URL and
@@ -1083,17 +1159,19 @@ impl TidalClient {
             .do_request(reqwest::Method::POST, &url, Some(params), None)
             .await?;
 
+        let country_code = match &resp.user {
+            Some(u) => Some(u.country_code.clone()),
+            None => None,
+        };
+
         let authz = Authz {
             access_token: resp.access_token.clone(),
             refresh_token: resp
                 .refresh_token
                 .clone()
                 .expect("No refresh token received from Tidal after authorization"),
-            user_id: resp.user.user_id,
-            country_code: match &self.country_code {
-                Some(country_code) => Some(country_code.clone()),
-                None => Some(resp.user.country_code.clone()),
-            },
+            user_id: Some(resp.user_id as u64),
+            country_code,
         };
 
         self.authz.store(Some(Arc::new(authz)));

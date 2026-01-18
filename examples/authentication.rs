@@ -18,7 +18,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client_secret = "your_client_secret";
 
     let client = TidalClient::new(client_id.to_string()).with_authz_refresh_callback(|new_authz| {
-        println!("Tokens refreshed for user: {}", new_authz.user_id);
+        println!("Tokens refreshed for user: {}", new_authz.user_id.unwrap());
         // In a real application, you would save these tokens to persistent storage
         // For example: save_to_file(&new_authz);
     });
@@ -43,20 +43,18 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .authorize(&device_auth.device_code, client_secret)
         .await?;
 
+    let user = authz_token.clone().user.unwrap();
     println!("\nAuthentication successful!");
-    println!(
-        "User: {} ({})",
-        authz_token.user.username, authz_token.user.email
-    );
-    println!("Country: {}", authz_token.user.country_code);
-    println!("User ID: {}", authz_token.user.user_id);
+    println!("User: {} ({})", user.username, user.email);
+    println!("Country: {}", user.country_code);
+    println!("User ID: {}", user.user_id);
 
     // Get current tokens for saving
     if let Some(authz) = authz_token.authz() {
         println!("\nCurrent tokens:");
         println!("   Access token: {}...", &authz.access_token[..20]);
         println!("   Refresh token: {}...", &authz.refresh_token[..20]);
-        println!("   User ID: {}", authz.user_id);
+        println!("   User ID: {}", authz.user_id.unwrap());
         println!("   Country: {:?}", authz.country_code);
 
         // In a real application, you would save these tokens for later use

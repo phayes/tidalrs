@@ -65,7 +65,7 @@ fn test_builder_pattern_with_authz() {
     if let Some(stored_authz) = client.get_authz() {
         assert_eq!(stored_authz.access_token, "test_access_token");
         assert_eq!(stored_authz.refresh_token, "test_refresh_token");
-        assert_eq!(stored_authz.user_id, 12345);
+        assert_eq!(stored_authz.user_id, Some(12345));
         assert_eq!(stored_authz.country_code, Some("CA".to_string()));
     } else {
         panic!("Authz should be stored in client");
@@ -119,7 +119,7 @@ fn test_builder_pattern_chaining() {
 
     // Verify authz is stored
     if let Some(stored_authz) = client.get_authz() {
-        assert_eq!(stored_authz.user_id, 67890);
+        assert_eq!(stored_authz.user_id, Some(67890));
         assert_eq!(stored_authz.country_code, Some("AU".to_string()));
     } else {
         panic!("Authz should be stored in client");
