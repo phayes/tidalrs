@@ -262,6 +262,14 @@ pub enum Error {
     /// Exponential backoff exceeded the maximum duration while handling rate limits
     #[error("Hit rate limit backoff ceiling of {0}ms without recovery")]
     RateLimitBackoffExceeded(u64),
+    /// OAuth2 device flow: user has not yet completed browser authorization.
+    ///
+    /// This is returned by [`TidalClient::authorize`] while polling during the
+    /// device authorization flow. The caller should wait (typically 5 seconds)
+    /// and retry. Polling should stop once [`DeviceAuthorizationResponse::expires_in`]
+    /// seconds have elapsed.
+    #[error("Authorization pending — user has not yet completed browser authentication")]
+    AuthorizationPending,
 }
 
 /// Callback function type for handling authorization token refresh events.
@@ -901,6 +909,16 @@ impl TidalClient {
                 }
             } else {
                 self.reset_rate_limit_backoff();
+            }
+
+            // The OAuth2 device flow token endpoint returns a different error schema
+            // from TIDAL's API endpoints: {"error": "authorization_pending", ...} (RFC 8628).
+            // Detect this before the generic TidalApiError parse, which would silently
+            // discard the "error" field due to schema mismatch.
+            if status.as_u16() == 400 {
+                if let Some("authorization_pending") = value.get("error").and_then(|v| v.as_str()) {
+                    return Err(Error::AuthorizationPending);
+                }
             }
 
             let tidal_err = match serde_json::from_value::<TidalApiError>(value.clone()) {
