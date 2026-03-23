@@ -4,12 +4,13 @@
 //! `https://auth.tidal.com/v1`, exercising `do_request`'s error-discrimination
 //! logic end-to-end without real network calls.
 
+use std::time::Duration;
+
 use tidalrs::{Error, TidalClient};
 
 /// Build a test client pointed at a mockito server instead of TIDAL's auth endpoint.
 fn test_client(server_url: &str) -> TidalClient {
-    TidalClient::new("test_client_id".to_string())
-        .with_auth_base_url(server_url.to_string())
+    TidalClient::new("test_client_id".to_string()).with_auth_base_url(server_url.to_string())
 }
 
 // ─── AuthorizationPending ────────────────────────────────────────────────────
@@ -80,45 +81,73 @@ fn test_authorization_pending_display() {
     );
 }
 
-// ─── YOUR CONTRIBUTION ───────────────────────────────────────────────────────
-//
-// Implement `test_polling_loop_succeeds_after_pending`.
-//
-// This test verifies that a caller who retries `authorize()` after receiving
-// `AuthorizationPending` eventually gets `Ok(AuthzToken)` on success.
-//
-// Set up two mock responses on the same endpoint (mockito supports sequenced
-// responses with `.with_body()` chained or separate `.mock()` calls with
-// `expect(1)`):
-//   1. First call  → 400 {"error":"authorization_pending","error_description":"..."}
-//   2. Second call → 200 with a valid AuthzToken JSON body
-//
-// A minimal valid AuthzToken body (fill in the fields `authorize()` needs):
-//
-//   {
-//     "access_token": "test_access",
-//     "client_name": "test",
-//     "expires_in": 3600,
-//     "refresh_token": "test_refresh",
-//     "scope": "r_usr w_usr w_sub",
-//     "token_type": "Bearer",
-//     "user": {
-//       "accepted_eula": true, "account_link_created": false,
-//       "channel_id": 1, "country_code": "US", "created": 0,
-//       "email": "test@example.com", "email_verified": true,
-//       "new_user": false, "parent_id": 0, "updated": 0,
-//       "user_id": 12345, "username": "testuser"
-//     },
-//     "user_id": 12345
-//   }
-//
-// Then write a small loop:
-//   loop {
-//     match client.authorize("device_code", "client_secret").await {
-//       Ok(token)                        => { assert_eq!(...); break; }
-//       Err(Error::AuthorizationPending) => { /* retry */ }
-//       Err(e)                           => panic!("unexpected: {e}"),
-//     }
-//   }
-//
-// ─────────────────────────────────────────────────────────────────────────────
+#[tokio::test]
+async fn test_polling_loop_succeeds_after_pending() {
+    // AuthzToken uses explicit rename for some fields, camelCase for others.
+    // Fields with #[serde(rename = "...")] keep their literal name;
+    // the rest follow rename_all = "camelCase" on the struct.
+    let authz_token_body = r#"{
+        "access_token": "some_token",
+        "clientName": "some_client",
+        "expires_in": 4444,
+        "refresh_token": "some_refresh",
+        "scope": "r_usr w_usr w_sub",
+        "token_type": "Bearer",
+        "user": {
+            "acceptedEULA": true,
+            "accountLinkCreated": false,
+            "channelId": 1,
+            "countryCode": "CA",
+            "created": 0,
+            "email": "null@example.com",
+            "emailVerified": true,
+            "newUser": false,
+            "parentId": 0,
+            "updated": 0,
+            "userId": 8675309,
+            "username": "someuser"
+        },
+        "user_id": 8675309
+    }"#;
+
+    let mut server = mockito::Server::new_async().await;
+
+    let mock_pending = server
+        .mock("POST", "/oauth2/token")
+        .with_status(400)
+        .with_header("content-type", "application/json")
+        .with_body(r#"{"error":"authorization_pending","error_description":"The authorization request is still pending"}"#)
+        .expect(1)
+        .create_async()
+        .await;
+
+    let mock_success = server
+        .mock("POST", "/oauth2/token")
+        .with_status(200)
+        .with_header("content-type", "application/json")
+        .with_body(authz_token_body)
+        .expect(1)
+        .create_async()
+        .await;
+
+    let client = test_client(&server.url());
+    loop {
+        match client.authorize("device_code", "client_secret").await {
+            Ok(token) => {
+                assert_eq!(token.access_token, "some_token");
+                assert_eq!(token.expires_in, 4444);
+                assert_eq!(token.user.user_id, 8675309);
+                assert_eq!(token.user.country_code, "CA");
+                break;
+            }
+            Err(Error::AuthorizationPending) => {
+                tokio::time::sleep(Duration::from_millis(1)).await;
+                continue;
+            }
+            Err(e) => panic!("unexpected error: {e}"),
+        }
+    }
+
+    mock_pending.assert_async().await;
+    mock_success.assert_async().await;
+}

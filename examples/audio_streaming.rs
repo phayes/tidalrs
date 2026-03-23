@@ -151,7 +151,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             println!("DASH playback info retrieved:");
             println!("  Audio Quality: {:?}", dash_info.audio_quality);
             println!("  Bit Depth: {:?} bits", dash_info.bit_depth);
-            println!("  Sample Rate: {} Hz", dash_info.sample_rate);
+            println!("  Sample Rate: {:?} Hz", dash_info.sample_rate);
             println!("  Manifest MIME Type: {}", dash_info.manifest_mime_type);
 
             // Decode the manifest (it's base64 encoded)
