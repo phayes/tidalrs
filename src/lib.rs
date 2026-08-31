@@ -145,16 +145,12 @@ pub struct AuthzToken {
 
 impl AuthzToken {
     pub fn authz(&self) -> Option<Authz> {
-        if let Some(refresh_token) = self.refresh_token.clone() {
-            Some(Authz {
-                access_token: self.access_token.clone(),
-                refresh_token: refresh_token,
-                user_id: self.user_id as u64,
-                country_code: Some(self.user.country_code.clone()),
-            })
-        } else {
-            None
-        }
+        self.refresh_token.clone().map(|refresh_token| Authz {
+            access_token: self.access_token.clone(),
+            refresh_token,
+            user_id: self.user_id as u64,
+            country_code: Some(self.user.country_code.clone()),
+        })
     }
 }
 
@@ -262,6 +258,14 @@ pub enum Error {
     /// Exponential backoff exceeded the maximum duration while handling rate limits
     #[error("Hit rate limit backoff ceiling of {0}ms without recovery")]
     RateLimitBackoffExceeded(u64),
+    /// OAuth2 device flow: user has not yet completed browser authorization.
+    ///
+    /// This is returned by [`TidalClient::authorize`] while polling during the
+    /// device authorization flow. The caller should wait (typically 5 seconds)
+    /// and retry. Polling should stop once [`DeviceAuthorizationResponse::expires_in`]
+    /// seconds have elapsed.
+    #[error("Authorization pending — user has not yet completed browser authentication")]
+    AuthorizationPending,
 }
 
 /// Callback function type for handling authorization token refresh events.
@@ -308,6 +312,7 @@ pub type AuthzCallback = Arc<dyn Fn(Authz) + Send + Sync>;
 pub struct TidalClient {
     pub client: reqwest::Client,
     client_id: String,
+    auth_base_url: String,
     authz: ArcSwapOption<Authz>,
     authz_update_semaphore: Semaphore,
     country_code: Option<String>,
@@ -387,6 +392,7 @@ impl TidalClient {
         Self {
             client: reqwest::Client::new(),
             client_id,
+            auth_base_url: TIDAL_AUTH_API_BASE_URL.to_string(),
             authz: ArcSwapOption::from(None),
             authz_update_semaphore: Semaphore::new(1),
             country_code: None,
@@ -396,6 +402,25 @@ impl TidalClient {
             backoff: Mutex::new(None),
             max_backoff_millis: None,
         }
+    }
+
+    /// Override the authentication base URL.
+    ///
+    /// The default is `https://auth.tidal.com/v1`. Override this to point at a
+    /// staging environment, a local mock server during testing, or a compatible
+    /// proxy. Affects `device_authorization()`, `authorize()`, and token refresh.
+    ///
+    /// # Example
+    ///
+    /// ```
+    /// use tidalrs::TidalClient;
+    ///
+    /// let client = TidalClient::new("client_id".to_string())
+    ///     .with_auth_base_url("http://localhost:1234".to_string());
+    /// ```
+    pub fn with_auth_base_url(mut self, url: String) -> Self {
+        self.auth_base_url = url;
+        self
     }
 
     /// Set a custom HTTP client using the builder pattern.
@@ -731,7 +756,7 @@ impl TidalClient {
         match permit {
             // We're the single refresher, fetch the new authz and update the client
             Some(permit) => {
-                let url = format!("{TIDAL_AUTH_API_BASE_URL}/oauth2/token");
+                let url = format!("{}/oauth2/token", self.auth_base_url);
 
                 let authz = self.get_authz().ok_or(Error::NoAuthzToken)?;
 
@@ -903,6 +928,16 @@ impl TidalClient {
                 self.reset_rate_limit_backoff();
             }
 
+            // The OAuth2 device flow token endpoint returns a different error schema
+            // from TIDAL's API endpoints: {"error": "authorization_pending", ...} (RFC 8628).
+            // Detect this before the generic TidalApiError parse, which would silently
+            // discard the "error" field due to schema mismatch.
+            if status.as_u16() == 400
+                && let Some("authorization_pending") = value.get("error").and_then(|v| v.as_str())
+            {
+                return Err(Error::AuthorizationPending);
+            }
+
             let tidal_err = match serde_json::from_value::<TidalApiError>(value.clone()) {
                 Ok(e) => e,
                 Err(e) => {
@@ -1018,7 +1053,7 @@ impl TidalClient {
     /// # }
     /// ```
     pub async fn device_authorization(&self) -> Result<DeviceAuthorizationResponse, Error> {
-        let url = format!("{TIDAL_AUTH_API_BASE_URL}/oauth2/device_authorization");
+        let url = format!("{}/oauth2/device_authorization", self.auth_base_url);
 
         let params = serde_json::json!({
             "client_id": &self.client_id,
@@ -1069,7 +1104,7 @@ impl TidalClient {
         device_code: &str,
         client_secret: &str,
     ) -> Result<AuthzToken, Error> {
-        let url = format!("{TIDAL_AUTH_API_BASE_URL}/oauth2/token");
+        let url = format!("{}/oauth2/token", self.auth_base_url);
 
         let params = serde_json::json!({
             "client_id": &self.client_id,
