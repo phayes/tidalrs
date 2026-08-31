@@ -32,7 +32,7 @@ pub struct Artist {
     /// Use picture_url() to get the full URL of the picture
     pub picture: Option<String>,
     /// Tidal URL for the artist
-    pub url: String,
+    pub url: Option<String>,
 
     /// The Tidal user ID of the artist, will be None or zero if the artist is not a known user
     pub user_id: Option<u64>,
