@@ -1,5 +1,9 @@
 # Tidalrs
 
+[![Crates.io](https://img.shields.io/crates/v/tidalrs.svg)](https://crates.io/crates/tidalrs)
+[![Documentation](https://docs.rs/tidalrs/badge.svg)](https://docs.rs/tidalrs)
+[![GitHub](https://img.shields.io/badge/GitHub-phayes%2Ftidalrs-181717?logo=github)](https://github.com/phayes/tidalrs)
+
 A comprehensive Rust client library for the Tidal music streaming service API. This library provides async/await support, automatic token refresh, and a clean, type-safe interface for interacting with Tidal's music catalog and user data.
 
 **Note**: This library targets Tidal's v1 API. For Tidal's v2 JSON:API, see [tidalv2](https://github.com/phayes/tidalv2), which provides authorization code and client credentials OAuth flows.
