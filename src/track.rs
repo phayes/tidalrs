@@ -48,6 +48,8 @@ pub struct Track {
     pub popularity: u32,
     /// Track title
     pub title: String,
+    /// Version or remix information
+    pub version: Option<String>,
 
     /// Additional media metadata and tags
     #[serde(rename = "mediaMetadata")]
