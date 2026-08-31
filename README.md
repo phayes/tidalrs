@@ -2,6 +2,8 @@
 
 A comprehensive Rust client library for the Tidal music streaming service API. This library provides async/await support, automatic token refresh, and a clean, type-safe interface for interacting with Tidal's music catalog and user data.
 
+**Note**: This library targets Tidal's v1 API. For Tidal's v2 JSON:API, see [tidalv2](https://github.com/phayes/tidalv2), which provides authorization code and client credentials OAuth flows.
+
 ## Features
 
 - **Complete Music API**: Access tracks, albums, artists, and playlists
@@ -19,7 +21,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-tidalrs = "0.4.1"
+tidalrs = "0.5.0"
 tokio = { version = "1.0", features = ["full"] }
 ```
 
