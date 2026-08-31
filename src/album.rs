@@ -92,7 +92,7 @@ pub struct Album {
     /// Universal Product Code (UPC) for the album
     pub upc: Option<String>,
     /// Tidal URL for the album
-    pub url: String,
+    pub url: Option<String>,
     /// Album version or edition
     pub version: Option<String>,
 

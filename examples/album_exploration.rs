@@ -83,7 +83,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("  Audio quality: {:?}", detailed_album.audio_quality);
     println!("  Explicit: {}", detailed_album.explicit);
     println!("  Popularity: {}", detailed_album.popularity);
-    println!("  URL: {}", detailed_album.url);
+    println!(
+        "  URL: {}",
+        detailed_album
+            .url
+            .as_deref()
+            .unwrap_or("Not available")
+    );
 
     // Get album cover URL
     if let Some(cover_url) = detailed_album.cover_url(640, 640) {
@@ -134,7 +140,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         println!("  ID: {}", artist_info.id);
         println!("  Popularity: {:?}", artist_info.popularity);
         println!("  Spotlighted: {}", artist_info.spotlighted);
-        println!("  URL: {}", artist_info.url);
+        println!(
+            "  URL: {}",
+            artist_info
+                .url
+                .as_deref()
+                .unwrap_or("Not available")
+        );
 
         if let Some(picture_url) = artist_info.picture_url(640, 640) {
             println!("  Picture URL: {}", picture_url);

@@ -84,3 +84,96 @@ fn test_deserialize_example_search_result_playlist_urls() {
     }
 }
 
+#[test]
+fn test_deserialize_null_artist_and_album_urls() {
+    // Regression test for issue #5: Artist and Album url fields can be null in TIDAL API responses
+    let json_str = r#"{
+        "artists": {
+            "limit": 10,
+            "offset": 0,
+            "totalNumberOfItems": 1,
+            "items": [
+                {
+                    "id": 12345,
+                    "name": "Test Artist",
+                    "url": null,
+                    "picture": null,
+                    "popularity": 50,
+                    "artistTypes": [],
+                    "artistRoles": [],
+                    "mixes": null,
+                    "spotlighted": false
+                }
+            ]
+        },
+        "albums": {
+            "limit": 10,
+            "offset": 0,
+            "totalNumberOfItems": 1,
+            "items": [
+                {
+                    "id": 67890,
+                    "title": "Test Album",
+                    "artists": [],
+                    "audioQuality": "LOSSLESS",
+                    "duration": 300,
+                    "explicit": false,
+                    "popularity": 40,
+                    "cover": null,
+                    "releaseDate": null,
+                    "numberOfTracks": 10,
+                    "numberOfVideos": 0,
+                    "numberOfVolumes": 1,
+                    "url": null,
+                    "type": "ALBUM",
+                    "adSupportedStreamReady": false,
+                    "allowStreaming": true,
+                    "djReady": false,
+                    "payToStream": false,
+                    "premiumStreamingOnly": false,
+                    "stemReady": false,
+                    "streamReady": true,
+                    "audioModes": []
+                }
+            ]
+        },
+        "tracks": {
+            "limit": 10,
+            "offset": 0,
+            "totalNumberOfItems": 0,
+            "items": []
+        },
+        "playlists": {
+            "limit": 10,
+            "offset": 0,
+            "totalNumberOfItems": 0,
+            "items": []
+        },
+        "videos": {
+            "limit": 10,
+            "offset": 0,
+            "totalNumberOfItems": 0,
+            "items": []
+        },
+        "topHits": []
+    }"#;
+
+    // This should not panic - url fields can be null
+    let search_results: SearchResults = serde_json::from_str(json_str)
+        .expect("Failed to deserialize search results with null artist and album URLs");
+
+    // Verify the artist was deserialized correctly with null URL
+    assert_eq!(search_results.artists.items.len(), 1);
+    let artist = &search_results.artists.items[0];
+    assert_eq!(artist.id, 12345);
+    assert_eq!(artist.name, "Test Artist");
+    assert_eq!(artist.url, None, "Artist URL should be None when null in JSON");
+
+    // Verify the album was deserialized correctly with null URL
+    assert_eq!(search_results.albums.items.len(), 1);
+    let album = &search_results.albums.items[0];
+    assert_eq!(album.id, 67890);
+    assert_eq!(album.title, "Test Album");
+    assert_eq!(album.url, None, "Album URL should be None when null in JSON");
+}
+
