@@ -28,7 +28,7 @@ stream-download = { version = "0.22.4", features = ["reqwest-rustls"] }
 base64 = "0.22"
 
 [[example]]
-name = "baic_search"
+name = "basic_search"
 path = "examples/basic_search.rs"
 
 [[example]]
