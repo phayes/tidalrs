@@ -318,6 +318,9 @@ pub enum Error {
     /// Tidal sent a manifest of this MIME type instead of MPEG-DASH
     #[error("Expected an MPEG-DASH manifest, got {0}")]
     NotDashManifest(String),
+    /// Tidal sent a manifest of this MIME type instead of BTS
+    #[error("Expected a BTS manifest, got {0}")]
+    NotBtsManifest(String),
     /// MPEG-DASH manifest parsing or playback setup failed
     #[cfg(feature = "playback")]
     #[error("Playback error: {0}")]

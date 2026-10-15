@@ -256,28 +256,25 @@ async fn open(
             let info = client
                 .track_dash_playback_info(track_id, audio_quality)
                 .await?;
-            let source = info.source().await?;
 
-            Ok(TrackSource {
-                audio_quality: info.audio_quality,
-                inner: TrackSourceInner::Dash(source),
-            })
+            // Tidal may send a BTS manifest of plain URLs instead, sometimes at
+            // a lower quality than requested. Play it only if it isn't.
+            match info.bts_manifest() {
+                Ok(_) if info.audio_quality < audio_quality => Err(Error::TrackQualityNotAvailable),
+                Ok(bts) => Ok(TrackSource {
+                    audio_quality: info.audio_quality,
+                    inner: TrackSourceInner::Url(decode(bts.stream().await?).await?),
+                }),
+                Err(Error::NotBtsManifest(_)) => Ok(TrackSource {
+                    audio_quality: info.audio_quality,
+                    inner: TrackSourceInner::Dash(info.source().await?),
+                }),
+                Err(error) => Err(error),
+            }
         }
         StreamTransport::Url => {
             let stream = client.track_stream(track_id, audio_quality).await?;
-            let download = stream.stream().await?;
-            let byte_len = download.content_length();
-            // Probing the format reads from the download, so it blocks.
-            let decoder = spawn_playback(move || {
-                let builder = rodio::decoder::DecoderBuilder::new().with_data(download);
-                // Rodio needs the length to seek.
-                let builder = match byte_len {
-                    Some(len) => builder.with_byte_len(len).with_seekable(true),
-                    None => builder,
-                };
-                Ok(builder.build()?)
-            })
-            .await?;
+            let decoder = decode(stream.stream().await?).await?;
 
             Ok(TrackSource {
                 audio_quality: stream.audio_quality,
@@ -287,12 +284,31 @@ async fn open(
     }
 }
 
+/// Decode a progressive download for rodio.
+async fn decode(
+    download: StreamDownload<MemoryStorageProvider>,
+) -> Result<rodio::Decoder<StreamDownload<MemoryStorageProvider>>, Error> {
+    let byte_len = download.content_length();
+    // Probing the format reads from the download, so it blocks.
+    spawn_playback(move || {
+        let builder = rodio::decoder::DecoderBuilder::new().with_data(download);
+        // Rodio needs the length to seek.
+        let builder = match byte_len {
+            Some(len) => builder.with_byte_len(len).with_seekable(true),
+            None => builder,
+        };
+        Ok(builder.build()?)
+    })
+    .await
+}
+
 /// The attempts to make for `requested`, in order, skipping those the track's
 /// metadata rules out.
 ///
 /// Qualities follow [`fallback_order`], and each is tried over DASH before a
 /// URL. A lossless request tries every lossless quality over DASH before any
-/// URL. `url_max` is the track's `audio_quality`, the best it offers over a
+/// URL. A DASH attempt may play over a URL when Tidal sends a BTS manifest.
+/// `url_max` is the track's `audio_quality`, the best it offers over a
 /// URL. DASH can go higher, up to the best quality named in `tags`.
 fn plan_attempts(
     requested: AudioQuality,

@@ -519,6 +519,23 @@ pub struct TrackStream {
     pub urls: Vec<String>,
 }
 
+/// A BTS manifest, which lists plain URLs to the whole track.
+///
+/// Tidal may send one from [`TidalClient::track_dash_playback_info`] instead
+/// of MPEG-DASH. Get it with `TrackDashPlaybackInfo::bts_manifest`.
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct BtsManifest {
+    /// MIME type of the audio (e.g., "audio/mp4")
+    pub mime_type: String,
+    /// Codecs of the audio (e.g., "mp4a.40.2", "flac")
+    pub codecs: String,
+    /// Encryption applied to the audio (e.g., "NONE")
+    pub encryption_type: String,
+    /// List of streaming URLs (primary URL is typically first)
+    pub urls: Vec<String>,
+}
+
 /// Playback information for a track.
 ///
 /// This structure contains technical audio information including
@@ -728,26 +745,59 @@ impl TrackDashPlaybackInfo {
         .await
     }
 
+    /// Decode the BTS manifest, which Tidal may send instead of MPEG-DASH below
+    /// Hi-Res Lossless.
+    ///
+    /// Play it with [`BtsManifest::stream`]. Check this playback info's
+    /// `audio_quality`, as Tidal may send a lower quality than requested.
+    ///
+    /// # Errors
+    ///
+    /// Returns [`Error::NotBtsManifest`] when Tidal sent another manifest
+    /// format.
+    #[cfg(feature = "playback")]
+    pub fn bts_manifest(&self) -> Result<BtsManifest, Error> {
+        use base64::Engine;
+        if !self.has_manifest_type(BTS_MIME_TYPE) {
+            return Err(Error::NotBtsManifest(self.manifest_mime_type.clone()));
+        }
+
+        let decoded = base64::engine::general_purpose::STANDARD
+            .decode(self.manifest.as_bytes())
+            .map_err(playdash::Error::from)?;
+        Ok(serde_json::from_slice(&decoded)?)
+    }
+
     /// The base64-encoded manifest, provided it is MPEG-DASH.
     #[cfg(feature = "playback")]
     fn dash_manifest_base64(&self) -> Result<&str, Error> {
-        // Compare the type itself, ignoring parameters such as `; charset=utf-8`.
-        let mime_type = self
-            .manifest_mime_type
-            .split(';')
-            .next()
-            .unwrap_or_default();
-        if mime_type.trim().eq_ignore_ascii_case(DASH_MIME_TYPE) {
+        if self.has_manifest_type(DASH_MIME_TYPE) {
             Ok(&self.manifest)
         } else {
             Err(Error::NotDashManifest(self.manifest_mime_type.clone()))
         }
+    }
+
+    /// Whether the manifest is of `mime_type`.
+    #[cfg(feature = "playback")]
+    fn has_manifest_type(&self, mime_type: &str) -> bool {
+        // Compare the type itself, ignoring parameters such as `; charset=utf-8`.
+        self.manifest_mime_type
+            .split(';')
+            .next()
+            .unwrap_or_default()
+            .trim()
+            .eq_ignore_ascii_case(mime_type)
     }
 }
 
 /// The `manifest_mime_type` of an MPEG-DASH manifest.
 #[cfg(feature = "playback")]
 const DASH_MIME_TYPE: &str = "application/dash+xml";
+
+/// The `manifest_mime_type` of a BTS manifest.
+#[cfg(feature = "playback")]
+const BTS_MIME_TYPE: &str = "application/vnd.tidal.bts";
 
 #[cfg(feature = "playback")]
 fn parse_dash_manifest(manifest: &str) -> Result<playdash::DashManifest, Error> {
@@ -832,21 +882,42 @@ impl TrackStream {
     /// ```
     #[cfg(feature = "playback")]
     pub async fn stream(&self) -> Result<StreamDownload<MemoryStorageProvider>, Error> {
-        let url: reqwest::Url = match self.primary_url() {
-            Some(url) => url.parse().expect("Failed to parse stream URL"),
-            None => return Err(Error::NoPrimaryUrl),
+        download(self.primary_url()).await
+    }
+}
+
+impl BtsManifest {
+    /// Get the primary streaming URL for the track.
+    pub fn primary_url(&self) -> Option<&str> {
+        self.urls.first().map(|s| s.as_str())
+    }
+
+    /// Get a buffered, seekable stream of the track, like [`TrackStream::stream`].
+    ///
+    /// Requires the `playback` feature, which is on by default.
+    #[cfg(feature = "playback")]
+    pub async fn stream(&self) -> Result<StreamDownload<MemoryStorageProvider>, Error> {
+        download(self.primary_url()).await
+    }
+}
+
+/// Start downloading `url` into memory.
+#[cfg(feature = "playback")]
+async fn download(url: Option<&str>) -> Result<StreamDownload<MemoryStorageProvider>, Error> {
+    let url: reqwest::Url = match url {
+        Some(url) => url.parse().expect("Failed to parse stream URL"),
+        None => return Err(Error::NoPrimaryUrl),
+    };
+
+    let reader =
+        match StreamDownload::new_http(url, MemoryStorageProvider, Settings::default()).await {
+            Ok(reader) => reader,
+            Err(e) => {
+                return Err(Error::StreamInitializationError(e.to_string()));
+            }
         };
 
-        let reader =
-            match StreamDownload::new_http(url, MemoryStorageProvider, Settings::default()).await {
-                Ok(reader) => reader,
-                Err(e) => {
-                    return Err(Error::StreamInitializationError(e.to_string()));
-                }
-            };
-
-        Ok(reader)
-    }
+    Ok(reader)
 }
 
 #[cfg(all(test, feature = "playback"))]
@@ -882,6 +953,31 @@ mod tests {
         assert!(matches!(
             info.stream().await,
             Err(Error::NotDashManifest(mime)) if mime == "application/vnd.tidal.bts"
+        ));
+    }
+
+    #[test]
+    fn bts_manifest_is_decoded() {
+        // {"mimeType":"audio/mp4","codecs":"mp4a.40.2","encryptionType":"NONE","urls":["https://example.com/a.mp4"]}
+        let info = playback_info(
+            "application/vnd.tidal.bts",
+            "eyJtaW1lVHlwZSI6ImF1ZGlvL21wNCIsImNvZGVjcyI6Im1wNGEuNDAuMiIsImVuY3J5cHRpb25UeXBlIjoiTk9ORSIsInVybHMiOlsiaHR0cHM6Ly9leGFtcGxlLmNvbS9hLm1wNCJdfQ==",
+        );
+
+        let bts = info.bts_manifest().unwrap();
+        assert_eq!(bts.mime_type, "audio/mp4");
+        assert_eq!(bts.codecs, "mp4a.40.2");
+        assert_eq!(bts.encryption_type, "NONE");
+        assert_eq!(bts.primary_url(), Some("https://example.com/a.mp4"));
+    }
+
+    #[test]
+    fn non_bts_manifest_is_rejected_by_type() {
+        let info = playback_info(DASH_MIME_TYPE, "e30=");
+
+        assert!(matches!(
+            info.bts_manifest(),
+            Err(Error::NotBtsManifest(mime)) if mime == DASH_MIME_TYPE
         ));
     }
 
