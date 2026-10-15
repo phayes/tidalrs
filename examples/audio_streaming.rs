@@ -8,7 +8,7 @@
 //! Note: This example requires the `rodio` crate for audio playback.
 //! Add it to your Cargo.toml:
 //! [dependencies]
-//! rodio = "0.21"
+//! rodio = "0.22"
 
 use tidalrs::{AudioQuality, Authz, TidalClient};
 
@@ -21,9 +21,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // In a real application, you would load this from storage
     let authz = Authz::new(
         "your_access_token".to_string(),
-        "your_refresh_token".to_string(),
-        12345, // Your user ID
+        Some("your_refresh_token".to_string()),
+        Some(12345),
         Some("US".to_string()),
+        None,
     );
 
     let client = TidalClient::new("your_client_id".to_string()).with_authz(authz);
@@ -79,11 +80,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     ];
 
     for quality in qualities {
-        println!("\nTesting {} quality...", format!("{:?}", quality));
+        println!("\nTesting {quality:?} quality...");
 
         match client.track_stream(track.id, quality).await {
             Ok(stream) => {
-                println!("Stream available for {} quality", format!("{:?}", quality));
+                println!("Stream available for {quality:?} quality");
                 println!("  Codec: {}", stream.codec);
                 println!("  Audio Mode: {}", stream.audio_mode);
                 println!("  URLs: {}", stream.urls.len());
@@ -94,18 +95,16 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
                 let audio_stream = stream.stream().await?;
 
-                let device_output =
-                    rodio::stream::OutputStreamBuilder::open_default_stream().unwrap();
-                let sink = rodio::Sink::connect_new(device_output.mixer());
-                let decoder = rodio::Decoder::new(audio_stream).unwrap();
-                sink.append(decoder);
-                sink.play();
-                sink.sleep_until_end();
+                let handle = rodio::DeviceSinkBuilder::open_default_sink()
+                    .expect("open default audio device");
+                let player = rodio::Player::connect_new(handle.mixer());
+                player.append(rodio::Decoder::new(audio_stream).unwrap());
+                player.sleep_until_end();
 
                 break; // Use the first available quality
             }
             Err(e) => {
-                println!("{} quality not available: {}", format!("{:?}", quality), e);
+                println!("{quality:?} quality not available: {e}");
             }
         }
     }

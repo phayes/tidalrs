@@ -199,8 +199,12 @@ impl TidalClient {
     /// # Example
     ///
     /// ```no_run
+    /// # async fn example() -> Result<(), Box<dyn std::error::Error>> {
+    /// # let client = tidalrs::TidalClient::new("client_id".to_string());
     /// let artist = client.artist(123456789).await?;
     /// println!("Artist: {}", artist.name);
+    /// # Ok(())
+    /// # }
     /// ```
     pub async fn artist(&self, artist_id: u64) -> Result<Artist, Error> {
         let url = format!("{TIDAL_API_BASE_URL}/artists/{artist_id}");
@@ -229,9 +233,13 @@ impl TidalClient {
     /// # Example
     ///
     /// ```no_run
+    /// # async fn example() -> Result<(), Box<dyn std::error::Error>> {
+    /// # let client = tidalrs::TidalClient::new("client_id".to_string());
     /// let bio = client.artist_bio(123456789, Some(true)).await?;
     /// println!("Bio source: {}", bio.source);
     /// println!("Bio text: {}", bio.text);
+    /// # Ok(())
+    /// # }
     /// ```
     pub async fn artist_bio(
         &self,
@@ -268,10 +276,14 @@ impl TidalClient {
     /// # Example
     ///
     /// ```no_run
+    /// # async fn example() -> Result<(), Box<dyn std::error::Error>> {
+    /// # let client = tidalrs::TidalClient::new("client_id".to_string());
     /// let favorites = client.favorite_artists(None, Some(10), None, None).await?;
     /// for artist in favorites.items {
-    ///     println!("Favorite: {}", artist.name);
+    ///     println!("Favorite: {}", artist.item.name);
     /// }
+    /// # Ok(())
+    /// # }
     /// ```
     pub async fn favorite_artists(
         &self,
@@ -321,10 +333,14 @@ impl TidalClient {
     /// # Example
     ///
     /// ```no_run
+    /// # async fn example() -> Result<(), Box<dyn std::error::Error>> {
+    /// # let client = tidalrs::TidalClient::new("client_id".to_string());
     /// let albums = client.artist_albums(123456789, None, Some(20), None).await?;
     /// for album in albums.items {
     ///     println!("Album: {}", album.title);
     /// }
+    /// # Ok(())
+    /// # }
     /// ```
     pub async fn artist_albums(
         &self,
@@ -366,8 +382,12 @@ impl TidalClient {
     /// # Example
     ///
     /// ```no_run
+    /// # async fn example() -> Result<(), Box<dyn std::error::Error>> {
+    /// # let client = tidalrs::TidalClient::new("client_id".to_string());
     /// client.add_favorite_artist(123456789).await?;
     /// println!("Artist added to favorites!");
+    /// # Ok(())
+    /// # }
     /// ```
     pub async fn add_favorite_artist(&self, artist_id: u64) -> Result<(), Error> {
         let user_id = self
@@ -398,8 +418,12 @@ impl TidalClient {
     /// # Example
     ///
     /// ```no_run
+    /// # async fn example() -> Result<(), Box<dyn std::error::Error>> {
+    /// # let client = tidalrs::TidalClient::new("client_id".to_string());
     /// client.remove_favorite_artist(123456789).await?;
     /// println!("Artist removed from favorites!");
+    /// # Ok(())
+    /// # }
     /// ```
     pub async fn remove_favorite_artist(&self, artist_id: u64) -> Result<(), Error> {
         let user_id = self

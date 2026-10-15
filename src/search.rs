@@ -82,6 +82,8 @@ impl TidalClient {
     /// # Example
     ///
     /// ```no_run
+    /// # async fn example() -> Result<(), Box<dyn std::error::Error>> {
+    /// # let client = tidalrs::TidalClient::new("client_id".to_string());
     /// let search_query = tidalrs::SearchQuery::new("The Beatles");
     /// let results = client.search(search_query).await?;
     ///
@@ -91,6 +93,8 @@ impl TidalClient {
     /// for album in results.albums.items {
     ///     println!("Album: {}", album.title);
     /// }
+    /// # Ok(())
+    /// # }
     /// ```
     #[allow(clippy::too_many_arguments)]
     pub async fn search<'a>(&self, search: SearchQuery<'a>) -> Result<SearchResults, Error> {

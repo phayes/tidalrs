@@ -130,8 +130,12 @@ impl TidalClient {
     /// # Example
     ///
     /// ```no_run
+    /// # async fn example() -> Result<(), Box<dyn std::error::Error>> {
+    /// # let client = tidalrs::TidalClient::new("client_id".to_string());
     /// let stream = client.track_stream(123456789, tidalrs::AudioQuality::Lossless).await?;
     /// println!("Stream URL: {}", stream.primary_url().unwrap());
+    /// # Ok(())
+    /// # }
     /// ```
     #[allow(clippy::too_many_arguments)]
     pub async fn track_stream(
@@ -174,8 +178,12 @@ impl TidalClient {
     /// # Example
     ///
     /// ```no_run
+    /// # async fn example() -> Result<(), Box<dyn std::error::Error>> {
+    /// # let client = tidalrs::TidalClient::new("client_id".to_string());
     /// let track = client.track(123456789).await?;
     /// println!("Track: {} by {}", track.title, track.artists[0].name);
+    /// # Ok(())
+    /// # }
     /// ```
     pub async fn track(&self, track_id: u64) -> Result<Track, Error> {
         let url = format!("{TIDAL_API_BASE_URL}/tracks/{track_id}");
@@ -211,13 +219,17 @@ impl TidalClient {
     /// # Example
     ///
     /// ```no_run
+    /// # async fn example() -> Result<(), Box<dyn std::error::Error>> {
+    /// # let client = tidalrs::TidalClient::new("client_id".to_string());
     /// let recommendations = client.track_recommendations(123456789, Some(0), Some(20)).await?;
     /// for track in recommendations.items {
-    ///     println!("Suggested: {} by {}", 
+    ///     println!("Suggested: {} by {}",
     ///         track.title,
     ///         track.artists[0].name
     ///     );
     /// }
+    /// # Ok(())
+    /// # }
     /// ```
     pub async fn track_recommendations(
         &self,
@@ -268,8 +280,12 @@ impl TidalClient {
     /// # Example
     ///
     /// ```no_run
+    /// # async fn example() -> Result<(), Box<dyn std::error::Error>> {
+    /// # let client = tidalrs::TidalClient::new("client_id".to_string());
     /// let playback_info = client.track_playback_info(123456789, tidalrs::AudioQuality::Lossless).await?;
     /// println!("Sample rate: {} Hz", playback_info.sample_rate.unwrap_or(0));
+    /// # Ok(())
+    /// # }
     /// ```
     pub async fn track_playback_info(
         &self,
@@ -308,9 +324,13 @@ impl TidalClient {
     /// # Example
     ///
     /// ```no_run
+    /// # async fn example() -> Result<(), Box<dyn std::error::Error>> {
+    /// # let client = tidalrs::TidalClient::new("client_id".to_string());
     /// let dash_info = client.track_dash_playback_info(123456789, tidalrs::AudioQuality::Lossless).await?;
     /// let manifest = dash_info.unpack_manifest()?;
     /// println!("DASH manifest: {}", manifest);
+    /// # Ok(())
+    /// # }
     /// ```
     #[allow(clippy::too_many_arguments)]
     pub async fn track_dash_playback_info(
@@ -357,10 +377,14 @@ impl TidalClient {
     /// # Example
     ///
     /// ```no_run
+    /// # async fn example() -> Result<(), Box<dyn std::error::Error>> {
+    /// # let client = tidalrs::TidalClient::new("client_id".to_string());
     /// let favorites = client.favorite_tracks(None, Some(10), None, None).await?;
     /// for favorite in favorites.items {
     ///     println!("Favorite: {}", favorite.item.title);
     /// }
+    /// # Ok(())
+    /// # }
     /// ```
     pub async fn favorite_tracks(
         &self,
@@ -403,8 +427,12 @@ impl TidalClient {
     /// # Example
     ///
     /// ```no_run
+    /// # async fn example() -> Result<(), Box<dyn std::error::Error>> {
+    /// # let client = tidalrs::TidalClient::new("client_id".to_string());
     /// client.add_favorite_track(123456789).await?;
     /// println!("Track added to favorites!");
+    /// # Ok(())
+    /// # }
     /// ```
     pub async fn add_favorite_track(&self, track_id: u64) -> Result<(), Error> {
         let user_id = self
@@ -435,8 +463,12 @@ impl TidalClient {
     /// # Example
     ///
     /// ```no_run
+    /// # async fn example() -> Result<(), Box<dyn std::error::Error>> {
+    /// # let client = tidalrs::TidalClient::new("client_id".to_string());
     /// client.remove_favorite_track(123456789).await?;
     /// println!("Track removed from favorites!");
+    /// # Ok(())
+    /// # }
     /// ```
     pub async fn remove_favorite_track(&self, track_id: u64) -> Result<(), Error> {
         let user_id = self
@@ -573,9 +605,13 @@ impl TrackPlaybackInfo {
     /// # Example
     ///
     /// ```no_run
+    /// # async fn example() -> Result<(), Box<dyn std::error::Error>> {
+    /// # let client = tidalrs::TidalClient::new("client_id".to_string());
     /// let dash_info = client.track_dash_playback_info(123456789, tidalrs::AudioQuality::Lossless).await?;
     /// let manifest = dash_info.unpack_manifest()?;
     /// println!("DASH manifest: {}", manifest);
+    /// # Ok(())
+    /// # }
     /// ```
     pub fn unpack_manifest(&self) -> Result<String, base64::DecodeError> {
         use base64::Engine;
@@ -599,9 +635,13 @@ impl TrackDashPlaybackInfo {
     /// # Example
     ///
     /// ```no_run
+    /// # async fn example() -> Result<(), Box<dyn std::error::Error>> {
+    /// # let client = tidalrs::TidalClient::new("client_id".to_string());
     /// let dash_info = client.track_dash_playback_info(123456789, tidalrs::AudioQuality::Lossless).await?;
     /// let manifest = dash_info.unpack_manifest()?;
     /// println!("DASH manifest: {}", manifest);
+    /// # Ok(())
+    /// # }
     /// ```
     pub fn unpack_manifest(&self) -> Result<String, base64::DecodeError> {
         use base64::Engine;
@@ -619,7 +659,7 @@ impl TrackStream {
     /// Returns the first URL from the URLs list, which is typically
     /// the primary streaming endpoint.
     pub fn primary_url(&self) -> Option<&str> {
-        self.urls.get(0).map(|s| s.as_str())
+        self.urls.first().map(|s| s.as_str())
     }
 
     /// Get a buffered, seekable stream of the track.
@@ -636,18 +676,21 @@ impl TrackStream {
     /// # Example
     ///
     /// ```no_run
+    /// # async fn example() -> Result<(), Box<dyn std::error::Error>> {
+    /// # let client = tidalrs::TidalClient::new("client_id".to_string());
     /// let track_stream = client.track_stream(123456789, tidalrs::AudioQuality::Lossless).await?;
     /// let stream = track_stream.stream().await?;
     ///
     /// tokio::task::spawn_blocking(move || {
-    ///     let device_handle = rodio::OutputStreamBuilder::open_default_stream().unwrap();
-    ///     let sink = rodio::Sink::connect_new(device_handle.mixer());
-    ///     sink.append(rodio::Decoder::new(stream).unwrap());
-    ///     sink.play();
-    ///     sink.sleep_until_end();
+    ///     let handle = rodio::DeviceSinkBuilder::open_default_sink().unwrap();
+    ///     let player = rodio::Player::connect_new(handle.mixer());
+    ///     player.append(rodio::Decoder::new(stream).unwrap());
+    ///     player.sleep_until_end();
     /// })
     /// .await
     /// .unwrap();
+    /// # Ok(())
+    /// # }
     /// ```
     pub async fn stream(&self) -> Result<StreamDownload<MemoryStorageProvider>, Error> {
         let url: reqwest::Url = match self.primary_url() {

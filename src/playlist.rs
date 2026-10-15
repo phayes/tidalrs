@@ -1,9 +1,9 @@
-use crate::deserialize_null_default;
 use crate::Error;
 use crate::List;
 use crate::TIDAL_API_BASE_URL;
 use crate::TidalClient;
 use crate::artist::ArtistSummary;
+use crate::deserialize_null_default;
 use crate::track::Track;
 use reqwest::Method;
 use serde::{Deserialize, Serialize};
@@ -147,8 +147,12 @@ impl TidalClient {
     /// # Example
     ///
     /// ```no_run
+    /// # async fn example() -> Result<(), Box<dyn std::error::Error>> {
+    /// # let client = tidalrs::TidalClient::new("client_id".to_string());
     /// let playlist = client.playlist("12345678-1234-1234-1234-123456789abc").await?;
     /// println!("Playlist: {}", playlist.title);
+    /// # Ok(())
+    /// # }
     /// ```
     pub async fn playlist(&self, playlist_id: &str) -> Result<Playlist, Error> {
         let url = format!("{TIDAL_API_BASE_URL}/playlists/{playlist_id}");
@@ -179,10 +183,14 @@ impl TidalClient {
     /// # Example
     ///
     /// ```no_run
+    /// # async fn example() -> Result<(), Box<dyn std::error::Error>> {
+    /// # let client = tidalrs::TidalClient::new("client_id".to_string());
     /// let tracks = client.playlist_tracks("12345678-1234-1234-1234-123456789abc", Some(0), Some(20)).await?;
     /// for track in tracks.items {
     ///     println!("Track: {}", track.title);
     /// }
+    /// # Ok(())
+    /// # }
     /// ```
     pub async fn playlist_tracks(
         &self,
@@ -222,8 +230,12 @@ impl TidalClient {
     /// # Example
     ///
     /// ```no_run
+    /// # async fn example() -> Result<(), Box<dyn std::error::Error>> {
+    /// # let client = tidalrs::TidalClient::new("client_id".to_string());
     /// let playlist = client.create_playlist("My Favorites", "A collection of my favorite songs").await?;
     /// println!("Created playlist: {}", playlist.title);
+    /// # Ok(())
+    /// # }
     /// ```
     pub async fn create_playlist(&self, title: &str, description: &str) -> Result<Playlist, Error> {
         let user_id = self
@@ -255,10 +267,14 @@ impl TidalClient {
     /// # Example
     ///
     /// ```no_run
+    /// # async fn example() -> Result<(), Box<dyn std::error::Error>> {
+    /// # let client = tidalrs::TidalClient::new("client_id".to_string());
     /// let playlist = client.playlist("12345678-1234-1234-1234-123456789abc").await?;
     /// let track_ids = vec![123456789, 987654321];
     /// client.add_tracks_to_playlist(&playlist.uuid, &playlist.etag.unwrap(), track_ids, false).await?;
     /// println!("Tracks added to playlist!");
+    /// # Ok(())
+    /// # }
     /// ```
     pub async fn add_tracks_to_playlist(
         &self,
@@ -304,9 +320,13 @@ impl TidalClient {
     /// # Example
     ///
     /// ```no_run
+    /// # async fn example() -> Result<(), Box<dyn std::error::Error>> {
+    /// # let client = tidalrs::TidalClient::new("client_id".to_string());
     /// let playlist = client.playlist("12345678-1234-1234-1234-123456789abc").await?;
     /// client.remove_track_from_playlist_by_index(&playlist.uuid, &playlist.etag.unwrap(), 0).await?;
     /// println!("Track removed from playlist!");
+    /// # Ok(())
+    /// # }
     /// ```
     pub async fn remove_track_from_playlist_by_index(
         &self,
@@ -342,9 +362,13 @@ impl TidalClient {
     /// # Example
     ///
     /// ```no_run
+    /// # async fn example() -> Result<(), Box<dyn std::error::Error>> {
+    /// # let client = tidalrs::TidalClient::new("client_id".to_string());
     /// let playlist = client.playlist("12345678-1234-1234-1234-123456789abc").await?;
     /// client.remove_track_from_playlist(&playlist.uuid, &playlist.etag.unwrap(), 123456789).await?;
     /// println!("Track removed from playlist!");
+    /// # Ok(())
+    /// # }
     /// ```
     pub async fn remove_track_from_playlist(
         &self,
@@ -404,10 +428,14 @@ impl TidalClient {
     /// # Example
     ///
     /// ```no_run
+    /// # async fn example() -> Result<(), Box<dyn std::error::Error>> {
+    /// # let client = tidalrs::TidalClient::new("client_id".to_string());
     /// let playlists = client.user_playlists(None, Some(10)).await?;
     /// for playlist in playlists.items {
     ///     println!("Playlist: {}", playlist.title);
     /// }
+    /// # Ok(())
+    /// # }
     /// ```
     pub async fn user_playlists(
         &self,
@@ -453,6 +481,8 @@ impl TidalClient {
     /// # Example
     ///
     /// ```no_run
+    /// # async fn example() -> Result<(), Box<dyn std::error::Error>> {
+    /// # let client = tidalrs::TidalClient::new("client_id".to_string());
     /// let recommendations = client.playlist_recommendations(
     ///     "12345678-1234-1234-1234-123456789abc",
     ///     Some(0),
@@ -465,6 +495,8 @@ impl TidalClient {
     ///         track.artists[0].name
     ///     );
     /// }
+    /// # Ok(())
+    /// # }
     /// ```
     pub async fn playlist_recommendations(
         &self,

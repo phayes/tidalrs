@@ -19,50 +19,74 @@ fn test_deserialize_example_search_result() {
     // Verify that the deserialization was successful by checking some basic properties
     // Check that we have some results
     assert!(
-        search_results.albums.items.len() > 0
-            || search_results.artists.items.len() > 0
-            || search_results.tracks.items.len() > 0
-            || search_results.playlists.items.len() > 0,
+        !search_results.albums.items.is_empty()
+            || !search_results.artists.items.is_empty()
+            || !search_results.tracks.items.is_empty()
+            || !search_results.playlists.items.is_empty(),
         "Search results should contain at least one item in albums, artists, tracks, or playlists"
     );
 
     // Verify playlists were deserialized correctly
     if !search_results.playlists.items.is_empty() {
         let first_playlist = &search_results.playlists.items[0];
-        assert!(!first_playlist.uuid.is_empty(), "Playlist UUID should not be empty");
-        assert!(!first_playlist.title.is_empty(), "Playlist title should not be empty");
+        assert!(
+            !first_playlist.uuid.is_empty(),
+            "Playlist UUID should not be empty"
+        );
+        assert!(
+            !first_playlist.title.is_empty(),
+            "Playlist title should not be empty"
+        );
         // url is now Option<String>, so it might be None
         // created and last_updated should be present
-        assert!(!first_playlist.created.is_empty(), "Playlist created date should not be empty");
-        assert!(!first_playlist.last_updated.is_empty(), "Playlist last_updated should not be empty");
+        assert!(
+            !first_playlist.created.is_empty(),
+            "Playlist created date should not be empty"
+        );
+        assert!(
+            !first_playlist.last_updated.is_empty(),
+            "Playlist last_updated should not be empty"
+        );
     }
 
     // Verify artists were deserialized correctly
     if !search_results.artists.items.is_empty() {
         let first_artist = &search_results.artists.items[0];
         assert!(first_artist.id > 0, "Artist ID should be greater than 0");
-        assert!(!first_artist.name.is_empty(), "Artist name should not be empty");
+        assert!(
+            !first_artist.name.is_empty(),
+            "Artist name should not be empty"
+        );
     }
 
     // Verify albums were deserialized correctly
     if !search_results.albums.items.is_empty() {
         let first_album = &search_results.albums.items[0];
         assert!(first_album.id > 0, "Album ID should be greater than 0");
-        assert!(!first_album.title.is_empty(), "Album title should not be empty");
+        assert!(
+            !first_album.title.is_empty(),
+            "Album title should not be empty"
+        );
     }
 
     // Verify tracks were deserialized correctly
     if !search_results.tracks.items.is_empty() {
         let first_track = &search_results.tracks.items[0];
         assert!(first_track.id > 0, "Track ID should be greater than 0");
-        assert!(!first_track.title.is_empty(), "Track title should not be empty");
+        assert!(
+            !first_track.title.is_empty(),
+            "Track title should not be empty"
+        );
     }
 
     // Verify top hits were deserialized correctly
     if !search_results.top_hits.is_empty() {
         assert!(
-            search_results.top_hits.len() > 0,
-            "Top hits should contain at least one item if the array is not empty"
+            search_results
+                .top_hits
+                .iter()
+                .all(|hit| !hit.id().is_empty()),
+            "Top hits should contain items with IDs"
         );
     }
 }
@@ -167,13 +191,18 @@ fn test_deserialize_null_artist_and_album_urls() {
     let artist = &search_results.artists.items[0];
     assert_eq!(artist.id, 12345);
     assert_eq!(artist.name, "Test Artist");
-    assert_eq!(artist.url, None, "Artist URL should be None when null in JSON");
+    assert_eq!(
+        artist.url, None,
+        "Artist URL should be None when null in JSON"
+    );
 
     // Verify the album was deserialized correctly with null URL
     assert_eq!(search_results.albums.items.len(), 1);
     let album = &search_results.albums.items[0];
     assert_eq!(album.id, 67890);
     assert_eq!(album.title, "Test Album");
-    assert_eq!(album.url, None, "Album URL should be None when null in JSON");
+    assert_eq!(
+        album.url, None,
+        "Album URL should be None when null in JSON"
+    );
 }
-

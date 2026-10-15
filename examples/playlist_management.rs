@@ -18,9 +18,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // In a real application, you would load this from storage
     let authz = Authz::new(
         "your_access_token".to_string(),
-        "your_refresh_token".to_string(),
-        12345, // Your user ID
+        Some("your_refresh_token".to_string()),
+        Some(12345),
         Some("US".to_string()),
+        None,
     );
 
     let client = TidalClient::new("your_client_id".to_string()).with_authz(authz);

@@ -50,9 +50,10 @@ fn test_builder_pattern_with_device_type() {
 fn test_builder_pattern_with_authz() {
     let authz = Authz::new(
         "test_access_token".to_string(),
-        "test_refresh_token".to_string(),
-        12345,
+        Some("test_refresh_token".to_string()),
+        Some(12345),
         Some("CA".to_string()),
+        None,
     );
 
     let client = TidalClient::new("test_client_id".to_string()).with_authz(authz.clone());
@@ -64,8 +65,11 @@ fn test_builder_pattern_with_authz() {
     // Test that authz is stored correctly
     if let Some(stored_authz) = client.get_authz() {
         assert_eq!(stored_authz.access_token, "test_access_token");
-        assert_eq!(stored_authz.refresh_token, "test_refresh_token");
-        assert_eq!(stored_authz.user_id, 12345);
+        assert_eq!(
+            stored_authz.refresh_token.as_deref(),
+            Some("test_refresh_token")
+        );
+        assert_eq!(stored_authz.user_id, Some(12345));
         assert_eq!(stored_authz.country_code, Some("CA".to_string()));
     } else {
         panic!("Authz should be stored in client");
@@ -94,9 +98,10 @@ fn test_builder_pattern_with_authz_refresh_callback() {
 fn test_builder_pattern_chaining() {
     let authz = Authz::new(
         "test_access_token".to_string(),
-        "test_refresh_token".to_string(),
-        67890,
+        Some("test_refresh_token".to_string()),
+        Some(67890),
         Some("AU".to_string()),
+        None,
     );
 
     let callback_called = Arc::new(std::sync::atomic::AtomicBool::new(false));
@@ -119,7 +124,7 @@ fn test_builder_pattern_chaining() {
 
     // Verify authz is stored
     if let Some(stored_authz) = client.get_authz() {
-        assert_eq!(stored_authz.user_id, 67890);
+        assert_eq!(stored_authz.user_id, Some(67890));
         assert_eq!(stored_authz.country_code, Some("AU".to_string()));
     } else {
         panic!("Authz should be stored in client");
@@ -131,9 +136,10 @@ fn test_builder_pattern_country_code_priority() {
     // Test that explicitly set country code takes priority over authz country code
     let authz = Authz::new(
         "test_access_token".to_string(),
-        "test_refresh_token".to_string(),
-        11111,
+        Some("test_refresh_token".to_string()),
+        Some(11111),
         Some("FR".to_string()),
+        None,
     );
 
     let client = TidalClient::new("test_client_id".to_string())
@@ -148,9 +154,10 @@ fn test_builder_pattern_country_code_fallback() {
     // Test that authz country code is used when no explicit country code is set
     let authz = Authz::new(
         "test_access_token".to_string(),
-        "test_refresh_token".to_string(),
-        22222,
+        Some("test_refresh_token".to_string()),
+        Some(22222),
         Some("IT".to_string()),
+        None,
     );
 
     let client = TidalClient::new("test_client_id".to_string()).with_authz(authz);
@@ -163,9 +170,10 @@ fn test_builder_pattern_country_code_final_fallback() {
     // Test that "US" is used as final fallback when no country code is available
     let authz = Authz::new(
         "test_access_token".to_string(),
-        "test_refresh_token".to_string(),
-        33333,
+        Some("test_refresh_token".to_string()),
+        Some(33333),
         None, // No country code in authz
+        None,
     );
 
     let client = TidalClient::new("test_client_id".to_string()).with_authz(authz);
@@ -187,6 +195,24 @@ fn test_builder_pattern_with_client() {
     assert_eq!(client.get_country_code(), "US");
     assert_eq!(client.get_locale(), "en_US");
     assert_eq!(client.get_device_type(), DeviceType::Browser);
+}
+
+#[test]
+fn test_builder_pattern_with_access_token() {
+    let client = TidalClient::new("test_client_id".to_string()).with_access_token("abc");
+
+    assert_eq!(client.get_user_id(), None);
+    let authz = client.get_authz().expect("authz");
+    assert_eq!(authz.access_token, "abc");
+    assert_eq!(authz.refresh_token, None);
+    assert_eq!(authz.user_id, None);
+}
+
+#[test]
+fn test_builder_pattern_with_client_secret() {
+    let client = TidalClient::new("test_client_id".to_string()).with_client_secret("secret");
+    assert_eq!(client.get_user_id(), None);
+    assert!(client.get_authz().is_none());
 }
 
 #[test]

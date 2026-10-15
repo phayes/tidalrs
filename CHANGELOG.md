@@ -5,6 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.0] - 2026-09-02
+
+### Breaking Changes
+
+- **`Authz`**: `refresh_token` is now `Option<String>` and `user_id` is now `Option<u64>`. Added `expires_timestamp: Option<u64>`. `Authz::new` takes the optional fields, including expiry.
+- **`AuthzToken::authz()`**: Now returns `Authz` instead of `Option<Authz>`.
+- **`DeviceAuthorizationResponse`**: Added `interval` (RFC 8628 polling interval, default 5 seconds).
+- **`Error` enum**: Removed `AuthorizationPending`. Added `ClientSecretRequired`, `PkceNotStarted`, `PkceRedirectMissingCode`, `DeviceAuthorizationTimeout`, `DeviceAuthorizationDenied`, `OAuth { error, description }`, and `Url`. Since the enum is exhaustive, this is a breaking change for code that matches on `Error`.
+- **Dependencies**: Aligned with tidalv2 where possible (`reqwest` 0.13, `strum` 0.28, `base64` 0.23, `sha2` 0.11, `rand` 0.10). `stream-download` 0.24.4 is required for reqwest 0.13. The audio example uses `rodio` 0.22.
+
+### Added
+
+- OAuth2 PKCE flow: `TidalClient::start_pkce` / `finish_pkce`.
+- OAuth2 client-credentials grant: `TidalClient::client_credentials`, `with_client_secret`, and `with_access_token`.
+- Built-in device-flow polling: `TidalClient::wait_for_authorization`.
+- Isolated auth-token HTTP path so OAuth requests never attach a Bearer token or trigger refresh.
+- Automatic token renewal prefers a refresh token and falls back to client credentials when a secret is configured. Refresh attempts are bounded.
+- User-specific methods continue to require a user-authenticated session and return `UserAuthenticationRequired` for application tokens.
+- Ignored live integration tests that search, walk catalog resources, and walk user collections against the v1 API.
+
 ## [0.5.0] - 2026-08-31
 
 ### Breaking Changes
