@@ -1,4 +1,15 @@
 # Changelog
+
+## [0.6.1] - 2026-10-15
+
+### Added
+
+- `TrackDashPlaybackInfo::bts_manifest` decodes the BTS manifest Tidal may send instead of MPEG-DASH, into a `BtsManifest` of plain URLs. It returns the new `Error::NotBtsManifest` for other formats. `BtsManifest::stream` downloads the track like `TrackStream::stream`.
+
+### Changed
+
+- `Track::rodio_source` and `TidalClient::track_rodio_source` play a BTS manifest returned by a DASH request when it is at the requested quality, instead of failing over to a second request for a progressive URL. A BTS manifest at a lower quality than requested still falls back, so a lossless request keeps looking for a lossless stream.
+
 ## [0.6.0] - 2026-10-15
 
 ### Breaking Changes
@@ -25,11 +36,10 @@
   - `TrackDashPlaybackInfo::dash_manifest` parses the manifest.
   - `TrackDashPlaybackInfo::stream` opens a seekable `Read + Seek` stream of fragmented MP4 (FLAC or AAC).
   - These methods, and `source` below, check `manifest_mime_type` and return `Error::NotDashManifest` when Tidal sent another manifest format.
-  - `TrackDashPlaybackInfo::bts_manifest` decodes the BTS manifest Tidal may send instead, into a `BtsManifest` of plain URLs, and returns `Error::NotBtsManifest` for other formats. `BtsManifest::stream` downloads it like `TrackStream::stream`.
   - `playdash` is re-exported as `tidalrs::playdash`.
 - Rodio playback through the opt-in `rodio` feature, which also enables the symphonia FLAC, AAC and MP4 decoders:
   - `TrackDashPlaybackInfo::source` returns a ready-to-play `playdash::DashSource`.
-  - `Track::rodio_source` and `TidalClient::track_rodio_source` return a `TrackSource`. They try the requested quality first, then the other lossless (or lossy) quality, then lower qualities, then higher ones. At each quality they try DASH before a progressive URL, and a lossless request tries both lossless qualities over DASH before any URL. When a DASH request returns a BTS manifest at the requested quality, they play its URL instead of making a second request. They skip qualities the track's metadata rules out. Authentication, network, server and rate-limit errors are returned immediately instead of triggering a fallback.
+  - `Track::rodio_source` and `TidalClient::track_rodio_source` return a `TrackSource`. They try the requested quality first, then the other lossless (or lossy) quality, then lower qualities, then higher ones. At each quality they try DASH before a progressive URL, and a lossless request tries both lossless qualities over DASH before any URL. They skip qualities the track's metadata rules out. Authentication, network, server and rate-limit errors are returned immediately instead of triggering a fallback.
   - `TrackSource::audio_quality`, `transport` (`StreamTransport::Dash` or `Url`) and `buffer` report what was opened and how much has downloaded.
 - `AudioQuality` now implements `PartialOrd` and `Ord`, ordered from lowest to highest quality.
 - `pkce_auth` example for browser login with PKCE, and `audio_streaming_rodio` example (requires the `rodio` feature).
