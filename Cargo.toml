@@ -30,7 +30,7 @@ sha2 = "0.11"
 rand = "0.10"
 
 [[example]]
-name = "baic_search"
+name = "basic_search"
 path = "examples/basic_search.rs"
 
 [[example]]
