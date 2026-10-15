@@ -11,7 +11,7 @@ A comprehensive Rust client library for the Tidal music streaming service API. T
 ## Features
 
 - **Complete Music API**: Access tracks, albums, artists, and playlists
-- **Audio Streaming**: Stream tracks in various quality levels via DASH-MPEG
+- **Audio Streaming**: Stream tracks in various quality levels via MPEG-DASH, with optional rodio playback
 - **Advanced Search**: Search across all content types with filtering
 - **User Management**: Manage favorites, playlists, and user data
 - **OAuth2 Authentication**: Device flow, PKCE, and client-credentials grants with automatic token refresh
@@ -59,6 +59,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     // Play the track
     let track_stream = client.track_stream(123456789, AudioQuality::Lossless).await?;
+#   #[cfg(feature = "playback")]
     let music_bytes_stream = track_stream.stream().await?;
     
     Ok(())
@@ -153,6 +154,7 @@ for album in results.albums.items {
 Get track information and stream audio:
 
 ```rust,no_run
+# #[cfg(feature = "playback")]
 # async fn example() -> Result<(), Box<dyn std::error::Error>> {
 # let client = tidalrs::TidalClient::new("client_id".to_string());
 # use tidalrs::AudioQuality;
@@ -289,6 +291,72 @@ let stream = client.track_stream(track_id, AudioQuality::Lossless).await?;
 # }
 ```
 
+## MPEG-DASH Playback
+
+Tidal serves its highest qualities, including Hi-Res Lossless, over MPEG-DASH. Two Cargo features handle these streams:
+
+| Feature | Default | Provides |
+|---------|---------|----------|
+| `playback` | Yes | `TrackDashPlaybackInfo::stream`, a seekable `Read + Seek` stream of fragmented MP4 (FLAC or AAC) for the demuxer, decoder and audio output of your choice, and `TrackStream::stream` for progressive URL streams |
+| `rodio` | No | `TidalClient::track_rodio_source` and `Track::rodio_source`, ready-to-play rodio sources that fall back across qualities, plus `TrackDashPlaybackInfo::source`. Includes the symphonia decoders Tidal's codecs need |
+
+```rust,no_run
+# #[cfg(feature = "playback")]
+# async fn example() -> Result<(), Box<dyn std::error::Error>> {
+# let client = tidalrs::TidalClient::new("client_id".to_string());
+let dash_info = client
+    .track_dash_playback_info(123456789, tidalrs::AudioQuality::HiResLossless)
+    .await?;
+
+// Media fragments download in the background; reads block until the bytes
+// they need arrive, so read from a blocking context.
+let stream = dash_info.stream().await?;
+# let _ = stream;
+# Ok(())
+# }
+```
+
+### Playing through rodio
+
+Enable the `rodio` feature, and add rodio itself for audio output:
+
+```toml
+[dependencies]
+tidalrs = { version = "0.6", features = ["rodio"] }
+rodio = "0.22"
+```
+
+`track_rodio_source` opens a track as a rodio source. It plays the requested quality when it can. Otherwise it falls back to the other lossless quality (for `Lossless` or `HiResLossless`) or lossy quality (for `Low` or `High`), then to lower qualities, then higher ones, trying MPEG-DASH before a progressive URL at each quality. A lossless request tries both lossless qualities over MPEG-DASH before any URL:
+
+```rust,no_run
+# #[cfg(feature = "rodio")]
+# async fn example() -> Result<(), Box<dyn std::error::Error>> {
+# let client = tidalrs::TidalClient::new("client_id".to_string());
+let source = client
+    .track_rodio_source(123456789, tidalrs::AudioQuality::HiResLossless)
+    .await?;
+println!("Playing {:?} over {:?}", source.audio_quality(), source.transport());
+
+// Report download progress (DASH streams only); take the handle before
+// handing the source to rodio.
+if let Some(buffer) = source.buffer() {
+    buffer.on_change(|status| println!("{:.0}% downloaded", status.downloaded_percent()));
+}
+
+// Rodio's player blocks, so keep it off the async runtime.
+tokio::task::spawn_blocking(move || {
+    let handle = rodio::DeviceSinkBuilder::open_default_sink().expect("open audio device");
+    let player = rodio::Player::connect_new(handle.mixer());
+    player.append(source);
+    player.sleep_until_end();
+})
+.await?;
+# Ok(())
+# }
+```
+
+If you already have a `Track`, call `track.rodio_source(&client, quality)` to skip fetching it again. To play a specific DASH stream without any fallback, append `dash_info.source().await?` to a rodio `Player`.
+
 ## Configuration
 
 Configure the client for different regions and locales:
@@ -323,9 +391,13 @@ let client = TidalClient::new("client_id".to_string())
 Check the `examples/` directory for complete working examples:
 
 - `basic_search.rs` - Simple search functionality
+- `pkce_auth.rs` - Logging in through the browser with OAuth PKCE
 - `playlist_management.rs` - Creating and managing playlists
 - `audio_streaming.rs` - Streaming and playing audio
+- `audio_streaming_rodio.rs` - Playing a track through rodio with automatic quality fallback (requires the `rodio` feature)
 - `favorites_management.rs` - Managing user favorites
+
+The examples read their configuration from environment variables: `TIDAL_CLIENT_ID`, plus `TIDAL_CLIENT_SECRET` for the authentication example, and `TIDAL_ACCESS_TOKEN`, `TIDAL_USER_ID` and optionally `TIDAL_REFRESH_TOKEN` and `TIDAL_COUNTRY_CODE` for the others. Run the authentication example to log in and get these values.
 
 ## Requirements
 

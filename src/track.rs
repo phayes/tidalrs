@@ -10,7 +10,9 @@ use crate::artist::ArtistSummary;
 use reqwest::Method;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
+#[cfg(feature = "playback")]
 use stream_download::storage::memory::MemoryStorageProvider;
+#[cfg(feature = "playback")]
 use stream_download::{Settings, StreamDownload};
 
 /// Represents a track from the Tidal catalog.
@@ -649,6 +651,140 @@ impl TrackDashPlaybackInfo {
 
         Ok(String::from_utf8(decoded).expect("Failed to decode manifest, not UTF-8 XML"))
     }
+
+    /// Decode and parse the MPEG-DASH manifest.
+    ///
+    /// Use the returned [`playdash::DashManifest`] to inspect representations or
+    /// to build your own stream. For most uses, [`TrackDashPlaybackInfo::stream`]
+    /// or, with the `rodio` feature, `TrackDashPlaybackInfo::source` is simpler.
+    ///
+    /// # Errors
+    ///
+    /// Returns [`Error::NotDashManifest`] when Tidal sent another manifest
+    /// format, which it may do below Hi-Res Lossless.
+    #[cfg(feature = "playback")]
+    pub fn dash_manifest(&self) -> Result<playdash::DashManifest, Error> {
+        parse_dash_manifest(self.dash_manifest_base64()?)
+    }
+
+    /// Open a seekable stream of the track's audio, as fragmented MP4 (FLAC or
+    /// AAC) for the demuxer and decoder of your choice.
+    ///
+    /// Reads block until the audio they need has downloaded, so read from a
+    /// blocking context.
+    ///
+    /// # Errors
+    ///
+    /// Returns [`Error::NotDashManifest`] when Tidal sent another manifest
+    /// format, which it may do below Hi-Res Lossless.
+    #[cfg(feature = "playback")]
+    pub async fn stream(&self) -> Result<playdash::StreamReader, Error> {
+        let manifest = self.dash_manifest_base64()?.to_owned();
+        spawn_playback(move || {
+            let manifest = parse_dash_manifest(&manifest)?;
+            let id = first_representation_id(&manifest)?;
+            Ok(manifest.stream(id, true)?)
+        })
+        .await
+    }
+
+    /// Open the track as a rodio source, ready to play.
+    ///
+    /// Requires the `rodio` feature, which also enables the symphonia
+    /// decoders for Tidal's codecs.
+    ///
+    /// # Errors
+    ///
+    /// Returns [`Error::NotDashManifest`] when Tidal sent another manifest
+    /// format, which it may do below Hi-Res Lossless.
+    ///
+    /// # Example
+    ///
+    /// ```no_run
+    /// # async fn example() -> Result<(), Box<dyn std::error::Error>> {
+    /// # let client = tidalrs::TidalClient::new("client_id".to_string());
+    /// let dash_info = client.track_dash_playback_info(123456789, tidalrs::AudioQuality::Lossless).await?;
+    /// let source = dash_info.source().await?;
+    ///
+    /// tokio::task::spawn_blocking(move || {
+    ///     let handle = rodio::DeviceSinkBuilder::open_default_sink().unwrap();
+    ///     let player = rodio::Player::connect_new(handle.mixer());
+    ///     player.append(source);
+    ///     player.sleep_until_end();
+    /// })
+    /// .await
+    /// .unwrap();
+    /// # Ok(())
+    /// # }
+    /// ```
+    #[cfg(feature = "rodio")]
+    pub async fn source(&self) -> Result<playdash::DashSource, Error> {
+        let manifest = self.dash_manifest_base64()?.to_owned();
+        spawn_playback(move || {
+            let manifest = parse_dash_manifest(&manifest)?;
+            let id = first_representation_id(&manifest)?;
+            Ok(playdash::DashSource::new(&manifest, id)?)
+        })
+        .await
+    }
+
+    /// The base64-encoded manifest, provided it is MPEG-DASH.
+    #[cfg(feature = "playback")]
+    fn dash_manifest_base64(&self) -> Result<&str, Error> {
+        // Compare the type itself, ignoring parameters such as `; charset=utf-8`.
+        let mime_type = self
+            .manifest_mime_type
+            .split(';')
+            .next()
+            .unwrap_or_default();
+        if mime_type.trim().eq_ignore_ascii_case(DASH_MIME_TYPE) {
+            Ok(&self.manifest)
+        } else {
+            Err(Error::NotDashManifest(self.manifest_mime_type.clone()))
+        }
+    }
+}
+
+/// The `manifest_mime_type` of an MPEG-DASH manifest.
+#[cfg(feature = "playback")]
+const DASH_MIME_TYPE: &str = "application/dash+xml";
+
+#[cfg(feature = "playback")]
+fn parse_dash_manifest(manifest: &str) -> Result<playdash::DashManifest, Error> {
+    use base64::Engine;
+    let decoded = base64::engine::general_purpose::STANDARD
+        .decode(manifest.as_bytes())
+        .map_err(playdash::Error::from)?;
+    let xml = String::from_utf8(decoded).map_err(playdash::Error::from)?;
+
+    Ok(playdash::DashManifest::new(xml)?)
+}
+
+/// Tidal's manifests list only the representation for the requested quality,
+/// so the first one is the one to play.
+#[cfg(feature = "playback")]
+fn first_representation_id(manifest: &playdash::DashManifest) -> Result<String, Error> {
+    manifest
+        .representations()
+        .next()
+        .map(|representation| representation.id.to_owned())
+        .ok_or(Error::Playback(
+            playdash::Error::DashManifestMissingRepresentations,
+        ))
+}
+
+/// Run blocking playdash setup on tokio's blocking pool.
+#[cfg(feature = "playback")]
+pub(crate) async fn spawn_playback<T, F>(setup: F) -> Result<T, Error>
+where
+    T: Send + 'static,
+    F: FnOnce() -> Result<T, Error> + Send + 'static,
+{
+    match tokio::task::spawn_blocking(setup).await {
+        Ok(result) => result,
+        Err(error) if error.is_panic() => std::panic::resume_unwind(error.into_panic()),
+        Err(error) => Err(Error::StreamInitializationError(error.to_string())),
+    }
 }
 
 impl TrackStream {
@@ -668,6 +804,8 @@ impl TrackStream {
     /// stream that can be used with audio libraries like rodio.
     ///
     /// While this function is async, the returned stream is sync.
+    ///
+    /// Requires the `playback` feature, which is on by default.
     ///
     /// # Returns
     ///
@@ -692,6 +830,7 @@ impl TrackStream {
     /// # Ok(())
     /// # }
     /// ```
+    #[cfg(feature = "playback")]
     pub async fn stream(&self) -> Result<StreamDownload<MemoryStorageProvider>, Error> {
         let url: reqwest::Url = match self.primary_url() {
             Some(url) => url.parse().expect("Failed to parse stream URL"),
@@ -707,5 +846,58 @@ impl TrackStream {
             };
 
         Ok(reader)
+    }
+}
+
+#[cfg(all(test, feature = "playback"))]
+mod tests {
+    use super::*;
+
+    fn playback_info(manifest_mime_type: &str, manifest: &str) -> TrackDashPlaybackInfo {
+        TrackDashPlaybackInfo {
+            album_peak_amplitude: 1.0,
+            album_replay_gain: 0.0,
+            asset_presentation: "FULL".to_string(),
+            audio_mode: "STEREO".to_string(),
+            audio_quality: AudioQuality::Lossless,
+            bit_depth: Some(16),
+            manifest: manifest.to_string(),
+            manifest_hash: String::new(),
+            manifest_mime_type: manifest_mime_type.to_string(),
+            sample_rate: Some(44100),
+            track_id: 1,
+            track_peak_amplitude: 1.0,
+            track_replay_gain: 0.0,
+        }
+    }
+
+    #[tokio::test]
+    async fn non_dash_manifest_is_rejected_by_type() {
+        let info = playback_info("application/vnd.tidal.bts", "e30=");
+
+        assert!(matches!(
+            info.dash_manifest(),
+            Err(Error::NotDashManifest(mime)) if mime == "application/vnd.tidal.bts"
+        ));
+        assert!(matches!(
+            info.stream().await,
+            Err(Error::NotDashManifest(mime)) if mime == "application/vnd.tidal.bts"
+        ));
+    }
+
+    #[test]
+    fn dash_manifest_passes_type_check_to_parser() {
+        for mime_type in [
+            DASH_MIME_TYPE,
+            "application/dash+xml; charset=utf-8",
+            "Application/DASH+XML",
+        ] {
+            let info = playback_info(mime_type, "not base64!");
+
+            assert!(
+                matches!(info.dash_manifest(), Err(Error::Playback(_))),
+                "{mime_type} should be accepted as DASH"
+            );
+        }
     }
 }

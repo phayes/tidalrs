@@ -3,19 +3,19 @@
 //! Device flow is the default path shown below. PKCE and client credentials are
 //! documented in comments. Client-credentials sessions can call catalog APIs but
 //! not user-specific methods such as favorites and playlists.
+//!
+//! Requires `TIDAL_CLIENT_ID` and `TIDAL_CLIENT_SECRET`; see `examples/common/mod.rs`.
+
+mod common;
 
 use std::io::{self, Write};
-use tidalrs::TidalClient;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     env_logger::init();
 
-    let client_id = "your_client_id";
-    let client_secret = "your_client_secret";
-
-    let client = TidalClient::new(client_id.to_string())
-        .with_client_secret(client_secret)
+    let client = common::client_from_env()?
+        .with_client_secret(common::required_env("TIDAL_CLIENT_SECRET")?)
         .with_authz_refresh_callback(|new_authz| {
             println!("Tokens refreshed for user: {:?}", new_authz.user_id);
             // In a real application, save these tokens to persistent storage.
@@ -47,14 +47,23 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("Country: {}", authz_token.user.country_code);
     println!("User ID: {}", authz_token.user.user_id);
 
+    // Print the settings the other examples read, ready to paste into a shell
     let authz = authz_token.authz();
-    println!("\nCurrent tokens:");
-    println!("   Access token: {}...", &authz.access_token[..20]);
+    println!("\nTo run the other examples, set:");
+    println!(
+        "export TIDAL_CLIENT_ID='{}'",
+        std::env::var("TIDAL_CLIENT_ID")?
+    );
+    println!("export TIDAL_ACCESS_TOKEN='{}'", authz.access_token);
     if let Some(refresh_token) = &authz.refresh_token {
-        println!("   Refresh token: {}...", &refresh_token[..20]);
+        println!("export TIDAL_REFRESH_TOKEN='{refresh_token}'");
     }
-    println!("   User ID: {:?}", authz.user_id);
-    println!("   Country: {:?}", authz.country_code);
+    if let Some(user_id) = authz.user_id {
+        println!("export TIDAL_USER_ID='{user_id}'");
+    }
+    if let Some(country_code) = &authz.country_code {
+        println!("export TIDAL_COUNTRY_CODE='{country_code}'");
+    }
 
     println!("\nTesting authenticated API call...");
     match client.get_user_id() {

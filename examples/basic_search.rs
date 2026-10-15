@@ -4,16 +4,20 @@
 //! - Create a TidalClient
 //! - Search for artists, albums, and tracks
 //! - Display search results
+//!
+//! Configured from environment variables; see `examples/common/mod.rs`.
 
-use tidalrs::{ResourceType, SearchQuery, TidalClient};
+mod common;
+
+use tidalrs::{ResourceType, SearchQuery};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Initialize logging
     env_logger::init();
 
-    // Create a client (you'll need to provide your actual client ID)
-    let client = TidalClient::new("your_client_id".to_string());
+    // Create a client from TIDAL_CLIENT_ID
+    let client = common::client_from_env()?;
 
     // Search for "Radiohead"
     let mut query = SearchQuery::new("Radiohead");

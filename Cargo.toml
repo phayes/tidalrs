@@ -24,10 +24,24 @@ tokio = { version = "1.0", features = ["macros", "sync", "time"] }
 url = "^2.5"
 reqwest = { version = "^0.13", default-features = false, features = ["json", "multipart", "query", "form", "rustls", "stream"] }
 arc-swap = "^1.7"
-stream-download = { version = "0.24.4", features = ["reqwest-rustls"] }
+stream-download = { version = "0.24.4", features = ["reqwest-rustls"], optional = true }
 base64 = "0.23"
 sha2 = "0.11"
 rand = "0.10"
+playdash = { version = "0.1.1", optional = true }
+# The decoders Tidal's DASH streams need: FLAC and AAC in fragmented MP4.
+rodio = { version = "0.22", default-features = false, features = ["symphonia-isomp4", "symphonia-flac", "symphonia-aac"], optional = true }
+
+[features]
+default = ["playback"]
+# Seekable audio streams: MPEG-DASH via playdash and progressive URLs via
+# stream-download, leaving decoding and output to the caller.
+playback = ["dep:playdash", "dep:stream-download", "tokio/rt"]
+# A ready-to-play rodio source, with symphonia decoders for Tidal's codecs.
+rodio = ["playback", "playdash/rodio", "dep:rodio"]
+
+[package.metadata.docs.rs]
+all-features = true
 
 [[example]]
 name = "basic_search"
@@ -38,12 +52,22 @@ name = "authentication"
 path = "examples/authentication.rs"
 
 [[example]]
+name = "pkce_auth"
+path = "examples/pkce_auth.rs"
+
+[[example]]
 name = "playlist_management"
 path = "examples/playlist_management.rs"
 
 [[example]]
 name = "audio_streaming"
 path = "examples/audio_streaming.rs"
+required-features = ["playback"]
+
+[[example]]
+name = "audio_streaming_rodio"
+path = "examples/audio_streaming_rodio.rs"
+required-features = ["rodio"]
 
 [[example]]
 name = "favorites_management"

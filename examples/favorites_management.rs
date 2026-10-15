@@ -6,8 +6,13 @@
 //! - Remove items from favorites
 //! - Paginate through favorites
 
+//!
+//! Configured from environment variables; see `examples/common/mod.rs`.
+
+mod common;
+
 use std::io::{self, Write};
-use tidalrs::{Authz, Order, OrderDirection, TidalClient};
+use tidalrs::{Order, OrderDirection};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -15,16 +20,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     env_logger::init();
 
     // Create a client with existing authentication
-    // In a real application, you would load this from storage
-    let authz = Authz::new(
-        "your_access_token".to_string(),
-        Some("your_refresh_token".to_string()),
-        Some(12345),
-        Some("US".to_string()),
-        None,
-    );
-
-    let client = TidalClient::new("your_client_id".to_string()).with_authz(authz);
+    let client = common::authorized_client_from_env()?;
 
     // Check if we're authenticated
     match client.get_user_id() {
@@ -32,7 +28,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             println!("Authenticated as user: {}", user_id);
         }
         None => {
-            println!("Not authenticated. Please run the authentication example first.");
+            println!("TIDAL_USER_ID is not set. Run the authentication example to get it.");
             return Ok(());
         }
     }

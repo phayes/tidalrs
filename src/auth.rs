@@ -1,6 +1,6 @@
 //! OAuth helpers: PKCE crypto, authorize-URL construction, and token-endpoint POSTs.
 //!
-//! Token requests intentionally bypass [`crate::TidalClient::do_request`] so they
+//! Token requests intentionally bypass `TidalClient::do_request` so they
 //! never attach a Bearer token or trigger expired-token refresh.
 
 use crate::{Authz, AuthzToken, Error, TIDAL_USER_AGENT, TidalApiError, TidalClient};

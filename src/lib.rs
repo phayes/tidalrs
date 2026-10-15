@@ -6,6 +6,8 @@ pub mod auth;
 mod playlist;
 mod search;
 mod track;
+#[cfg(feature = "rodio")]
+mod track_source;
 
 pub use album::*;
 pub use artist::*;
@@ -13,6 +15,12 @@ pub use auth::{OAuthErrorBody, PkcePending};
 pub use playlist::*;
 pub use search::*;
 pub use track::*;
+#[cfg(feature = "rodio")]
+pub use track_source::*;
+
+/// Re-export of the [`playdash`] crate used for MPEG-DASH playback.
+#[cfg(feature = "playback")]
+pub use playdash;
 
 use arc_swap::ArcSwapOption;
 use async_recursion::async_recursion;
@@ -307,6 +315,17 @@ pub enum Error {
     /// URL parsing failed
     #[error("Invalid URL: {0}")]
     Url(#[from] url::ParseError),
+    /// Tidal sent a manifest of this MIME type instead of MPEG-DASH
+    #[error("Expected an MPEG-DASH manifest, got {0}")]
+    NotDashManifest(String),
+    /// MPEG-DASH manifest parsing or playback setup failed
+    #[cfg(feature = "playback")]
+    #[error("Playback error: {0}")]
+    Playback(#[from] playdash::Error),
+    /// Rodio could not decode the audio stream
+    #[cfg(feature = "rodio")]
+    #[error("Audio decoder error: {0}")]
+    Decoder(#[from] rodio::decoder::DecoderError),
 }
 
 /// Callback function type for handling authorization token refresh events.
@@ -1289,6 +1308,9 @@ pub enum DeviceType {
 /// The actual quality available depends on the user's subscription
 /// and the track's availability.
 ///
+/// Variants are ordered from lowest to highest quality, so they compare with
+/// `<` and `>`.
+///
 /// # Example
 ///
 /// ```no_run
@@ -1301,7 +1323,9 @@ pub enum DeviceType {
 /// # Ok(())
 /// # }
 /// ```
-#[derive(Debug, Serialize, Deserialize, EnumString, AsRefStr, PartialEq, Eq, Clone, Copy)]
+#[derive(
+    Debug, Serialize, Deserialize, EnumString, AsRefStr, PartialEq, Eq, PartialOrd, Ord, Clone, Copy,
+)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 #[strum(serialize_all = "SCREAMING_SNAKE_CASE")]
 pub enum AudioQuality {
