@@ -25,7 +25,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-tidalrs = "0.6.1"
+tidalrs = "0.6.2"
 tokio = { version = "1.0", features = ["full"] }
 ```
 

@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.6.2] - 2026-10-15
+
+### Added
+
+- `TidalClient::playlist_items` lists every entry of a playlist, tracks and videos together, as `PlaylistItem`s. `PlaylistItem::kind` is a `PlaylistItemKind` (`Track`, `Video` or `Other`), and `PlaylistItem::track_id` returns the track ID of a track entry.
+- `TidalClient::with_api_base_url` overrides the catalog and user API base URL (default `https://api.tidal.com/v1`).
+
+### Fixed
+
+- `TidalClient::remove_track_from_playlist` removed the wrong entry from playlists that contain videos, and could remove the wrong entry when the track was not on the first page. It now finds the track's position among all entries, videos included.
+- `TidalClient::remove_track_from_playlist` returns `Error::PlaylistTrackNotFound` when TIDAL returns an empty page before its reported total, instead of requesting the same page forever.
+- `List::num_left` returns 0 instead of underflowing (a panic in debug builds) when TIDAL reports a `total` smaller than the items already returned.
+
 ## [0.6.1] - 2026-10-15
 
 ### Added
