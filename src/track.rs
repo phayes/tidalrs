@@ -4,7 +4,6 @@ use crate::List;
 use crate::MediaMetadata;
 use crate::Order;
 use crate::OrderDirection;
-use crate::TIDAL_API_BASE_URL;
 use crate::TidalClient;
 use crate::artist::ArtistSummary;
 use reqwest::Method;
@@ -145,7 +144,7 @@ impl TidalClient {
         track_id: u64,
         audio_quality: AudioQuality,
     ) -> Result<TrackStream, Error> {
-        let url = format!("{TIDAL_API_BASE_URL}/tracks/{track_id}/urlpostpaywall");
+        let url = format!("{}/tracks/{track_id}/urlpostpaywall", self.api_base_url);
 
         let audio_quality = match audio_quality {
             AudioQuality::Low => "LOW",
@@ -188,7 +187,7 @@ impl TidalClient {
     /// # }
     /// ```
     pub async fn track(&self, track_id: u64) -> Result<Track, Error> {
-        let url = format!("{TIDAL_API_BASE_URL}/tracks/{track_id}");
+        let url = format!("{}/tracks/{track_id}", self.api_base_url);
 
         let params = serde_json::json!({
             "countryCode": self.get_country_code(),
@@ -241,7 +240,7 @@ impl TidalClient {
     ) -> Result<List<Track>, Error> {
         let offset = offset.unwrap_or(0);
         let limit = limit.unwrap_or(5);
-        let url = format!("{TIDAL_API_BASE_URL}/tracks/{track_id}/recommendations");
+        let url = format!("{}/tracks/{track_id}/recommendations", self.api_base_url);
         let params = serde_json::json!({
             "offset": offset,
             "limit": limit,
@@ -294,7 +293,7 @@ impl TidalClient {
         track_id: u64,
         audio_quality: AudioQuality,
     ) -> Result<TrackPlaybackInfo, Error> {
-        let url = format!("{TIDAL_API_BASE_URL}/tracks/{track_id}/playbackinfo");
+        let url = format!("{}/tracks/{track_id}/playbackinfo", self.api_base_url);
 
         let params = serde_json::json!({
             "audioquality": audio_quality.as_ref(),
@@ -340,7 +339,10 @@ impl TidalClient {
         track_id: u64,
         audio_quality: AudioQuality,
     ) -> Result<TrackDashPlaybackInfo, Error> {
-        let url = format!("{TIDAL_API_BASE_URL}/tracks/{track_id}/playbackinfopostpaywall");
+        let url = format!(
+            "{}/tracks/{track_id}/playbackinfopostpaywall",
+            self.api_base_url
+        );
 
         let audio_quality = match audio_quality {
             AudioQuality::Low => "LOW",
@@ -401,7 +403,7 @@ impl TidalClient {
         let offset = offset.unwrap_or(0);
         let limit = limit.unwrap_or(100);
 
-        let url = format!("{TIDAL_API_BASE_URL}/users/{user_id}/favorites/tracks");
+        let url = format!("{}/users/{user_id}/favorites/tracks", self.api_base_url);
 
         let params = serde_json::json!({
             "offset": offset,
@@ -440,7 +442,7 @@ impl TidalClient {
         let user_id = self
             .get_user_id()
             .ok_or(Error::UserAuthenticationRequired)?;
-        let url = format!("{TIDAL_API_BASE_URL}/users/{user_id}/favorites/tracks");
+        let url = format!("{}/users/{user_id}/favorites/tracks", self.api_base_url);
 
         let params = serde_json::json!({
             "trackId": track_id,
@@ -476,7 +478,10 @@ impl TidalClient {
         let user_id = self
             .get_user_id()
             .ok_or(Error::UserAuthenticationRequired)?;
-        let url = format!("{TIDAL_API_BASE_URL}/users/{user_id}/favorites/tracks/{track_id}");
+        let url = format!(
+            "{}/users/{user_id}/favorites/tracks/{track_id}",
+            self.api_base_url
+        );
 
         let params = serde_json::json!({
             "countryCode": self.get_country_code(),

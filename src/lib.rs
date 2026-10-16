@@ -384,6 +384,7 @@ pub struct TidalClient {
     pub(crate) client_id: String,
     pub(crate) client_secret: Option<String>,
     pub(crate) auth_base_url: String,
+    pub(crate) api_base_url: String,
     pub(crate) authz: ArcSwapOption<Authz>,
     pub(crate) authz_update_semaphore: Semaphore,
     pub(crate) pkce_pending: ArcSwapOption<crate::auth::PkcePending>,
@@ -497,6 +498,7 @@ impl TidalClient {
             client_id,
             client_secret: None,
             auth_base_url: TIDAL_AUTH_API_BASE_URL.to_string(),
+            api_base_url: TIDAL_API_BASE_URL.to_string(),
             authz: ArcSwapOption::from(None),
             authz_update_semaphore: Semaphore::new(1),
             pkce_pending: ArcSwapOption::from(None),
@@ -512,6 +514,8 @@ impl TidalClient {
     /// Override the authentication base URL.
     ///
     /// The default is `https://auth.tidal.com/v1`. Override this to point at a
+    /// different auth server, such as a local mock in tests.
+    ///
     /// Affects `device_authorization()`, `authorize()`, `wait_for_authorization()`,
     /// PKCE token exchange, client credentials, and token refresh.
     ///
@@ -525,6 +529,23 @@ impl TidalClient {
     /// ```
     pub fn with_auth_base_url(mut self, url: String) -> Self {
         self.auth_base_url = url;
+        self
+    }
+
+    /// Override the catalog and user API base URL.
+    ///
+    /// The default is `https://api.tidal.com/v1`.
+    ///
+    /// # Example
+    ///
+    /// ```
+    /// use tidalrs::TidalClient;
+    ///
+    /// let client = TidalClient::new("client_id".to_string())
+    ///     .with_api_base_url("http://localhost:1234".to_string());
+    /// ```
+    pub fn with_api_base_url(mut self, url: String) -> Self {
+        self.api_base_url = url;
         self
     }
 
@@ -944,7 +965,8 @@ impl TidalClient {
         }
     }
 
-    // Do a GET or DELETE request to the given URL.
+    // Do a GET, POST or DELETE request to the given URL, refreshing an expired token and
+    // retrying. Any other method panics.
     pub(crate) async fn do_request<T: DeserializeOwned>(
         &self,
         method: reqwest::Method,
@@ -1523,10 +1545,14 @@ impl<T> List<T> {
         self.total == 0
     }
 
-    // The number of items left to fetch
+    /// The number of items left to fetch after this page.
+    ///
+    /// May be nonzero on an empty page; stop paging when a page is empty.
     pub fn num_left(&self) -> usize {
         let current_batch_size = self.items.len();
-        self.total - self.offset - current_batch_size
+        self.total
+            .saturating_sub(self.offset)
+            .saturating_sub(current_batch_size)
     }
 }
 

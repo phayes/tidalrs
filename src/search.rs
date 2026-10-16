@@ -3,7 +3,6 @@ use crate::List;
 use crate::Playlist;
 use crate::Resource;
 use crate::ResourceType;
-use crate::TIDAL_API_BASE_URL;
 use crate::TidalClient;
 use crate::album::Album;
 use crate::artist::Artist;
@@ -98,7 +97,7 @@ impl TidalClient {
     /// ```
     #[allow(clippy::too_many_arguments)]
     pub async fn search<'a>(&self, search: SearchQuery<'a>) -> Result<SearchResults, Error> {
-        let url = format!("{TIDAL_API_BASE_URL}/search/top-hits");
+        let url = format!("{}/search/top-hits", self.api_base_url);
 
         let mut params = serde_json::json!({ "query": search.query });
 

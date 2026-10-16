@@ -4,7 +4,6 @@ use crate::List;
 use crate::MediaMetadata;
 use crate::Order;
 use crate::OrderDirection;
-use crate::TIDAL_API_BASE_URL;
 use crate::TidalClient;
 use crate::artist::ArtistSummary;
 use crate::track::Track;
@@ -174,7 +173,7 @@ impl TidalClient {
     /// # }
     /// ```
     pub async fn album(&self, album_id: u64) -> Result<Album, Error> {
-        let url = format!("{TIDAL_API_BASE_URL}/albums/{album_id}");
+        let url = format!("{}/albums/{album_id}", self.api_base_url);
 
         let params = serde_json::json!({
             "countryCode": self.get_country_code(),
@@ -222,7 +221,7 @@ impl TidalClient {
         let offset = offset.unwrap_or(0);
         let limit = limit.unwrap_or(100);
 
-        let url = format!("{TIDAL_API_BASE_URL}/albums/{album_id}/tracks");
+        let url = format!("{}/albums/{album_id}/tracks", self.api_base_url);
 
         let params = serde_json::json!({
             "offset": offset,
@@ -276,7 +275,7 @@ impl TidalClient {
         let offset = offset.unwrap_or(0);
         let limit = limit.unwrap_or(100);
 
-        let url = format!("{TIDAL_API_BASE_URL}/users/{user_id}/favorites/albums");
+        let url = format!("{}/users/{user_id}/favorites/albums", self.api_base_url);
 
         let params = serde_json::json!({
             "offset": offset,
@@ -315,7 +314,7 @@ impl TidalClient {
         let user_id = self
             .get_user_id()
             .ok_or(Error::UserAuthenticationRequired)?;
-        let url = format!("{TIDAL_API_BASE_URL}/users/{user_id}/favorites/albums");
+        let url = format!("{}/users/{user_id}/favorites/albums", self.api_base_url);
 
         let params = serde_json::json!({
             "albumId": album_id,
@@ -351,7 +350,10 @@ impl TidalClient {
         let user_id = self
             .get_user_id()
             .ok_or(Error::UserAuthenticationRequired)?;
-        let url = format!("{TIDAL_API_BASE_URL}/users/{user_id}/favorites/albums/{album_id}");
+        let url = format!(
+            "{}/users/{user_id}/favorites/albums/{album_id}",
+            self.api_base_url
+        );
 
         let params = serde_json::json!({
             "countryCode": self.get_country_code(),

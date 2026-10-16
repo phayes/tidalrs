@@ -1,6 +1,5 @@
 use crate::Error;
 use crate::List;
-use crate::TIDAL_API_BASE_URL;
 use crate::TidalClient;
 use crate::artist::ArtistSummary;
 use crate::deserialize_null_default;
@@ -133,6 +132,37 @@ struct PlaylistRecommendationItem {
     item_type: String,
 }
 
+/// One entry of a playlist as TIDAL orders it, tracks and videos together.
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub struct PlaylistItem {
+    /// Whether this entry is a track or a video
+    #[serde(rename = "type")]
+    pub kind: PlaylistItemKind,
+    /// The track or video itself, as TIDAL sent it
+    pub item: Value,
+}
+
+/// The kind of media a [`PlaylistItem`] holds.
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq, Eq)]
+#[serde(rename_all = "lowercase")]
+pub enum PlaylistItemKind {
+    Track,
+    Video,
+    /// A kind this crate does not know yet
+    #[serde(other)]
+    Other,
+}
+
+impl PlaylistItem {
+    /// The track ID of this entry, or `None` when it is not a track.
+    pub fn track_id(&self) -> Option<u64> {
+        match self.kind {
+            PlaylistItemKind::Track => self.item.get("id").and_then(Value::as_u64),
+            PlaylistItemKind::Video | PlaylistItemKind::Other => None,
+        }
+    }
+}
+
 impl TidalClient {
     /// Get playlist information by ID.
     ///
@@ -155,7 +185,7 @@ impl TidalClient {
     /// # }
     /// ```
     pub async fn playlist(&self, playlist_id: &str) -> Result<Playlist, Error> {
-        let url = format!("{TIDAL_API_BASE_URL}/playlists/{playlist_id}");
+        let url = format!("{}/playlists/{playlist_id}", self.api_base_url);
         let params = serde_json::json!({
             "countryCode": self.get_country_code(),
             "locale": self.get_locale(),
@@ -200,7 +230,7 @@ impl TidalClient {
     ) -> Result<List<Track>, Error> {
         let offset = offset.unwrap_or(0);
         let limit = limit.unwrap_or(100);
-        let url = format!("{TIDAL_API_BASE_URL}/playlists/{playlist_id}/tracks");
+        let url = format!("{}/playlists/{playlist_id}/tracks", self.api_base_url);
         let params = serde_json::json!({
             "offset": offset,
             "limit": limit,
@@ -210,6 +240,52 @@ impl TidalClient {
         });
 
         let resp: List<Track> = self
+            .do_request(Method::GET, &url, Some(params), None)
+            .await?;
+
+        Ok(resp)
+    }
+
+    /// Get every entry of a playlist, tracks and videos together, with pagination support.
+    ///
+    /// Unlike [`Self::playlist_tracks`], the positions here count videos.
+    ///
+    /// # Arguments
+    ///
+    /// * `playlist_id` - The unique identifier (UUID) of the playlist
+    /// * `offset` - Number of entries to skip (default: 0)
+    /// * `limit` - Maximum number of entries to return (default: 100)
+    ///
+    /// # Example
+    ///
+    /// ```no_run
+    /// # async fn example() -> Result<(), Box<dyn std::error::Error>> {
+    /// # let client = tidalrs::TidalClient::new("client_id".to_string());
+    /// let items = client.playlist_items("12345678-1234-1234-1234-123456789abc", None, None).await?;
+    /// for (index, item) in items.items.iter().enumerate() {
+    ///     println!("{index}: {:?} {:?}", item.kind, item.track_id());
+    /// }
+    /// # Ok(())
+    /// # }
+    /// ```
+    pub async fn playlist_items(
+        &self,
+        playlist_id: &str,
+        offset: Option<u32>,
+        limit: Option<u32>,
+    ) -> Result<List<PlaylistItem>, Error> {
+        let offset = offset.unwrap_or(0);
+        let limit = limit.unwrap_or(100);
+        let url = format!("{}/playlists/{playlist_id}/items", self.api_base_url);
+        let params = serde_json::json!({
+            "offset": offset,
+            "limit": limit,
+            "countryCode": self.get_country_code(),
+            "locale": self.get_locale(),
+            "deviceType": self.get_device_type().as_ref(),
+        });
+
+        let resp: List<PlaylistItem> = self
             .do_request(Method::GET, &url, Some(params), None)
             .await?;
 
@@ -241,7 +317,7 @@ impl TidalClient {
         let user_id = self
             .get_user_id()
             .ok_or(Error::UserAuthenticationRequired)?;
-        let url = format!("{TIDAL_API_BASE_URL}/users/{user_id}/playlists");
+        let url = format!("{}/users/{user_id}/playlists", self.api_base_url);
         let params = serde_json::json!({
             "title": title,
             "description": description,
@@ -283,7 +359,7 @@ impl TidalClient {
         track_ids: Vec<u64>,
         add_dupes: bool,
     ) -> Result<(), Error> {
-        let url = format!("{TIDAL_API_BASE_URL}/playlists/{playlist_id}/items");
+        let url = format!("{}/playlists/{playlist_id}/items", self.api_base_url);
 
         // Convert track IDs to comma-separated string
         let track_ids_str = track_ids
@@ -334,7 +410,10 @@ impl TidalClient {
         playlist_etag: &str,
         index: usize,
     ) -> Result<(), Error> {
-        let url = format!("{TIDAL_API_BASE_URL}/playlists/{playlist_id}/items/{index}");
+        let url = format!(
+            "{}/playlists/{playlist_id}/items/{index}",
+            self.api_base_url
+        );
 
         let _: Value = self
             .do_request(Method::DELETE, &url, None, Some(playlist_etag))
@@ -376,42 +455,33 @@ impl TidalClient {
         playlist_etag: &str,
         track_id: u64,
     ) -> Result<(), Error> {
-        // Find the index of the track in the playlist
-
-        let track_index: Option<u32>;
+        // Find the track's position among all entries, videos included, since that is
+        // what the delete-by-index endpoint counts
         let mut offset: u32 = 0;
+        let index = loop {
+            let page = self.playlist_items(playlist_id, Some(offset), None).await?;
 
-        'outer: loop {
-            let playlist_tracks = self
-                .playlist_tracks(playlist_id, Some(offset), None)
-                .await?;
-
-            for (index, track) in playlist_tracks.items.iter().enumerate() {
-                if track.id == track_id {
-                    track_index = Some(index as u32);
-                    break 'outer;
-                }
+            let found = page
+                .items
+                .iter()
+                .position(|item| item.track_id() == Some(track_id));
+            if let Some(index) = found {
+                break offset as usize + index;
             }
 
-            if playlist_tracks.num_left() == 0 {
+            // An empty page ends the search too: TIDAL's total can promise more than it returns
+            if page.items.is_empty() || page.num_left() == 0 {
                 return Err(Error::PlaylistTrackNotFound(
                     playlist_id.to_string(),
                     track_id,
                 ));
             }
 
-            offset += playlist_tracks.items.len() as u32;
-        }
+            offset += page.items.len() as u32;
+        };
 
-        let track_index = track_index.ok_or(Error::PlaylistTrackNotFound(
-            playlist_id.to_string(),
-            track_id,
-        ))?;
-
-        self.remove_track_from_playlist_by_index(playlist_id, playlist_etag, track_index as usize)
-            .await?;
-
-        Ok(())
+        self.remove_track_from_playlist_by_index(playlist_id, playlist_etag, index)
+            .await
     }
 
     /// Get all playlists created by the authenticated user.
@@ -447,7 +517,7 @@ impl TidalClient {
             .ok_or(Error::UserAuthenticationRequired)?;
         let offset = offset.unwrap_or(0);
         let limit = limit.unwrap_or(100);
-        let url = format!("{TIDAL_API_BASE_URL}/users/{user_id}/playlists");
+        let url = format!("{}/users/{user_id}/playlists", self.api_base_url);
         let params = serde_json::json!({
             "offset": offset,
             "limit": limit,
@@ -506,7 +576,10 @@ impl TidalClient {
     ) -> Result<List<Track>, Error> {
         let offset = offset.unwrap_or(0);
         let limit = limit.unwrap_or(5);
-        let url = format!("{TIDAL_API_BASE_URL}/playlists/{playlist_id}/recommendations/items");
+        let url = format!(
+            "{}/playlists/{playlist_id}/recommendations/items",
+            self.api_base_url
+        );
         let params = serde_json::json!({
             "offset": offset,
             "limit": limit,

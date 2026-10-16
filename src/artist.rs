@@ -2,7 +2,6 @@ use crate::Error;
 use crate::List;
 use crate::Order;
 use crate::OrderDirection;
-use crate::TIDAL_API_BASE_URL;
 use crate::TidalClient;
 use crate::album::{Album, AlbumType};
 use crate::deserialize_null_default;
@@ -207,7 +206,7 @@ impl TidalClient {
     /// # }
     /// ```
     pub async fn artist(&self, artist_id: u64) -> Result<Artist, Error> {
-        let url = format!("{TIDAL_API_BASE_URL}/artists/{artist_id}");
+        let url = format!("{}/artists/{artist_id}", self.api_base_url);
         let params = serde_json::json!({
             "countryCode": self.get_country_code(),
             "locale": self.get_locale(),
@@ -246,7 +245,7 @@ impl TidalClient {
         artist_id: u64,
         include_image_links: Option<bool>,
     ) -> Result<ArtistBio, Error> {
-        let url = format!("{TIDAL_API_BASE_URL}/artists/{artist_id}/bio");
+        let url = format!("{}/artists/{artist_id}/bio", self.api_base_url);
         let include_image_links = include_image_links.unwrap_or(true);
         let params = serde_json::json!({
             "includeImageLinks": include_image_links,
@@ -298,7 +297,7 @@ impl TidalClient {
         let offset = offset.unwrap_or(0);
         let limit = limit.unwrap_or(100);
 
-        let url = format!("{TIDAL_API_BASE_URL}/users/{user_id}/favorites/artists");
+        let url = format!("{}/users/{user_id}/favorites/artists", self.api_base_url);
 
         let params = serde_json::json!({
             "offset": offset,
@@ -352,7 +351,7 @@ impl TidalClient {
         let offset = offset.unwrap_or(0);
         let limit = limit.unwrap_or(100);
 
-        let url = format!("{TIDAL_API_BASE_URL}/artists/{artist_id}/albums");
+        let url = format!("{}/artists/{artist_id}/albums", self.api_base_url);
 
         let mut params = serde_json::json!({
             "offset": offset,
@@ -393,7 +392,7 @@ impl TidalClient {
         let user_id = self
             .get_user_id()
             .ok_or(Error::UserAuthenticationRequired)?;
-        let url = format!("{TIDAL_API_BASE_URL}/users/{user_id}/favorites/artists");
+        let url = format!("{}/users/{user_id}/favorites/artists", self.api_base_url);
 
         let params = serde_json::json!({
             "artistId": artist_id,
@@ -429,7 +428,10 @@ impl TidalClient {
         let user_id = self
             .get_user_id()
             .ok_or(Error::UserAuthenticationRequired)?;
-        let url = format!("{TIDAL_API_BASE_URL}/users/{user_id}/favorites/artists/{artist_id}");
+        let url = format!(
+            "{}/users/{user_id}/favorites/artists/{artist_id}",
+            self.api_base_url
+        );
 
         let params = serde_json::json!({
             "countryCode": self.get_country_code(),
